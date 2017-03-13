@@ -1,5 +1,6 @@
 import requests
 from lxml import html
+from itertools import chain
 
 from items.items import GroupItem, Item
 
@@ -36,18 +37,26 @@ class ExtremDownSpider(object):
         tree = html.fromstring(page.content)
         return self._get_root(tree)
 
+    def _parse_items(self, url):
+        items = []
+        page = requests.get(url)
+        tree = html.fromstring(page.content)
+        elements = self._get_root(tree)
+        for element in elements:
+            o = Item()
+            o.page_url = self._get_page_url(element)
+            o.title = self._get_title(element)
+            o.genre = self._get_genre(element)
+            o.image = self._get_image(element)
+            o.quality_language = self._get_quality_language(element)
+            items.append(o)
+        return items
+
     def parse(self):
+        results = []
         for url in self.movies_url:
-            page = requests.get(url)
-            tree = html.fromstring(page.content)
-            elements = self._get_root(tree)
-            for element in elements:
-                o = Item()
-                o.page_url = self._get_page_url(element)
-                o.title = self._get_title(element)
-                o.genre = self._get_genre(element)
-                o.image = self._get_image(element)
-                o.quality_language = self._get_quality_language(element)
-                self.group_items.items.append(o)
+            results.append(self._parse_items(url))
+        # zip results
+        self.group_items.items += [l for l in chain(*zip(*results))]
 
         return self.group_items
