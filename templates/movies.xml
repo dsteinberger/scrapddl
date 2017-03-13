@@ -1,7 +1,0 @@
-<ul xmlns:t="http://twistedmatrix.com/ns/twisted.web.template/0.1">
-    <li t:render="movies">
-        <img><t:attr name="src"><t:slot name="image" /></t:attr></img>
-        <t:slot name="title"/>
-        <t:slot name="genre"/>
-    </li>
-</ul>

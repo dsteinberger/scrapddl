@@ -1,18 +1,32 @@
 from flask import Flask
-from klein import route, run
+from flask import render_template, url_for
+
+from flask_bootstrap import Bootstrap
+
 from spiders.extreme_down import ExtremDownSpider
 
-from crawler import MyCrawlerRunner, return_spider_output
 
-app = Flask(__name__)
+def create_app():
+  app = Flask(__name__)
+  Bootstrap(app)
 
+  return app
 
-@route("/")
-def home(request):
-    runner = MyCrawlerRunner()
-    deferred = runner.crawl(ExtremDownSpider)
-    deferred.addCallback(return_spider_output)
-    return deferred
+app = create_app()
 
 
-run("localhost", 8080)
+@app.route("/")
+def home():
+    extrem_down = ExtremDownSpider()
+    group_items = extrem_down.parse()
+
+    return render_template('home.html', movies=group_items.paginate_movies())
+
+
+@app.route('/<path:path>')
+def static_proxy(path):
+  return app.send_static_file(path)
+
+
+if __name__ == "__main__":
+    app.run()
