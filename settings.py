@@ -1,0 +1,3 @@
+SPIDER_MODULES = ['spiders']
+
+API_TMDB = "d4974a682a31c66471ef8ab5b93cf1f7"
