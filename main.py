@@ -20,7 +20,7 @@ def home():
     extrem_down = ExtremDownSpider()
     group_items = extrem_down.parse()
 
-    return render_template('home.html', movies=group_items.paginate_movies())
+    return render_template('home.html', movies=group_items.renderer())
 
 
 @app.route('/<path:path>')

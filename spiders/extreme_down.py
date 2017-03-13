@@ -5,7 +5,8 @@ from items.items import GroupItem, Item
 
 
 class ExtremDownSpider(object):
-    start_urls = ['https://www.extreme-down.in/films-sd/']
+    movies_url = ['https://www.extreme-down.in/films-sd/',
+                  'https://www.extreme-down.in/films-hd/']
     main_attr_html = 'a'
     main_class = 'top-last thumbnails'
 
@@ -30,16 +31,23 @@ class ExtremDownSpider(object):
     def _get_quality_language(self, element):
         return element.xpath(".//span[@class='top-lasttitle']")[0].text
 
-    def parse(self):
-        page = requests.get(self.start_urls[0])
+    def _get_elements(self, url):
+        page = requests.get(url)
         tree = html.fromstring(page.content)
-        elements = self._get_root(tree)
-        for element in elements:
-            o = Item()
-            o.page_url = self._get_page_url(element)
-            o.title = self._get_title(element)
-            o.genre = self._get_genre(element)
-            o.image = self._get_image(element)
-            o.quality_language = self._get_quality_language(element)
-            self.group_items.movies.append(o)
+        return self._get_root(tree)
+
+    def parse(self):
+        for url in self.movies_url:
+            page = requests.get(url)
+            tree = html.fromstring(page.content)
+            elements = self._get_root(tree)
+            for element in elements:
+                o = Item()
+                o.page_url = self._get_page_url(element)
+                o.title = self._get_title(element)
+                o.genre = self._get_genre(element)
+                o.image = self._get_image(element)
+                o.quality_language = self._get_quality_language(element)
+                self.group_items.items.append(o)
+
         return self.group_items

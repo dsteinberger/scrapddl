@@ -1,20 +1,22 @@
 
 
 class GroupItem(object):
-    movies = []
-    tvshows = []
+    items = []
     per_page = 6
 
-    def _paginate(self, items):
+    def _paginate(self):
         return [
-            items[i:i + self.per_page]
-            for i in range(0, len(items), self.per_page)]
+            self.items[i:i + self.per_page]
+            for i in range(0, len(self.items), self.per_page)]
 
-    def paginate_movies(self):
-        return self._paginate(self.movies)
+    def _set_unique(self):
+        seen = set()
+        seen_add = seen.add
+        self.items = [x for x in self.items if not (x.title in seen or seen_add(x.title))]
 
-    def paginate_tvshows(self):
-        return self._paginate(self.tvshows)
+    def renderer(self):
+        self._set_unique()
+        return self._paginate()
 
 
 class Item(object):
@@ -24,3 +26,4 @@ class Item(object):
     image = None
     quality_language = None
     page_url = None
+    hd_page_url = None
