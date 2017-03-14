@@ -1,12 +1,10 @@
-from itertools import chain
-
 from flask import Flask
 from flask import render_template
 
 from flask_bootstrap import Bootstrap
 
-from spiders.extreme_down import ExtremDownSpider
-from spiders.zone_telechargement import ZoneTelechargementSpider
+from spiders.extreme_down import EDMoviesSpider, EDTvShowsSpider
+from spiders.zone_telechargement import ZTMoviesSpider, ZTTvShowsSpider
 
 from items.items import GroupItem
 
@@ -23,18 +21,29 @@ app = create_app()
 @app.route("/")
 def home():
     movies_group_items = GroupItem()
+    tvshows_group_items = GroupItem()
 
-    ed_spider = ExtremDownSpider()
-    ed_group_items = ed_spider.parse()
+    ed_movies_spider = EDMoviesSpider()
+    ed_movies_group_items = ed_movies_spider.parse()
 
-    zt_spider = ZoneTelechargementSpider()
-    zt_group_items = zt_spider.parse()
+    ed_tvshows_spider = EDTvShowsSpider()
+    ed_tvshows_group_items = ed_tvshows_spider.parse()
 
-    movies_group_items.items = [
-        l for l in chain(*zip(ed_group_items.items, zt_group_items.items))]
+    zt_movies_spider = ZTMoviesSpider()
+    zt_movies_group_items = zt_movies_spider.parse()
+
+    zt_tvshows_spider = ZTTvShowsSpider()
+    zt_tvshows_group_items = zt_tvshows_spider.parse()
+
+    movies_group_items.zip_items(
+        [ed_movies_group_items.items, zt_movies_group_items.items])
+
+    tvshows_group_items.zip_items(
+        [ed_tvshows_group_items.items, zt_tvshows_group_items.items])
 
     return render_template('home.html',
-                           movies=movies_group_items.renderer())
+                           movies=movies_group_items.renderer(),
+                           tvshows=tvshows_group_items.renderer())
 
 
 @app.route('/<path:path>')

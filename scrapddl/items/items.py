@@ -1,3 +1,4 @@
+from itertools import chain
 
 
 class GroupItem(object):
@@ -10,6 +11,9 @@ class GroupItem(object):
         return [
             self.items[i:i + self.per_page]
             for i in range(0, len(self.items), self.per_page)]
+
+    def zip_items(self, items_list):
+        self.items = [l for l in chain(*zip(*items_list))]
 
     def set_unique(self):
         seen = set()
