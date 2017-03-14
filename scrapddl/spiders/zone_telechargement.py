@@ -5,11 +5,11 @@ from itertools import chain
 from items.items import GroupItem, Item
 
 
-class ExtremDownSpider(object):
-    movies_url = ['https://www.extreme-down.in/films-sd/',
-                  'https://www.extreme-down.in/films-hd/']
-    main_attr_html = 'a'
-    main_class = 'top-last thumbnails'
+class ZoneTelechargementSpider(object):
+    movies_url = ['http://www.zone-telechargement.ws/nouveaute/',
+                  'http://www.zone-telechargement.ws/films-bluray-hd/']
+    main_attr_html = 'div'
+    main_class = 'cover_global'
 
     def __init__(self):
         self.group_items = GroupItem()
@@ -19,22 +19,22 @@ class ExtremDownSpider(object):
             self.main_attr_html, self.main_class))
 
     def _get_page_url(self, element):
-        return element.items()[1][1]
+        return element.xpath(
+            ".//div[@class='cover_infos_title']/a")[0].items()[0][1]
 
     def _get_title(self, element):
         return element.xpath(
-            ".//span[@class='top-title']")[0].text.strip()
+            ".//div[@class='cover_infos_title']/a")[0].text.strip()
 
     def _get_genre(self, element):
-        return element.xpath(
-            ".//span[@class='top-genre']")[0].text.strip()
+        return None
 
     def _get_image(self, element):
         return element.xpath(".//img/@src")[0]
 
     def _get_quality_language(self, element):
         return element.xpath(
-            ".//span[@class='top-lasttitle']")[0].text.strip()
+            ".//div[@class='cover_infos_title']/span/span/b")[0].text.strip()
 
     def _get_elements(self, url):
         page = requests.get(url)
