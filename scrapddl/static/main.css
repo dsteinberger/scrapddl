@@ -59,11 +59,11 @@ ul.thumbnails {
     border-radius: 0px;
 }
 .thumbnail a>img{
-    max-height: 250px;
+    /*max-height: 250px;*/
 }
 .thumbnails li> .fff .caption {
     padding: 10px 15px;
-    height: 120px;
+    /*height: 120px;*/
 }
 .caption h4 {
     color: #444;
