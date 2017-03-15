@@ -5,6 +5,7 @@ from flask_bootstrap import Bootstrap
 
 from spiders.extreme_down import EDMoviesSpider, EDTvShowsSpider
 from spiders.zone_telechargement import ZTMoviesSpider, ZTTvShowsSpider
+from spiders.ddl_island import DDLIMoviesSpider, DDLITvShowsSpider
 
 from items.items import GroupItem
 
@@ -35,11 +36,21 @@ def home():
     zt_tvshows_spider = ZTTvShowsSpider()
     zt_tvshows_group_items = zt_tvshows_spider.parse()
 
+    ddli_movies_spider = DDLIMoviesSpider()
+    ddli_movies_group_items = ddli_movies_spider.parse()
+
+    ddli_tvshows_spider = DDLITvShowsSpider()
+    ddli_tvshows_group_items = ddli_tvshows_spider.parse()
+
     movies_group_items.zip_items(
-        [ed_movies_group_items.items, zt_movies_group_items.items])
+        [ed_movies_group_items.items,
+         zt_movies_group_items.items,
+         ddli_movies_group_items.items])
 
     tvshows_group_items.zip_items(
-        [ed_tvshows_group_items.items, zt_tvshows_group_items.items])
+        [ed_tvshows_group_items.items,
+         zt_tvshows_group_items.items,
+         ddli_tvshows_group_items.items])
 
     return render_template('home.html',
                            movies=movies_group_items.renderer(),

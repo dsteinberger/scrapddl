@@ -18,7 +18,10 @@ class GroupItem(object):
     def set_unique(self):
         seen = set()
         seen_add = seen.add
-        self.items = [x for x in self.items if not (x.title in seen or seen_add(x.title))]
+        self.items = [
+            x for x in self.items
+            if not (x.title.lower() in seen or seen_add(
+                x.title.lower()))]
 
     def renderer(self, unique=False):
         if not unique:
