@@ -26,6 +26,11 @@ body{
 
 }
 
+.home-page h1{
+    margin-bottom: 20px;
+    margin-left: 55px;
+}
+
 .thumbnails li> .fff .caption {
     background:#fff !important;
     padding:10px

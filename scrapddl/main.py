@@ -4,6 +4,7 @@ from flask import render_template
 from flask_bootstrap import Bootstrap
 
 from process import Process
+from cache import cached
 
 
 def create_app():
@@ -16,6 +17,7 @@ app = create_app()
 
 
 @app.route("/")
+@cached()
 def home():
     process = Process()
     process.process()
