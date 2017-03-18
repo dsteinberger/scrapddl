@@ -69,8 +69,8 @@ ul.thumbnails {
     width: 100%;
 }
 .thumbnails li> .fff .caption {
-    padding: 10px 15px;
-    height: 100px;
+    padding: 1px 15px;
+    height: 105px;
 }
 .caption h4 {
     color: #444;
