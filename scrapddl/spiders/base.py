@@ -42,10 +42,7 @@ class BaseSpider(object):
         return self._get_root(tree)
 
     def _parse_page(self, url):
-        page = requests.get(url)
-        tree = html.fromstring(page.content)
-        elements = self._get_root(tree)
-        for element in elements:
+        for element in self._get_elements(url):
             o = Item()
             o.page_url = self._get_page_url(element)
             o.title = self._get_title(element)

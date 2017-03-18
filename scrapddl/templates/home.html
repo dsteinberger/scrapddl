@@ -43,6 +43,27 @@
                 </nav>
             </div>
         </div>
+
+
+        <div class="col-xs-12">
+            <h1>Mangas</h1>
+            <div class="carousel slide" id="mangasCarousel" data-interval="false" data-wrap="false">
+
+                <div class="carousel-inner">
+                    {% for item_list in mangas %}
+                        <div class="item {% if loop.index == 1 %}active{% endif %}">
+                            {% include "item.html" %}
+                        </div>
+                    {% endfor %}
+                </div>
+                <nav>
+                    <ul class="control-box pager">
+                        <li><a data-slide="prev" href="#mangasCarousel" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
+                        <li><a data-slide="next" href="#mangasCarousel" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
 {% endblock %}
 
