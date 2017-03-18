@@ -16,8 +16,11 @@ BROWSER := python -c "$$BROWSER_PYSCRIPT"
 help:
 	@perl -nle'print $& if m{^[a-zA-Z_-]+:.*?## .*$$}' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-25s\033[0m %s\n", $$1, $$2}'
 
+install:  ## Install dependencies
+	pip install -Ur requirements/runtime.pip
+
 develop:  ## Install dev dependencies
-	pip install -Ur requirements.pip
+	pip install -Ur requirements/develop.pip
 
 serve: ## Run server
 	python scrapddl/main.py
