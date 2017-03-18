@@ -7,6 +7,7 @@ from spiders.extreme_down import EDMoviesSpider, EDTvShowsSpider
 from spiders.zone_telechargement import ZTMoviesSpider, ZTTvShowsSpider
 from spiders.ddl_island import DDLIMoviesSpider, DDLITvShowsSpider
 from spiders.golden_kai import GoldenKMangaSpider
+from spiders.univers_anime import UniversAnimeMangaSpider
 
 from items.items import GroupItem
 
@@ -24,7 +25,7 @@ app = create_app()
 def home():
     movies_group_items = GroupItem()
     tvshows_group_items = GroupItem()
-    #manga_group_items = GroupItem()
+    manga_group_items = GroupItem()
 
     ed_movies_spider = EDMoviesSpider()
     ed_movies_group_items = ed_movies_spider.parse()
@@ -47,20 +48,28 @@ def home():
     gk_manga_spider = GoldenKMangaSpider()
     gk_manga_group_items = gk_manga_spider.parse()
 
-    movies_group_items.zip_items(
-        [ed_movies_group_items.items,
-         zt_movies_group_items.items,
-         ddli_movies_group_items.items])
+    ua_manga_spider = UniversAnimeMangaSpider()
+    ua_manga_group_items = ua_manga_spider.parse()
 
-    tvshows_group_items.zip_items(
-        [ed_tvshows_group_items.items,
-         zt_tvshows_group_items.items,
-         ddli_tvshows_group_items.items])
+    movies_group_items.zip_items([
+        ed_movies_group_items.items,
+        zt_movies_group_items.items,
+        ddli_movies_group_items.items])
+
+    tvshows_group_items.zip_items([
+        ed_tvshows_group_items.items,
+        zt_tvshows_group_items.items,
+        ddli_tvshows_group_items.items])
+
+    manga_group_items.zip_items([
+        gk_manga_group_items.items,
+        ua_manga_group_items.items
+    ])
 
     return render_template('home.html',
                            movies=movies_group_items.renderer(),
                            tvshows=tvshows_group_items.renderer(),
-                           mangas=gk_manga_group_items.renderer())
+                           mangas=manga_group_items.renderer())
 
 
 @app.route('/<path:path>')
