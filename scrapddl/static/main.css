@@ -70,7 +70,7 @@ ul.thumbnails {
 }
 .thumbnails li> .fff .caption {
     padding: 1px 15px;
-    height: 105px;
+    height: 120px;
 }
 .caption h4 {
     color: #444;
@@ -102,6 +102,23 @@ ul.thumbnails {
     width: 15px;
 }
 
+/* Imdb rating */
+.imdb-rating{
+    position: absolute;
+    right: 22px;
+    bottom: 6px;
+    background-color: white;
+    padding: 3px;
+}
+.imdb-rating img{
+    margin-right: 5px;
+}
+.imdb-rating span{
+    font-size: 12px;;
+}
+.imdb-rating span b{
+    font-size: 14px;
+}
 
 
 /* Mobile Only */
@@ -121,3 +138,4 @@ li { list-style-type:none;}
 
 ::selection { background: #ff5e99; color: #FFFFFF; text-shadow: 0; }
 ::-moz-selection { background: #ff5e99; color: #FFFFFF; }
+

@@ -1,24 +1,35 @@
-<ul class="thumbnails">
-    {% for item in item_list %}
-        <li class="col-lg-2 col-md-2 col-sm-2">
-            <div class="fff">
-                <div class="thumbnail">
-                    <a href="{{ item.page_url }}" target="_blank">
-                        <img src="{{ item.image }}" alt="">
-                    </a>
-                </div>
-                <div class="caption">
-                    <h4>
-                        <a href="{{ item.page_url }}" target="_blank">{{ item.title }}</a>
-                    </h4>
-                    {% if item.quality_language %}
-                        <i>{{ item.quality_language }}</i>
-                    {% endif %}
-                    {% if item.genre %}
-                        <p>{{ item.genre }}</p>
-                    {% endif %}
-                </div>
-            </div>
-        </li>
-    {% endfor %}
-</ul>
+<div class="fff">
+    <div class="thumbnail">
+        <a href="{{ item.page_url }}" target="_blank">
+            <img src="{{ item.image }}" alt="">
+        </a>
+    </div>
+    <div class="caption">
+        <h4>
+            <a href="{{ item.page_url }}" target="_blank">{{ item.title }}</a>
+        </h4>
+        {% if item.quality_language %}
+            <i>{{ item.quality_language }}</i>
+        {% endif %}
+        {% if item.genre %}
+            <p>{{ item.genre }}</p>
+        {% endif %}
+        <div class="imdb-rating imdb-rating-{{ item.slug }}">
+            {% if item.rating_imdb %}
+                {% with rating_imdb=item.rating_imdb %}
+                    {% include "imdb_rating.html" %}
+                {% endwith %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+    {% if need_rating == 1 %}
+        $(document).ready(function() {
+            var title = "{{ item.title }}";
+            if (title)
+                fetch_imdb_rating("{{ item.slug }}", title, ".imdb-rating-");
+        });
+    {% endif %}
+</script>

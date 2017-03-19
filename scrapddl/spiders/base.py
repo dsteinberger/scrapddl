@@ -2,6 +2,8 @@ import requests
 import urlparse
 from lxml import html
 
+from slugify import slugify
+
 from items.items import GroupItem, Item
 
 
@@ -46,6 +48,7 @@ class BaseSpider(object):
             o = Item()
             o.page_url = self._get_page_url(element)
             o.title = self._get_title(element)
+            o.slug = slugify(o.title)
             o.genre = self._get_genre(element)
             o.image = self._get_image(element)
             o.quality_language = self._get_quality_language(element)

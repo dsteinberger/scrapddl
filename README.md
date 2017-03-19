@@ -15,10 +15,12 @@ Mangas :
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
 
+Les notes IMDB sont également récupérées si possible (sauf pour la catégorie mangas)
+
 
 ## Aperçu du site
 
-![capture d'écran](images/home.png)
+![capture d'écran](images/homev2.png)
 
 
 ## Lancer le site
