@@ -11,6 +11,7 @@ class BaseSpider(object):
     urls = []
     main_attr_html = None
     main_class = None
+    clean_pattern_title = []
 
     def __init__(self):
         self.group_items = GroupItem()
@@ -25,6 +26,13 @@ class BaseSpider(object):
 
     def _get_page_url(self, element):
         raise NotImplementedError()
+
+    def clean_title(self, title):
+        for pattern in self.clean_pattern_title:
+            if pattern in title:
+                title_clean = title.split(pattern)[0]
+                return title_clean.strip()
+        return title.strip()
 
     def _get_title(self, element):
         raise NotImplementedError()

@@ -6,6 +6,7 @@ class UniversAnimeMangaSpider(BaseSpider):
     main_attr_html = 'div'
     main_class = 'category-mangasaimeseries'
     domain = 'http://www.univers-animezi.com'
+    clean_pattern_title = ["VOSTFR", "(2014)", "(2015)", "(2016)", "(2017)"]
 
     def _get_root(self, tree):
         return tree.xpath("//{}[contains(@class, {}) and contains(@class ,'type-post')]".format(
@@ -15,7 +16,8 @@ class UniversAnimeMangaSpider(BaseSpider):
         return element.xpath(".//a")[0].items()[0][1]
 
     def _get_title(self, element):
-        return element.xpath(".//h2[@class='title']/a")[0].text.strip()
+        title = element.xpath(".//h2[@class='title']/a")[0].text.strip()
+        return self.clean_title(title)
 
     def _get_genre(self, element):
         genre = element.xpath(".//h4/span/strong")

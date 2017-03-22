@@ -10,8 +10,9 @@ class EDBaseSpider(BaseSpider):
         return element.items()[1][1]
 
     def _get_title(self, element):
-        return element.xpath(
-            ".//span[@class='top-title']")[0].text.strip()
+        title = element.xpath(
+            ".//span[@class='top-title']")[0].text
+        return self.clean_title(title)
 
     def _get_genre(self, element):
         return element.xpath(
@@ -27,7 +28,9 @@ class EDBaseSpider(BaseSpider):
 
 class EDMoviesSpider(EDBaseSpider):
     urls = ['/films-sd/', '/films-hd/']
+    clean_pattern_title = ["- VOSTFR WEB"]
 
 
 class EDTvShowsSpider(EDBaseSpider):
     urls = ['/series/vostfr/']
+    clean_pattern_title = ["(2014)", "(2015)", "(2016)", "(2017)"]

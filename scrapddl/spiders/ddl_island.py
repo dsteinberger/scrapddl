@@ -10,7 +10,8 @@ class DDLIBaseSpider(BaseSpider):
         return element.xpath(".//a")[0].items()[0][1]
 
     def _get_title(self, element):
-        return element.xpath(".//a[@class='f titre_fiche']")[0].text_content().strip()
+        title = element.xpath(".//a[@class='f titre_fiche']")[0].text_content()
+        return self.clean_title(title)
 
     def _get_genre(self, element):
         return None
@@ -25,7 +26,9 @@ class DDLIBaseSpider(BaseSpider):
 class DDLIMoviesSpider(DDLIBaseSpider):
     urls = ['/emule-telecharger/films-1.html&order=2',
             '/emule-telecharger/films-hd-13.html&order=2']
+    clean_pattern_title = ["- VOSTFR"]
 
 
 class DDLITvShowsSpider(DDLIBaseSpider):
     urls = ['/emule-telecharger/series-tv-6.html&order=2']
+    clean_pattern_title = ["- Saison ", "(2014)", "(2015)", "(2016)", "(2017)"]

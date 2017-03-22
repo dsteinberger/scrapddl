@@ -11,8 +11,9 @@ class ZTBaseSider(BaseSpider):
             ".//div[@class='cover_infos_title']/a")[0].items()[0][1]
 
     def _get_title(self, element):
-        return element.xpath(
-            ".//div[@class='cover_infos_title']/a")[0].text.strip()
+        title = element.xpath(
+            ".//div[@class='cover_infos_title']/a")[0].text
+        return self.clean_title(title)
 
     def _get_genre(self, element):
         return None
@@ -34,3 +35,4 @@ class ZTMoviesSpider(ZTBaseSider):
 
 class ZTTvShowsSpider(ZTBaseSider):
     urls = ['/series-vostfr/']
+    clean_pattern_title = ["- Saison ", "(2014)", "(2015)", "(2016)", "(2017)"]
