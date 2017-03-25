@@ -5,6 +5,7 @@ class DDLIBaseSpider(BaseSpider):
     main_attr_html = 'div'
     main_class = 'fiche_listing'
     domain = 'http://www.ddl-island.su'
+    from_website = "ddl-island"
 
     def _get_page_url(self, element):
         return element.xpath(".//a")[0].items()[0][1]

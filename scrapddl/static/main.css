@@ -18,8 +18,6 @@ a:hover {
     text-decoration: none;
 }
 
-
-
 body{
     border-top:0;
     background:#c4e17f;
@@ -70,7 +68,7 @@ ul.thumbnails {
 }
 .thumbnails li> .fff .caption {
     padding: 1px 15px;
-    height: 120px;
+    height: 136px;
 }
 .caption h4 {
     color: #444;
@@ -80,6 +78,22 @@ ul.thumbnails {
     color: #999;
 }
 
+.favicon {
+    height: 16px;
+    width: 16px;
+}
+.title .favicon{
+    margin: 1px 5px 0px 0px;
+    float: left;
+}
+
+.favicon-clone{
+    position: absolute;
+    bottom: 10px;
+}
+.favicon-clone .favicon{
+    margin: 0 2px;
+}
 
 
 /* Carousel Control */

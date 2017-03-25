@@ -5,6 +5,7 @@ class ZTBaseSider(BaseSpider):
     main_attr_html = 'div'
     main_class = 'cover_global'
     domain = "https://zone-telechargement.ws"
+    from_website = "zone-telechargement"
 
     def _get_page_url(self, element):
         return element.xpath(

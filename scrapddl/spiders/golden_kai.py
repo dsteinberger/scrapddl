@@ -6,6 +6,7 @@ class GoldenKMangaSpider(BaseSpider):
     main_attr_html = 'article'
     main_class = 'release__block'
     domain = 'https://goldenkai.me'
+    from_website = "golden-kai"
 
     def _get_page_url(self, element):
         return element.xpath(".//a")[0].items()[0][1]

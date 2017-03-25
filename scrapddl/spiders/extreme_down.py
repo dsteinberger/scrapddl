@@ -5,6 +5,7 @@ class EDBaseSpider(BaseSpider):
     main_attr_html = 'a'
     main_class = 'top-last thumbnails'
     domain = 'https://www.extreme-down.in'
+    from_website = "extreme-down"
 
     def _get_page_url(self, element):
         return element.items()[1][1]

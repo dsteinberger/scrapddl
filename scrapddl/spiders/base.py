@@ -12,6 +12,7 @@ class BaseSpider(object):
     main_attr_html = None
     main_class = None
     clean_pattern_title = []
+    from_website = None
 
     def __init__(self):
         self.group_items = GroupItem()
@@ -53,7 +54,7 @@ class BaseSpider(object):
 
     def _parse_page(self, url):
         for element in self._get_elements(url):
-            o = Item()
+            o = Item(self.from_website)
             o.page_url = self._get_page_url(element)
             o.title = self._get_title(element)
             o.slug = slugify(o.title)

@@ -7,6 +7,7 @@ class UniversAnimeMangaSpider(BaseSpider):
     main_class = 'category-mangasaimeseries'
     domain = 'http://www.univers-animezi.com'
     clean_pattern_title = ["VOSTFR", "(2014)", "(2015)", "(2016)", "(2017)"]
+    from_website = "univers-anime"
 
     def _get_root(self, tree):
         return tree.xpath("//{}[contains(@class, {}) and contains(@class ,'type-post')]".format(

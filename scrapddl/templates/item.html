@@ -5,8 +5,11 @@
         </a>
     </div>
     <div class="caption">
-        <h4>
-            <a href="{{ item.page_url }}" target="_blank">{{ item.title }}</a>
+        <h4 class="title">
+            <a href="{{ item.page_url }}" target="_blank">
+                <img class="favicon" src="{{url_for('static', filename=item.from_website+'.ico')}}"/>
+                {{ item.title }}
+            </a>
         </h4>
         {% if item.quality_language %}
             <i>{{ item.quality_language }}</i>
@@ -14,6 +17,15 @@
         {% if item.genre %}
             <p>{{ item.genre }}</p>
         {% endif %}
+
+        <div class="favicon-clone">
+            {% for i_clone in item.items_clone %}
+                <a href="{{ i_clone.page_url }}" target="_blank">
+                    <img class="favicon" src="{{url_for('static', filename=i_clone.from_website+'.ico')}}"/>
+                </a>
+            {% endfor %}
+        </div>
+
         <div class="imdb-rating imdb-rating-{{ item.slug }}">
             {% if item.rating_imdb %}
                 {% with rating_imdb=item.rating_imdb %}
