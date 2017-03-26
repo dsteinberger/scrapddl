@@ -25,8 +25,12 @@ class DDLIBaseSpider(BaseSpider):
 
 
 class DDLIMoviesSpider(DDLIBaseSpider):
-    urls = ['/emule-telecharger/films-1.html&order=2',
-            '/emule-telecharger/films-hd-13.html&order=2']
+    urls = ['/emule-telecharger/films-1.html&order=2']
+    clean_pattern_title = ["- VOSTFR"]
+
+
+class DDLIMoviesHDSpider(DDLIBaseSpider):
+    urls = ['/emule-telecharger/films-hd-13.html&order=2']
     clean_pattern_title = ["- VOSTFR"]
 
 

@@ -31,7 +31,11 @@ class ZTBaseSider(BaseSpider):
 
 
 class ZTMoviesSpider(ZTBaseSider):
-    urls = ['/nouveaute/', '/films-bluray-hd/']
+    urls = ['/nouveaute/']
+
+
+class ZTMoviesHDSpider(ZTBaseSider):
+    urls = ['/films-bluray-hd/']
 
 
 class ZTTvShowsSpider(ZTBaseSider):

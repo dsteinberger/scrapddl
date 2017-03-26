@@ -28,7 +28,12 @@ class EDBaseSpider(BaseSpider):
 
 
 class EDMoviesSpider(EDBaseSpider):
-    urls = ['/films-sd/', '/films-hd/']
+    urls = ['/films-sd/']
+    clean_pattern_title = ["- VOSTFR WEB"]
+
+
+class EDMoviesHDSpider(EDBaseSpider):
+    urls = ['/films-hd/']
     clean_pattern_title = ["- VOSTFR WEB"]
 
 

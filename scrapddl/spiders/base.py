@@ -67,5 +67,4 @@ class BaseSpider(object):
         for relative_url in self.urls:
             url = "{}{}".format(self.domain, relative_url)
             self._parse_page(url)
-
         return self.group_items

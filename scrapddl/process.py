@@ -1,6 +1,6 @@
-from spiders.extreme_down import EDMoviesSpider, EDTvShowsSpider
-from spiders.zone_telechargement import ZTMoviesSpider, ZTTvShowsSpider
-from spiders.ddl_island import DDLIMoviesSpider, DDLITvShowsSpider
+from spiders.extreme_down import EDMoviesSpider, EDMoviesHDSpider, EDTvShowsSpider
+from spiders.zone_telechargement import ZTMoviesSpider, ZTMoviesHDSpider, ZTTvShowsSpider
+from spiders.ddl_island import DDLIMoviesSpider, DDLIMoviesHDSpider, DDLITvShowsSpider
 from spiders.golden_kai import GoldenKMangaSpider
 from spiders.univers_anime import UniversAnimeMangaSpider
 
@@ -18,16 +18,28 @@ class Process(object):
         ed_movies_spider = EDMoviesSpider()
         ed_movies_group_items = ed_movies_spider.parse()
 
+        ed_movies_hd_spider = EDMoviesHDSpider()
+        ed_movies_hd_group_items = ed_movies_hd_spider.parse()
+
         zt_movies_spider = ZTMoviesSpider()
         zt_movies_group_items = zt_movies_spider.parse()
+
+        zt_movies_hd_spider = ZTMoviesHDSpider()
+        zt_movies_hd_group_items = zt_movies_hd_spider.parse()
 
         ddli_movies_spider = DDLIMoviesSpider()
         ddli_movies_group_items = ddli_movies_spider.parse()
 
+        ddli_movies_hd_spider = DDLIMoviesHDSpider()
+        ddli_movies_hd_group_items = ddli_movies_hd_spider.parse()
+
         self.movies_group_items.zip_items([
             ed_movies_group_items.items,
+            ed_movies_hd_group_items.items,
             zt_movies_group_items.items,
-            ddli_movies_group_items.items])
+            zt_movies_hd_group_items.items,
+            ddli_movies_group_items.items,
+            ddli_movies_hd_group_items.items])
 
     def process_tvshows(self):
         ed_tvshows_spider = EDTvShowsSpider()
