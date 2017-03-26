@@ -1,6 +1,6 @@
 # Scrap DDL
 
-Un site web qui regroupe les données de plusieurs sites web de DDL.
+Pour visualiser les dernières sorties de vos sites DDL préférés !
 
 Films et séries :
 
