@@ -124,6 +124,12 @@ ul.thumbnails {
     background-color: white;
     padding: 3px;
 }
+.imdb-rating a{
+    color: black;
+}
+.imdb-rating a:hover{
+    text-decoration: none;
+}
 .imdb-rating img{
     margin-right: 5px;
 }

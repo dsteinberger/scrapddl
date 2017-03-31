@@ -32,10 +32,9 @@ def home():
 @app.route("/imdb/<slug>/")
 def imdb_rating(slug):
     title = request.args.get('title')
-    imdb_rating = Item.fetch_imdb_rating(title)
-    if imdb_rating:
-        return render_template('imdb_rating.html',
-                               rating_imdb=Item.fetch_imdb_rating(title))
+    imdb = Item.fetch_imdb_rating(title)
+    if imdb.rating:
+        return render_template('imdb_rating.html', imdb=imdb)
     return ''
 
 

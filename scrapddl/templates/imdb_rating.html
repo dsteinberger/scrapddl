@@ -1,2 +1,4 @@
-<img src="{{url_for('static', filename='imdb.png')}}" alt="">
-<span><b>{{ rating_imdb }}</b>/10</span>
+<a href="{{ imdb.link_detail }}" target="_blank">
+    <img src="{{url_for('static', filename='imdb.png')}}" alt="">
+    <span><b>{{ imdb.rating }}</b>/10</span>
+</a>

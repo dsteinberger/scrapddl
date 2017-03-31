@@ -69,7 +69,7 @@ class Item(object):
         if title:
             imdb = ImdbSpider(title)
             imdb.process()
-            return imdb.rating
+            return imdb
 
     def get_clone_property(self, field):
         for item in self.items_clone:
