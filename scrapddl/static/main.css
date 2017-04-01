@@ -29,6 +29,12 @@ body{
     margin-left: 55px;
 }
 
+.title-link{
+    font-size: 14px;
+    font-style: italic;
+    margin-left: 3px;
+}
+
 .thumbnails li> .fff .caption {
     background:#fff !important;
     padding:10px
@@ -95,6 +101,10 @@ ul.thumbnails {
     margin: 0 2px;
 }
 
+/* Movies */
+.detail-items .item .thumbnails li{
+    margin-bottom: 50px;
+}
 
 /* Carousel Control */
 .control-box {

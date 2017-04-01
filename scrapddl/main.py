@@ -37,6 +37,39 @@ def home():
                            mangas=process.manga_group_items.renderer())
 
 
+@app.route("/movies")
+def movies():
+    process = simplecache.get("process")
+    if not process:
+        process = Process()
+        process.process()
+        simplecache.set("process", process, CACHE_TIMEOUT)
+    return render_template('movies.html',
+                           movies=process.movies_group_items.renderer())
+
+
+@app.route("/tvshows")
+def tvshows():
+    process = simplecache.get("process")
+    if not process:
+        process = Process()
+        process.process()
+        simplecache.set("process", process, CACHE_TIMEOUT)
+    return render_template('tvshows.html',
+                           tvshows=process.tvshows_group_items.renderer())
+
+
+@app.route("/mangas")
+def mangas():
+    process = simplecache.get("process")
+    if not process:
+        process = Process()
+        process.process()
+        simplecache.set("process", process, CACHE_TIMEOUT)
+    return render_template('mangas.html',
+                           mangas=process.manga_group_items.renderer())
+
+
 @app.route("/imdb/<slug>/")
 def imdb_rating(slug):
     title = request.args.get('title')

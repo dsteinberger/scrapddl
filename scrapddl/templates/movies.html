@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container-fluid home-page">
+        <div class="col-xs-12">
+            <div class="row">
+                <h1>Films <a class="title-link" href="/">(Retour)</a></h1>
+                <div class="movies detail-items">
+                    {% with need_rating=1 %}
+                        {% for item_list in movies %}
+                            <div class="item">
+                                {% include "items.html" %}
+                            </div>
+                        {% endfor %}
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="{{url_for('static', filename='imdb_fetch.js')}}"></script>
+{% endblock %}

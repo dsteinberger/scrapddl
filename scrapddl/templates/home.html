@@ -1,19 +1,10 @@
-{% extends "bootstrap/base.html" %}
-
-{% block title %}Scrap DDL{% endblock %}
-
-{%- block metas %}
-    {{ super() }}
-    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='favicon-32x32.png')}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='favicon-96x96.png')}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='favicon-16x16.png')}}">
-{%- endblock metas %}
+{% extends "base.html" %}
 
 {% block content %}
     <div class="container-fluid home-page">
         <div class="col-xs-12">
             <div class="row">
-                <h1>Films</h1>
+                <h1>Films <a class="title-link" href="/movies">(Voir tout)</a></h1>
                 <div class="carousel slide" id="moviesCarousel" data-interval="false" data-wrap="false">
 
                     <div class="carousel-inner">
@@ -37,7 +28,7 @@
 
         <div class="col-xs-12">
             <div class="row">
-                <h1>TV Shows</h1>
+                <h1>TV Shows <a class="title-link" href="/tvshows">(Voir tout)</a></h1>
                 <div class="carousel slide" id="tvshowsCarousel" data-interval="false" data-wrap="false">
 
                     <div class="carousel-inner">
@@ -62,7 +53,7 @@
 
         <div class="col-xs-12">
             <div class="row">
-                <h1>Mangas</h1>
+                <h1>Mangas <a class="title-link" href="/mangas">(Voir tout)</a></h1>
                 <div class="carousel slide" id="mangasCarousel" data-interval="false" data-wrap="false">
 
                     <div class="carousel-inner">
@@ -86,15 +77,8 @@
     </div>
 {% endblock %}
 
-
-{% block styles %}
-    {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
-    <script src="{{url_for('static', filename='jquery.min.js')}}"></script>
-{% endblock %}
-
 {% block scripts %}
-    <script src="{{url_for('static', filename='bootstrap.min.js')}}"></script>
+    {{ super() }}
     <script src="{{url_for('static', filename='carousel.js')}}"></script>
     <script src="{{url_for('static', filename='imdb_fetch.js')}}"></script>
 {% endblock %}

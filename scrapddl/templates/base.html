@@ -1,0 +1,20 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Scrap DDL{% endblock %}
+
+{%- block metas %}
+    {{ super() }}
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='favicon-96x96.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='favicon-16x16.png')}}">
+{%- endblock metas %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+    <script src="{{url_for('static', filename='jquery.min.js')}}"></script>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{url_for('static', filename='bootstrap.min.js')}}"></script>
+{% endblock %}
