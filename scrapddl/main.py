@@ -3,10 +3,16 @@ from flask import render_template
 from flask import request
 from flask_bootstrap import Bootstrap
 
+from werkzeug.contrib.cache import SimpleCache
+
 from process import Process
 
-from cache import cached
 from items.items import Item
+
+
+simplecache = SimpleCache()
+CACHE_TIMEOUT = 60
+IMDB_CACHE_TIMEOUT = 60*60
 
 
 def create_app():
@@ -19,10 +25,12 @@ app = create_app()
 
 
 @app.route("/")
-@cached()
 def home():
-    process = Process()
-    process.process()
+    process = simplecache.get("process")
+    if not process:
+        process = Process()
+        process.process()
+        simplecache.set("process", process, CACHE_TIMEOUT)
     return render_template('home.html',
                            movies=process.movies_group_items.renderer(),
                            tvshows=process.tvshows_group_items.renderer(),
@@ -32,9 +40,14 @@ def home():
 @app.route("/imdb/<slug>/")
 def imdb_rating(slug):
     title = request.args.get('title')
-    imdb = Item.fetch_imdb_rating(title)
-    if imdb.rating:
-        return render_template('imdb_rating.html', imdb=imdb)
+    if title:
+        cache_key = u"{}_imdb".format(title)
+        imdb = simplecache.get(cache_key)
+        if not imdb:
+            imdb = Item.fetch_imdb_rating(title)
+            simplecache.set(cache_key, imdb, IMDB_CACHE_TIMEOUT)
+        if imdb.rating:
+            return render_template('imdb_rating.html', imdb=imdb)
     return ''
 
 

@@ -22,18 +22,20 @@ class GroupItem(object):
         for item in self.items:
             title = item.title.lower()
             if title in items_processed:
-                item_from = items_processed.get(title)
-                if not item_from.items_clone:
-                    item_from.items_clone.append(item)
-                else:
-                    # Check item clone has not same "from website" before add it
-                    if not item_from.from_website == item.from_website:
-                        ii = [it.from_website for it in item_from.items_clone
-                              if it.from_website == item.from_website]
-                        if not ii:
-                            item_from.items_clone.append(item)
+                # Manage clone
+                item_from = items_processed[title]
+                # Check item from has not same "from website" before add it
+                if item.from_website != item_from.from_website:
+                    # First added clone
+                    if not item_from.items_clone:
+                        item_from.items_clone.append(item)
+                    # Check items clone has not same "from website" before add it
+                    elif item.from_website not in [it.from_website
+                                                   for it in item_from.items_clone]:
+                        item_from.items_clone.append(item)
                 items_processed[title] = item_from
             else:
+                # Unique item
                 items_processed[title] = item
         self.items = items_processed.values()
 
