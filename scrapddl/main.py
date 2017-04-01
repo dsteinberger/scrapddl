@@ -80,7 +80,7 @@ def imdb_rating(slug):
             imdb = Item.fetch_imdb_rating(title)
             simplecache.set(cache_key, imdb, IMDB_CACHE_TIMEOUT)
         if imdb.rating:
-            return render_template('imdb_rating.html', imdb=imdb)
+            return render_template('___imdb_rating.html', imdb=imdb)
     return ''
 
 
