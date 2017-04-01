@@ -12,7 +12,7 @@ from items.items import Item
 
 simplecache = SimpleCache()
 CACHE_TIMEOUT = 60
-IMDB_CACHE_TIMEOUT = 60*60
+IMDB_CACHE_TIMEOUT = 0
 
 
 def create_app():
