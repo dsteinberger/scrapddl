@@ -24,7 +24,10 @@ class UniversAnimeMangaSpider(BaseSpider):
         genre = element.xpath(".//h4/span/strong")
         if genre:
             return genre[0].text.strip()
-        return element.xpath(".//h4/strong/span")[0].text.strip()
+        try:
+            return element.xpath(".//h4/strong/span")[0].text.strip()
+        except IndexError:
+            return
 
     def _get_image(self, element):
         return element.xpath(".//img/@src")[0]
