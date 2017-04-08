@@ -48,20 +48,44 @@ class BaseSpider(object):
         raise NotImplementedError()
 
     def _get_elements(self, url):
-        page = requests.get(url)
+        try:
+            page = requests.get(url)
+        except requests.RequestException as e:
+            print u"ERROR - request url: {} ### {}".format(url, e)
         tree = html.fromstring(page.content)
-        return self._get_root(tree)
+        try:
+            return self._get_root(tree)
+        except (IndexError, AttributeError) as e:
+            print u"ERROR - get root: {} ### {}".format(url, e)
 
     def _parse_page(self, url):
-        for element in self._get_elements(url):
-            o = Item(self.from_website)
-            o.page_url = self._get_page_url(element)
-            o.title = self._get_title(element)
-            o.slug = slugify(o.title)
-            o.genre = self._get_genre(element)
-            o.image = self._get_image(element)
-            o.quality_language = self._get_quality_language(element)
-            self.group_items.items.append(o)
+        try:
+            for element in self._get_elements(url):
+                o = Item(self.from_website)
+                try:
+                    o.page_url = self._get_page_url(element)
+                except (IndexError, AttributeError) as e:
+                    print u"ERROR - page url: {} ### {}".format(e, o.__dict__)
+                try:
+                    o.title = self._get_title(element)
+                except (IndexError, AttributeError) as e:
+                    print u"ERROR - title: {} ### {}".format(e, o.__dict__)
+                o.slug = slugify(o.title)
+                try:
+                    o.genre = self._get_genre(element)
+                except (IndexError, AttributeError) as e:
+                    print u"ERROR - genre: {} ### {}".format(e, o.__dict__)
+                try:
+                    o.image = self._get_image(element)
+                except (IndexError, AttributeError) as e:
+                    print u"ERROR - image: {} ### {}".format(e, o.__dict__)
+                try:
+                    o.quality_language = self._get_quality_language(element)
+                except (IndexError, AttributeError) as e:
+                    print u"ERROR - quality & language: {} ### {}".format(e, o.__dict__)
+                self.group_items.items.append(o)
+        except Exception as e:
+            print u"ERROR - GLOBAL: {} ### {}".format(e, url)
 
     def parse(self):
         for relative_url in self.urls:

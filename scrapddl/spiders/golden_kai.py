@@ -16,10 +16,7 @@ class GoldenKMangaSpider(BaseSpider):
 
     def _get_genre(self, element):
         ep = element.xpath(".//span[@class='release__name__episode']")[0].text.strip()
-        try:
-            number = element.xpath(".//span[@class='release__name__number']")[0].text.strip()
-        except AttributeError:
-            number = ""
+        number = element.xpath(".//span[@class='release__name__number']")[0].text.strip()
         return u"{} {}".format(ep.encode('iso8859').decode('utf8'), number)
 
     def _get_image(self, element):
