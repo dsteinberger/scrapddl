@@ -7,12 +7,14 @@ class GoldenKMangaSpider(BaseSpider):
     main_class = 'release__block'
     domain = 'https://goldenkai.me'
     from_website = "golden-kai"
+    clean_pattern_title = ["S2", "S1", "S3", "S4"]
 
     def _get_page_url(self, element):
         return element.xpath(".//a")[0].items()[0][1]
 
     def _get_title(self, element):
-        return element.xpath(".//span[@class='release__name__anime']")[0].text.strip()
+        title = element.xpath(".//span[@class='release__name__anime']")[0].text.strip()
+        return self.clean_title(title)
 
     def _get_genre(self, element):
         ep = element.xpath(".//span[@class='release__name__episode']")[0].text.strip()

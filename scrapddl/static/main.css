@@ -72,6 +72,9 @@ ul.thumbnails {
     min-height: 128px;
     width: 100%;
 }
+.mangas .thumbnail a>img{
+    max-height: 128px;
+}
 .thumbnails li> .fff .caption {
     padding: 1px 15px;
     height: 136px;

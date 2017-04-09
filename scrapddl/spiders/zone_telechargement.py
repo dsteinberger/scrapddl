@@ -41,3 +41,8 @@ class ZTMoviesHDSpider(ZTBaseSider):
 class ZTTvShowsSpider(ZTBaseSider):
     urls = ['/series-vostfr/']
     clean_pattern_title = ["- Saison ", "(2014)", "(2015)", "(2016)", "(2017)"]
+
+
+class ZTMangaSpider(ZTBaseSider):
+    urls = ['/animes/']
+    clean_pattern_title = ["2nd Season"]

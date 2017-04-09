@@ -1,5 +1,5 @@
 from spiders.extreme_down import EDMoviesSpider, EDMoviesHDSpider, EDTvShowsSpider
-from spiders.zone_telechargement import ZTMoviesSpider, ZTMoviesHDSpider, ZTTvShowsSpider
+from spiders.zone_telechargement import ZTMoviesSpider, ZTMoviesHDSpider, ZTTvShowsSpider, ZTMangaSpider
 from spiders.ddl_island import DDLIMoviesSpider, DDLIMoviesHDSpider, DDLITvShowsSpider
 from spiders.golden_kai import GoldenKMangaSpider
 from spiders.univers_anime import UniversAnimeMangaSpider
@@ -63,9 +63,13 @@ class Process(object):
         ua_manga_spider = UniversAnimeMangaSpider()
         ua_manga_group_items = ua_manga_spider.parse()
 
+        zt_manga_spider = ZTMangaSpider()
+        zt_manga_group_items = zt_manga_spider.parse()
+
         self.manga_group_items.zip_items([
             gk_manga_group_items.items,
-            ua_manga_group_items.items
+            ua_manga_group_items.items,
+            zt_manga_group_items.items
         ])
 
     def process(self):

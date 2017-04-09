@@ -6,7 +6,7 @@
             <div class="row">
                 <h1>Mangas <a class="title-link" href="/">(Retour)</a></h1>
                 <div class="mangas detail-items">
-                    {% with need_rating=0 %}
+                    {% with need_rating=1 %}
                         {% for item_list in mangas %}
                             <div class="item">
                                 {% include "_items.html" %}
