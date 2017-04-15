@@ -7,7 +7,9 @@ class GoldenKMangaSpider(BaseSpider):
     main_class = 'release__block'
     domain = 'https://goldenkai.me'
     from_website = "golden-kai"
-    clean_pattern_title = ["S2", "S1", "S3", "S4"]
+    clean_pattern_title = ["(2010)", "(2011)", "(2012)", "(2013)",
+                           "(2014)", "(2015)", "(2016)", "(2017)",
+                           "S2", "S1", "S3", "S4", "(TV)", "(NC)"]
 
     def _get_page_url(self, element):
         return element.xpath(".//a")[0].items()[0][1]

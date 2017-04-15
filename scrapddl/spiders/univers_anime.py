@@ -6,7 +6,7 @@ class UniversAnimeMangaSpider(BaseSpider):
     main_attr_html = 'div'
     main_class = 'category-mangasaimeseries'
     domain = 'http://www.univers-animezi.com'
-    clean_pattern_title = ["VOSTFR", "(2014)", "(2015)", "(2016)", "(2017)"]
+    clean_pattern_title = ["(2014)", "(2015)", "(2016)", "(2017)", "VOSTFR", "VF"]
     from_website = "univers-anime"
 
     def _get_root(self, tree):

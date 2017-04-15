@@ -36,4 +36,4 @@ class DDLIMoviesHDSpider(DDLIBaseSpider):
 
 class DDLITvShowsSpider(DDLIBaseSpider):
     urls = ['/emule-telecharger/series-tv-6.html&order=2']
-    clean_pattern_title = ["- Saison ", "(2014)", "(2015)", "(2016)", "(2017)"]
+    clean_pattern_title = ["(2014)", "(2015)", "(2016)", "(2017)", "- Saison "]
