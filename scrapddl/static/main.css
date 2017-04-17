@@ -34,6 +34,10 @@ body{
     font-style: italic;
     margin-left: 3px;
 }
+a.refresh{
+    float: right;
+    margin: 16px;
+}
 
 .thumbnails li> .fff .caption {
     background:#fff !important;

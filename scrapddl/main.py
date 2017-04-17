@@ -36,6 +36,15 @@ def home():
                            tvshows=process.tvshows_group_items.renderer(),
                            mangas=process.manga_group_items.renderer())
 
+@app.route("/refresh")
+def refresh():
+    process = Process()
+    process.process()
+    simplecache.set("process", process, CACHE_TIMEOUT)
+    return render_template('home.html',
+                           movies=process.movies_group_items.renderer(),
+                           tvshows=process.tvshows_group_items.renderer(),
+                           mangas=process.manga_group_items.renderer())
 
 @app.route("/movies")
 def movies():
