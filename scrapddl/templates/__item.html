@@ -6,7 +6,7 @@
     </div>
     <div class="caption">
         <h4 class="title">
-            <a href="{{ item.page_url }}" target="_blank">
+            <a href="{{ item.page_url }}" target="_blank" title="{{ item.title }}">
                 <img class="favicon" src="{{url_for('static', filename=item.from_website+'.ico')}}"/>
                 {{ item.title }}
             </a>
