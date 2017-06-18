@@ -26,25 +26,61 @@ app = create_app()
 
 @app.route("/")
 def home():
-    process = simplecache.get("process")
-    if not process:
-        process = Process()
-        process.process()
-        simplecache.set("process", process, CACHE_TIMEOUT)
-    return render_template('home.html',
-                           movies=process.movies_group_items.renderer(),
-                           tvshows=process.tvshows_group_items.renderer(),
-                           mangas=process.manga_group_items.renderer())
+    return render_template('home.html')
+
 
 @app.route("/refresh")
 def refresh():
+    simplecache.clear()
+    return render_template('home.html')
+
+
+@app.route("/movies-home")
+def movies_home():
+    section = "movies"
+    process_cache = simplecache.get("process")
     process = Process()
-    process.process()
-    simplecache.set("process", process, CACHE_TIMEOUT)
-    return render_template('home.html',
-                           movies=process.movies_group_items.renderer(),
-                           tvshows=process.tvshows_group_items.renderer(),
-                           mangas=process.manga_group_items.renderer())
+    if not process_cache or (process_cache and
+                             not process.has_process_object(section)):
+        process = Process()
+        obj = process.process_movies()
+        process.set_process_object(section, obj)
+        simplecache.set("process", process, CACHE_TIMEOUT)
+    return render_template('js_home.html',
+                           section=section,
+                           objects_list=process.movies_group_items.renderer())
+
+
+@app.route("/tvshows-home")
+def tvshows_home():
+    section = "tvshows"
+    process_cache = simplecache.get("process")
+    process = Process()
+    if not process_cache or (process_cache and
+                             not process.has_process_object(section)):
+        process = Process()
+        obj = process.process_tvshows()
+        process.set_process_object(section, obj)
+        simplecache.set("process", process, CACHE_TIMEOUT)
+    return render_template('js_home.html',
+                           section=section,
+                           objects_list=process.tvshows_group_items.renderer())
+
+
+@app.route("/mangas-home")
+def mangas_home():
+    section = "mangas"
+    process_cache = simplecache.get("process")
+    process = Process()
+    if not process_cache or (process_cache and
+                             not process.has_process_object(section)):
+        obj = process.process_mangas()
+        process.set_process_object(section, obj)
+        simplecache.set("process", process, CACHE_TIMEOUT)
+    return render_template('js_home.html',
+                           section=section,
+                           objects_list=process.mangas_group_items.renderer())
+
 
 @app.route("/movies")
 def movies():
@@ -55,6 +91,7 @@ def movies():
         simplecache.set("process", process, CACHE_TIMEOUT)
     return render_template('movies.html',
                            movies=process.movies_group_items.renderer())
+
 
 
 @app.route("/tvshows")
@@ -76,7 +113,7 @@ def mangas():
         process.process()
         simplecache.set("process", process, CACHE_TIMEOUT)
     return render_template('mangas.html',
-                           mangas=process.manga_group_items.renderer())
+                           mangas=process.mangas_group_items.renderer())
 
 
 @app.route("/imdb/<slug>/")

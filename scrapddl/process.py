@@ -12,7 +12,7 @@ class Process(object):
     def __init__(self):
         self.movies_group_items = GroupItem()
         self.tvshows_group_items = GroupItem()
-        self.manga_group_items = GroupItem()
+        self.mangas_group_items = GroupItem()
 
     def process_movies(self):
         ed_movies_spider = EDMoviesSpider()
@@ -58,19 +58,29 @@ class Process(object):
 
     def process_mangas(self):
         gk_manga_spider = GoldenKMangaSpider()
-        gk_manga_group_items = gk_manga_spider.parse()
+        gk_mangas_group_items = gk_manga_spider.parse()
 
         ua_manga_spider = UniversAnimeMangaSpider()
-        ua_manga_group_items = ua_manga_spider.parse()
+        ua_mangas_group_items = ua_manga_spider.parse()
 
         zt_manga_spider = ZTMangaSpider()
-        zt_manga_group_items = zt_manga_spider.parse()
+        zt_mangas_group_items = zt_manga_spider.parse()
 
-        self.manga_group_items.zip_items([
-            gk_manga_group_items.items,
-            ua_manga_group_items.items,
-            zt_manga_group_items.items
+        self.mangas_group_items.zip_items([
+            gk_mangas_group_items.items,
+            ua_mangas_group_items.items,
+            zt_mangas_group_items.items
         ])
+
+    def has_process_object(self, section):
+        if (getattr(self, "{}_group_items".format(section))).items:
+            return True
+        return False
+
+    def set_process_object(self, section, objects):
+        groupitems_process = getattr(self, "{}_group_items".format(section))
+        if not groupitems_process.items:
+            setattr(self, groupitems_process, objects)
 
     def process(self):
         self.process_movies()
