@@ -38,13 +38,9 @@ def refresh():
 @app.route("/movies-home")
 def movies_home():
     section = "movies"
-    process_cache = simplecache.get("process")
-    process = Process()
-    if not process_cache or (process_cache and
-                             not process.has_process_object(section)):
-        process = Process()
-        obj = process.process_movies()
-        process.set_process_object(section, obj)
+    process = simplecache.get("process") or Process()
+    if not process.has_process_object(section):
+        process.process_movies()
         simplecache.set("process", process, CACHE_TIMEOUT)
     return render_template('js_home.html',
                            section=section,
@@ -54,13 +50,9 @@ def movies_home():
 @app.route("/tvshows-home")
 def tvshows_home():
     section = "tvshows"
-    process_cache = simplecache.get("process")
-    process = Process()
-    if not process_cache or (process_cache and
-                             not process.has_process_object(section)):
-        process = Process()
-        obj = process.process_tvshows()
-        process.set_process_object(section, obj)
+    process = simplecache.get("process") or Process()
+    if not process.has_process_object(section):
+        process.process_tvshows()
         simplecache.set("process", process, CACHE_TIMEOUT)
     return render_template('js_home.html',
                            section=section,
@@ -70,12 +62,9 @@ def tvshows_home():
 @app.route("/mangas-home")
 def mangas_home():
     section = "mangas"
-    process_cache = simplecache.get("process")
-    process = Process()
-    if not process_cache or (process_cache and
-                             not process.has_process_object(section)):
-        obj = process.process_mangas()
-        process.set_process_object(section, obj)
+    process = simplecache.get("process") or Process()
+    if not process.has_process_object(section):
+        process.process_mangas()
         simplecache.set("process", process, CACHE_TIMEOUT)
     return render_template('js_home.html',
                            section=section,

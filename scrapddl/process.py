@@ -77,11 +77,6 @@ class Process(object):
             return True
         return False
 
-    def set_process_object(self, section, objects):
-        groupitems_process = getattr(self, "{}_group_items".format(section))
-        if not groupitems_process.items:
-            setattr(self, groupitems_process, objects)
-
     def process(self):
         self.process_movies()
         self.process_tvshows()
