@@ -73,7 +73,7 @@ class Process(object):
         ])
 
     def has_process_object(self, section):
-        if (getattr(self, "{}_group_items".format(section))).items:
+        if len((getattr(self, "{}_group_items".format(section))).items) > 0:
             return True
         return False
 

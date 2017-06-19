@@ -35,13 +35,19 @@ def refresh():
     return render_template('home.html')
 
 
+def process_section(section):
+    process = simplecache.get("process") or Process()
+    if not process.has_process_object(section):
+        print u"######  PROCESS : {}".format(section)
+        getattr(process, "process_{}".format(section))()
+        simplecache.set("process", process, CACHE_TIMEOUT)
+    return process
+
+
 @app.route("/movies-home")
 def movies_home():
     section = "movies"
-    process = simplecache.get("process") or Process()
-    if not process.has_process_object(section):
-        process.process_movies()
-        simplecache.set("process", process, CACHE_TIMEOUT)
+    process = process_section(section)
     return render_template('js_home.html',
                            section=section,
                            objects_list=process.movies_group_items.renderer())
@@ -50,10 +56,7 @@ def movies_home():
 @app.route("/tvshows-home")
 def tvshows_home():
     section = "tvshows"
-    process = simplecache.get("process") or Process()
-    if not process.has_process_object(section):
-        process.process_tvshows()
-        simplecache.set("process", process, CACHE_TIMEOUT)
+    process = process_section(section)
     return render_template('js_home.html',
                            section=section,
                            objects_list=process.tvshows_group_items.renderer())
@@ -62,10 +65,7 @@ def tvshows_home():
 @app.route("/mangas-home")
 def mangas_home():
     section = "mangas"
-    process = simplecache.get("process") or Process()
-    if not process.has_process_object(section):
-        process.process_mangas()
-        simplecache.set("process", process, CACHE_TIMEOUT)
+    process = process_section(section)
     return render_template('js_home.html',
                            section=section,
                            objects_list=process.mangas_group_items.renderer())
@@ -73,11 +73,8 @@ def mangas_home():
 
 @app.route("/movies")
 def movies():
-    process = simplecache.get("process")
-    if not process:
-        process = Process()
-        process.process()
-        simplecache.set("process", process, CACHE_TIMEOUT)
+    section = "movies"
+    process = process_section(section)
     return render_template('movies.html',
                            movies=process.movies_group_items.renderer())
 
@@ -85,22 +82,16 @@ def movies():
 
 @app.route("/tvshows")
 def tvshows():
-    process = simplecache.get("process")
-    if not process:
-        process = Process()
-        process.process()
-        simplecache.set("process", process, CACHE_TIMEOUT)
+    section = "tvshows"
+    process = process_section(section)
     return render_template('tvshows.html',
                            tvshows=process.tvshows_group_items.renderer())
 
 
 @app.route("/mangas")
 def mangas():
-    process = simplecache.get("process")
-    if not process:
-        process = Process()
-        process.process()
-        simplecache.set("process", process, CACHE_TIMEOUT)
+    section = "mangas"
+    process = process_section(section)
     return render_template('mangas.html',
                            mangas=process.mangas_group_items.renderer())
 
