@@ -41,3 +41,23 @@ Se rendre sur son navigateur et taper l'url suivante :
 http://127.0.0.1:5000/
 
 ENJOY!
+
+
+## Extra options
+
+Un fichier settings permet d'activer ou non certaines options.
+
+Activer ou non les sections, Films, Series ou Mangas selon vos envies avec les settings suivant :
+(Toutes les sections sont activés par défaut)
+
+```
+MOVIES_SECTION_ACTIVE = True
+TVSHOWS_SECTION_ACTIVE = True
+MANGAS_SECTION_ACTIVE = False  # Unactive mangas section
+```
+
+Activer ou non les notes imdb (default True)
+
+```
+IMDB_RATING_ACTIVE = True
+```

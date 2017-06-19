@@ -6,6 +6,10 @@ from flask_bootstrap import Bootstrap
 from werkzeug.contrib.cache import SimpleCache
 
 from process import Process
+from settings import IMDB_RATING_ACTIVE
+from settings import MOVIES_SECTION_ACTIVE
+from settings import TVSHOWS_SECTION_ACTIVE
+from settings import MANGAS_SECTION_ACTIVE
 
 from items.items import Item
 
@@ -22,6 +26,16 @@ def create_app():
 
 
 app = create_app()
+
+
+@app.context_processor
+def settings():
+    return {
+        "imdb_rating_active": IMDB_RATING_ACTIVE,
+        "movies_section_active": MOVIES_SECTION_ACTIVE,
+        "tvshows_section_active": TVSHOWS_SECTION_ACTIVE,
+        "mangas_section_active": MANGAS_SECTION_ACTIVE
+    }
 
 
 @app.route("/")
@@ -46,29 +60,35 @@ def process_section(section):
 
 @app.route("/movies-home")
 def movies_home():
-    section = "movies"
-    process = process_section(section)
-    return render_template('js_home.html',
-                           section=section,
-                           objects_list=process.movies_group_items.renderer())
+    if MOVIES_SECTION_ACTIVE:
+        section = "movies"
+        process = process_section(section)
+        return render_template('js_home.html',
+                               section=section,
+                               objects_list=process.movies_group_items.renderer())
+    return ''
 
 
 @app.route("/tvshows-home")
 def tvshows_home():
-    section = "tvshows"
-    process = process_section(section)
-    return render_template('js_home.html',
-                           section=section,
-                           objects_list=process.tvshows_group_items.renderer())
+    if TVSHOWS_SECTION_ACTIVE:
+        section = "tvshows"
+        process = process_section(section)
+        return render_template('js_home.html',
+                               section=section,
+                               objects_list=process.tvshows_group_items.renderer())
+    return ''
 
 
 @app.route("/mangas-home")
 def mangas_home():
-    section = "mangas"
-    process = process_section(section)
-    return render_template('js_home.html',
-                           section=section,
-                           objects_list=process.mangas_group_items.renderer())
+    if MANGAS_SECTION_ACTIVE:
+        section = "mangas"
+        process = process_section(section)
+        return render_template('js_home.html',
+                               section=section,
+                               objects_list=process.mangas_group_items.renderer())
+    return ''
 
 
 @app.route("/movies")
@@ -98,15 +118,16 @@ def mangas():
 
 @app.route("/imdb/<slug>/")
 def imdb_rating(slug):
-    title = request.args.get('title')
-    if title:
-        cache_key = u"{}_imdb".format(title)
-        imdb = simplecache.get(cache_key)
-        if not imdb:
-            imdb = Item.fetch_imdb_rating(title)
-            simplecache.set(cache_key, imdb, IMDB_CACHE_TIMEOUT)
-        if imdb.rating:
-            return render_template('___imdb_rating.html', imdb=imdb)
+    if IMDB_RATING_ACTIVE:
+        title = request.args.get('title')
+        if title:
+            cache_key = u"{}_imdb".format(title)
+            imdb = simplecache.get(cache_key)
+            if not imdb:
+                imdb = Item.fetch_imdb_rating(title)
+                simplecache.set(cache_key, imdb, IMDB_CACHE_TIMEOUT)
+            if imdb.rating:
+                return render_template('___imdb_rating.html', imdb=imdb)
     return ''
 
 
