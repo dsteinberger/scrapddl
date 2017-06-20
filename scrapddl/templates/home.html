@@ -4,14 +4,18 @@
     <div class="container-fluid home-page">
         <div class="col-xs-12">
             <div class="row">
-                <a href="/refresh" class="btn btn-warning refresh">Actualiser</a>
+                <a href="/refresh" class="btn btn-warning refresh">Tout actualiser</a>
              </div>
         </div>
         {% if movies_section_active %}
             <div class="col-xs-12">
                 <div class="row">
-                    <h1>Films <a class="title-link" href="/movies">(Voir tout)</a></h1>
-                    <div class="home-movies"><div class="loader"></div></div>
+                    <h1>
+                        Films
+                        <a class="section-refresh" href="/movies-refresh"><i class="glyphicon glyphicon-refresh"></i></a>
+                        <a class="title-link" href="/movies">(Voir tout)</a>
+                    </h1>
+                    <div class="home-section home-movies"><div class="loader"></div></div>
                 </div>
             </div>
         {% endif %}
@@ -19,8 +23,12 @@
         {% if tvshows_section_active %}
             <div class="col-xs-12">
                 <div class="row">
-                    <h1>TV Shows <a class="title-link" href="/tvshows">(Voir tout)</a></h1>
-                    <div class="home-tvshows"><div class="loader"></div></div>
+                    <h1>
+                        TV Shows
+                        <a class="section-refresh" href="/tvshows-refresh"><i class="glyphicon glyphicon-refresh"></i></a>
+                        <a class="title-link" href="/tvshows">(Voir tout)</a>
+                    </h1>
+                    <div class="home-section home-tvshows"><div class="loader"></div></div>
                 </div>
             </div>
         {% endif %}
@@ -28,8 +36,12 @@
         {% if mangas_section_active %}
             <div class="col-xs-12">
                 <div class="row">
-                    <h1>Mangas <a class="title-link" href="/mangas">(Voir tout)</a></h1>
-                    <div class="home-mangas"><div class="loader"></div></div>
+                    <h1>
+                        Mangas
+                        <a class="section-refresh" href="/mangas-refresh"><i class="glyphicon glyphicon-refresh"></i></a>
+                        <a class="title-link" href="/mangas">(Voir tout)</a>
+                    </h1>
+                    <div class="home-section home-mangas"><div class="loader"></div></div>
                 </div>
             </div>
         {% endif %}
@@ -46,6 +58,15 @@
             fetch_home_section('movies', '.home-movies');
             fetch_home_section('tvshows', '.home-tvshows');
             fetch_home_section('mangas', '.home-mangas');
+
+            $(document).on("click", ".section-refresh", function(event){
+                event.preventDefault();
+                var container = $( this ).parent().siblings( ".home-section" );
+                $( container ).html( '<div class="loader"></div>' );
+                $.get( $(this).attr('href'), function( data ) {
+                    $( container ).html( data );
+                });
+            });
         });
     </script>
 {% endblock %}

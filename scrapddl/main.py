@@ -1,6 +1,8 @@
 from flask import Flask
 from flask import render_template
 from flask import request
+from flask import url_for
+from flask import redirect
 from flask_bootstrap import Bootstrap
 
 from werkzeug.contrib.cache import SimpleCache
@@ -46,7 +48,7 @@ def home():
 @app.route("/refresh")
 def refresh():
     simplecache.clear()
-    return render_template('home.html')
+    return redirect(url_for('home'))
 
 
 def process_section(section):
@@ -56,6 +58,10 @@ def process_section(section):
         getattr(process, "process_{}".format(section))()
         simplecache.set("process", process, CACHE_TIMEOUT)
     return process
+
+
+# HOME
+# ----
 
 
 @app.route("/movies-home")
@@ -91,6 +97,37 @@ def mangas_home():
     return ''
 
 
+@app.route("/movies-refresh")
+def movies_refresh():
+    process = simplecache.get("process")
+    if process:
+        process.movies_group_items.items = []
+        simplecache.set("process", process, CACHE_TIMEOUT)
+    return redirect(url_for('movies_home'))
+
+
+@app.route("/tvshows-refresh")
+def tvshows_refresh():
+    process = simplecache.get("process")
+    if process:
+        process.tvshows_group_items.items = []
+        simplecache.set("process", process, CACHE_TIMEOUT)
+    return redirect(url_for('tvshows_home'))
+
+
+@app.route("/mangas-refresh")
+def mangas_refresh():
+    process = simplecache.get("process")
+    if process:
+        process.mangas_group_items.items = []
+        simplecache.set("process", process, CACHE_TIMEOUT)
+    return redirect(url_for('mangas_home'))
+
+
+# SECTION
+# -------
+
+
 @app.route("/movies")
 def movies():
     section = "movies"
@@ -114,6 +151,10 @@ def mangas():
     process = process_section(section)
     return render_template('mangas.html',
                            mangas=process.mangas_group_items.renderer())
+
+
+# IMDB
+# ----
 
 
 @app.route("/imdb/<slug>/")

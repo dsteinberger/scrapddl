@@ -39,6 +39,11 @@ a.refresh{
     margin: 16px;
 }
 
+.section-refresh{
+    font-size: 16px;
+    margin-left: 10px;
+}
+
 .thumbnails li> .fff .caption {
     background:#fff !important;
     padding:10px
