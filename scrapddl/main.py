@@ -47,7 +47,7 @@ def home():
 
 @app.route("/refresh")
 def refresh():
-    simplecache.clear()
+    simplecache.delete("process")
     return redirect(url_for('home'))
 
 
