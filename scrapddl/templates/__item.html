@@ -39,7 +39,7 @@
 <script>
     {% if need_rating == 1 %}
         $(document).ready(function() {
-            var title = "{{ item.title }}";
+            var title = "{{ item.title_urlencoded }}";
             if (title)
                 fetch_imdb_rating("{{ item.slug }}", title, ".imdb-rating-");
         });

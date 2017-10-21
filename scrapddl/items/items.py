@@ -1,3 +1,4 @@
+import urllib
 from collections import OrderedDict
 from itertools import chain, izip_longest
 from spiders.imdb import ImdbSpider
@@ -65,6 +66,10 @@ class Item(object):
     def __init__(self, from_website):
         self.from_website = from_website
         self.items_clone = []
+
+    @property
+    def title_urlencoded(self):
+        return urllib.quote_plus(self.title.encode('utf-8'))
 
     @staticmethod
     def fetch_imdb_rating(title):

@@ -7,7 +7,7 @@ class ImdbSpider(object):
     search_path = "/find?ref_=nv_sr_fn&s=tt"
 
     def __init__(self, title):
-        self.title = title
+        self.title = title  # already encoded
         self.search_url = u"{}{}&q={}".format(self.domain, self.search_path, self.title)
         self.link_detail = None
         self.rating = None
