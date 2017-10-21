@@ -4,6 +4,8 @@ from lxml import html
 
 from slugify import slugify
 
+from scrapddl.settings import TIMEOUT_REQUEST_PROVIDERS
+
 from items.items import GroupItem, Item
 
 
@@ -49,7 +51,7 @@ class BaseSpider(object):
 
     def _get_elements(self, url):
         try:
-            page = requests.get(url)
+            page = requests.get(url, timeout=TIMEOUT_REQUEST_PROVIDERS)
         except requests.RequestException as e:
             print u"ERROR - request url: {} ### {}".format(url, e)
         tree = html.fromstring(page.content)
