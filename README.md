@@ -40,6 +40,12 @@ make serve
 Se rendre sur son navigateur et taper l'url suivante :
 http://127.0.0.1:5000/
 
+Ou il est possible d'utiliser le fichier `run.sh.dist` en tant qu'executable.
+Pour cela il suffit de le renommer pour enlever le suffixe `.dist` et remplacer dans celui ci les `<path>`.
+Puis copier la ou vous le souhaitez, donnez lui les droits d'exécution:
+‘sudo chmod 755 run.sh‘
+Enfin ouvrir avec le terminal.
+
 ENJOY!
 
 
