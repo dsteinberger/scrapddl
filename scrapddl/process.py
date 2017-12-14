@@ -2,6 +2,7 @@ from spiders.extreme_down import EDMoviesSpider, EDMoviesHDSpider, EDTvShowsSpid
 from spiders.zone_telechargement import ZTMoviesSpider, ZTMoviesHDSpider, ZTTvShowsSpider, ZTMangaSpider
 from spiders.ddl_island import DDLIMoviesSpider, DDLIMoviesHDSpider, DDLITvShowsSpider
 from spiders.golden_kai import GoldenKMangaSpider
+from spiders.rarbg import RARBGMoviesSpider
 from spiders.univers_anime import UniversAnimeMangaSpider
 
 from items.items import GroupItem
@@ -39,13 +40,18 @@ class Process(object):
         ddli_movies_hd_spider = DDLIMoviesHDSpider()
         ddli_movies_hd_group_items = ddli_movies_hd_spider.parse()
 
+        print u"##  Rarbg Torrent"
+        rarbg_movies_hd_spider = RARBGMoviesSpider()
+        rarbg_movies_hd_group_items = rarbg_movies_hd_spider.parse()
+
         self.movies_group_items.zip_items([
             ed_movies_group_items.items,
             ed_movies_hd_group_items.items,
             zt_movies_group_items.items,
             zt_movies_hd_group_items.items,
             ddli_movies_group_items.items,
-            ddli_movies_hd_group_items.items])
+            ddli_movies_hd_group_items.items,
+            rarbg_movies_hd_group_items.items])
 
     def process_tvshows(self):
         print u"##  Extreme Download"

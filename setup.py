@@ -44,6 +44,7 @@ setup(
     install_requires=[
         "Flask",
         "lxml",
+        "fake-useragent",
         "Flask-Bootstrap",
         "pyOpenSSL",
         "requests",

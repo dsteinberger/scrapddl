@@ -3,6 +3,7 @@ import urlparse
 from lxml import html
 
 from slugify import slugify
+from fake_useragent import UserAgent
 
 from scrapddl.settings import TIMEOUT_REQUEST_PROVIDERS
 
@@ -51,9 +52,12 @@ class BaseSpider(object):
 
     def _get_elements(self, url):
         try:
-            page = requests.get(url, timeout=TIMEOUT_REQUEST_PROVIDERS)
+            ua = UserAgent()
+            page = requests.get(url, headers={'User-Agent': str(ua.random)}, timeout=TIMEOUT_REQUEST_PROVIDERS)
         except requests.RequestException as e:
             print u"ERROR - request url: {} ### {}".format(url, e)
+        import ipdb
+        ipdb.set_trace()
         tree = html.fromstring(page.content)
         try:
             return self._get_root(tree)
