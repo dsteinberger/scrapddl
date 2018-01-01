@@ -15,7 +15,10 @@ Mangas :
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
 
-Les notes IMDB sont également récupérées si possible (sauf pour la catégorie mangas)
+Les notes IMDB sont également récupérées si possible.
+
+Un lien vers le site https://www.opensubtitles.org/fr/ est présent pour chaque films/series/mangas
+et permet de DL les sous titres Français correspondant.
 
 
 ## Aperçu du site
@@ -42,7 +45,7 @@ http://127.0.0.1:5000/
 
 Ou il est possible d'utiliser le fichier `run.sh.dist` en tant qu'executable.
 Pour cela il suffit de le renommer pour enlever le suffixe `.dist` et remplacer dans celui ci les `<path>`.
-Puis copier la ou vous le souhaitez, donnez lui les droits d'exécution:
+Puis copier le ou vous le souhaitez, donnez lui les droits d'exécution:
 ‘sudo chmod 755 run.sh‘
 Enfin ouvrir avec le terminal.
 

@@ -24,6 +24,9 @@
                     <img class="favicon" src="{{url_for('static', filename=i_clone.from_website+'.ico')}}"/>
                 </a>
             {% endfor %}
+            <a href="https://www.opensubtitles.org/fr/search2/sublanguageid-fre/moviename-{{ item.title }}" target="_blank">
+                <img class="favicon" src="{{url_for('static', filename='opensubtitle.ico')}}"/>
+            </a>
         </div>
 
         <div class="imdb-rating imdb-rating-{{ item.slug }}">
