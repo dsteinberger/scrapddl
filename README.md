@@ -4,7 +4,7 @@ Pour visualiser les dernières sorties de vos sites DDL préférés !
 
 Films et séries :
 
-- http://www.zone-telechargement.ws/
+- https://www.zone-telechargement1.com/
 - https://www.extreme-down.in/home.html
 - http://www.ddl-island.su/
 
