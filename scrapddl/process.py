@@ -66,10 +66,6 @@ class Process(object):
             ddli_tvshows_group_items.items])
 
     def process_mangas(self):
-        print u"##  Golden Kai"
-        gk_manga_spider = GoldenKMangaSpider()
-        gk_mangas_group_items = gk_manga_spider.parse()
-
         print u"##  Univers Anime"
         ua_manga_spider = UniversAnimeMangaSpider()
         ua_mangas_group_items = ua_manga_spider.parse()
@@ -79,7 +75,6 @@ class Process(object):
         zt_mangas_group_items = zt_manga_spider.parse()
 
         self.mangas_group_items.zip_items([
-            gk_mangas_group_items.items,
             ua_mangas_group_items.items,
             zt_mangas_group_items.items
         ])

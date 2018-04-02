@@ -2,6 +2,7 @@ from .base import BaseSpider
 
 
 class GoldenKMangaSpider(BaseSpider):
+    # Close is door... Site not available
     urls = ['/']
     main_attr_html = 'article'
     main_class = 'release__block'
