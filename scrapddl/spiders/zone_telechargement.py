@@ -4,7 +4,7 @@ from base import BaseSpider
 class ZTBaseSider(BaseSpider):
     main_attr_html = 'div'
     main_class = 'cover_global'
-    domain = "https://www.zone-telechargement1.com"
+    domain = "https://ww2.zone-telechargement1.com"
     from_website = "zone-telechargement"
 
     def _get_page_url(self, element):
