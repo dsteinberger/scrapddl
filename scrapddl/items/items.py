@@ -1,7 +1,6 @@
 import urllib
 from collections import OrderedDict
 from itertools import chain, izip_longest
-from spiders.imdb import ImdbSpider
 
 
 class GroupItem(object):
@@ -70,13 +69,6 @@ class Item(object):
     @property
     def title_urlencoded(self):
         return urllib.quote_plus(self.title.encode('utf-8'))
-
-    @staticmethod
-    def fetch_imdb_rating(title):
-        if title:
-            imdb = ImdbSpider(title)
-            imdb.process()
-            return imdb
 
     def get_clone_property(self, field):
         for item in self.items_clone:

@@ -7,6 +7,8 @@ from flask_bootstrap import Bootstrap
 
 from werkzeug.contrib.cache import SimpleCache
 
+from scrapimdb import ImdbSpider
+
 from process import Process
 from settings import IMDB_RATING_ACTIVE
 from settings import MOVIES_SECTION_ACTIVE
@@ -156,16 +158,27 @@ def mangas():
 # IMDB
 # ----
 
+class Imdb(object):
+    def __init__(self, rating, url):
+        self.rating = rating
+        self.url = url
 
 @app.route("/imdb/<slug>/")
 def imdb_rating(slug):
+
     if IMDB_RATING_ACTIVE:
         title = request.args.get('title')
         if title:
             cache_key = u"{}_imdb".format(title)
             imdb = simplecache.get(cache_key)
             if not imdb:
-                imdb = Item.fetch_imdb_rating(title)
+                spider = ImdbSpider(title)
+                try:
+                    rating = spider.get_rating()
+                except Exception:
+                    print u"WARNING - no rating for: {}".format(title)
+                    rating = None
+                imdb = Imdb(rating, spider.link_detail)
                 simplecache.set(cache_key, imdb, IMDB_CACHE_TIMEOUT)
             if imdb.rating:
                 return render_template('___imdb_rating.html', imdb=imdb)

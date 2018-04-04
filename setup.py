@@ -47,6 +47,7 @@ setup(
         "Flask-Bootstrap",
         "pyOpenSSL",
         "requests",
+        "scrapimdb",
         "python-slugify"],
     zip_safe=False,
     keywords='scrapddl'
