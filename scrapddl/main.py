@@ -178,7 +178,7 @@ def imdb_rating(slug):
                 except Exception:
                     print u"WARNING - no rating for: {}".format(title)
                     rating = None
-                imdb = Imdb(rating, spider.link_detail)
+                imdb = Imdb(rating, spider.get_link())
                 simplecache.set(cache_key, imdb, IMDB_CACHE_TIMEOUT)
             if imdb.rating:
                 return render_template('___imdb_rating.html', imdb=imdb)
