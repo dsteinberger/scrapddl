@@ -172,7 +172,11 @@ def imdb_rating(slug):
             cache_key = u"{}_imdb".format(title)
             imdb = simplecache.get(cache_key)
             if not imdb:
-                spider = ImdbSpider(title)
+                try:
+                    spider = ImdbSpider(title)
+                except Exception, e:
+                    print u"ERROR - {}".format(e)
+                    return ''
                 try:
                     rating = spider.get_rating()
                 except Exception:

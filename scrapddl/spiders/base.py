@@ -62,7 +62,11 @@ class BaseSpider(object):
 
     def _parse_page(self, url):
         try:
-            for element in self._get_elements(url):
+            elements = self._get_elements(url)
+            if not elements:
+                print u"ERROR - get root is empty: {}".format(url)
+                return
+            for element in elements:
                 o = Item(self.from_website)
                 try:
                     o.page_url = self._get_page_url(element)
