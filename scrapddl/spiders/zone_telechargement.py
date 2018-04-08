@@ -17,7 +17,10 @@ class ZTBaseSider(BaseSpider):
         return self.clean_title(title)
 
     def _get_genre(self, element):
-        return None
+        genre = element.xpath(".//div[@class='cover_infos_genre']")
+        if genre:
+            # NOT WORKING WHY... ?
+            return genre[0].text
 
     def _get_image(self, element):
         image = element.xpath(".//img/@src")[0]
