@@ -38,7 +38,7 @@ class ZTMoviesSpider(ZTBaseSider):
 
 
 class ZTMoviesHDSpider(ZTBaseSider):
-    urls = ['/films-bluray-hd/']
+    urls = ['/film-ultra-hd-4k/']
 
 
 class ZTTvShowsSpider(ZTBaseSider):

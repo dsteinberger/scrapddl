@@ -33,7 +33,7 @@ class EDMoviesSpider(EDBaseSpider):
 
 
 class EDMoviesHDSpider(EDBaseSpider):
-    urls = ['/films-hd/']
+    urls = ['/films-hd/ultrahd-4k']
     clean_pattern_title = ["- VOSTFR WEB"]
 
 

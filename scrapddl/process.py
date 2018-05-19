@@ -20,32 +20,32 @@ class Process(object):
         ed_movies_group_items = ed_movies_spider.parse()
 
         print u"##  Extreme Download Hd"
-        ed_movies_hd_spider = EDMoviesHDSpider()
-        ed_movies_hd_group_items = ed_movies_hd_spider.parse()
+        #ed_movies_hd_spider = EDMoviesHDSpider()
+        #ed_movies_hd_group_items = ed_movies_hd_spider.parse()
 
         print u"##  Zone Telechargement"
         zt_movies_spider = ZTMoviesSpider()
         zt_movies_group_items = zt_movies_spider.parse()
 
         print u"##  Zone Telechargement Hd"
-        zt_movies_hd_spider = ZTMoviesHDSpider()
-        zt_movies_hd_group_items = zt_movies_hd_spider.parse()
+        #zt_movies_hd_spider = ZTMoviesHDSpider()
+        #zt_movies_hd_group_items = zt_movies_hd_spider.parse()
 
         print u"##  Ddl Island"
         ddli_movies_spider = DDLIMoviesSpider()
         ddli_movies_group_items = ddli_movies_spider.parse()
 
         print u"##  Ddl Island Hd"
-        ddli_movies_hd_spider = DDLIMoviesHDSpider()
-        ddli_movies_hd_group_items = ddli_movies_hd_spider.parse()
+        #ddli_movies_hd_spider = DDLIMoviesHDSpider()
+        #ddli_movies_hd_group_items = ddli_movies_hd_spider.parse()
 
         self.movies_group_items.zip_items([
             ed_movies_group_items.items,
-            ed_movies_hd_group_items.items,
+            #ed_movies_hd_group_items.items,
             zt_movies_group_items.items,
-            zt_movies_hd_group_items.items,
-            ddli_movies_group_items.items,
-            ddli_movies_hd_group_items.items])
+            #zt_movies_hd_group_items.items,
+            ddli_movies_group_items.items])
+            #ddli_movies_hd_group_items.items])
 
     def process_tvshows(self):
         print u"##  Extreme Download"
