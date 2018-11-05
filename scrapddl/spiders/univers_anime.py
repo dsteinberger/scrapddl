@@ -5,7 +5,7 @@ class UniversAnimeMangaSpider(BaseSpider):
     urls = ['/', '/page/2']
     main_attr_html = 'ul'
     main_class = 'recent-posts'
-    domain = 'https://www.univers-animez.net'
+    domain = 'https://www.univers-animeizi.net/'
     clean_pattern_title = ["(2014)", "(2015)", "(2016)", "(2017)", "VOSTFR", "VF"]
     from_website = "univers-anime"
 
