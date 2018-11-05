@@ -51,7 +51,8 @@ class BaseSpider(object):
 
     def _get_elements(self, url):
         try:
-            page = requests.get(url, timeout=TIMEOUT_REQUEST_PROVIDERS)
+            page = requests.get(url, timeout=TIMEOUT_REQUEST_PROVIDERS,
+                                verify=False)
         except requests.RequestException as e:
             print u"ERROR - request url: {} ### {}".format(url, e)
         tree = html.fromstring(page.content)
