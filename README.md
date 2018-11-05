@@ -4,14 +4,14 @@ Pour visualiser les dernières sorties de vos sites DDL préférés !
 
 Films et séries :
 
-- https://www.zone-telechargement1.com/
+- https://ww10.zone-telechargement1.org/
 - https://www.extreme-down.in/home.html
 - http://www.ddl-island.su/
 
 Mangas :
 
-- https://goldenkai.me/
-- http://www.univers-animezi.com/
+- https://www.univers-animeizi.net/
+- https://ww10.zone-telechargement1.org/
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
 
