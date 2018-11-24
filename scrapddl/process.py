@@ -1,7 +1,6 @@
 from spiders.extreme_down import EDMoviesSpider, EDMoviesHDSpider, EDTvShowsSpider
 from spiders.zone_telechargement import ZTMoviesSpider, ZTMoviesHDSpider, ZTTvShowsSpider, ZTMangaSpider
 from spiders.ddl_island import DDLIMoviesSpider, DDLIMoviesHDSpider, DDLITvShowsSpider
-from spiders.golden_kai import GoldenKMangaSpider
 from spiders.univers_anime import UniversAnimeMangaSpider
 
 from items.items import GroupItem
