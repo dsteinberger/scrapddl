@@ -8,8 +8,8 @@ class ZTBaseSider(BaseSpider):
     from_website = "zone-telechargement"
 
     def _get_page_url(self, element):
-        return element.xpath(
-            ".//div[@class='cover_infos_title']/a")[0].items()[0][1]
+        return "{}{}".format(self.domain, element.xpath(
+            ".//div[@class='cover_infos_title']/a")[0].items()[0][1])
 
     def _get_title(self, element):
         title = element.xpath(
