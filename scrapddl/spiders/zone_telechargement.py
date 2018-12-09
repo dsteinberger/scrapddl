@@ -4,7 +4,7 @@ from base import BaseSpider
 class ZTBaseSider(BaseSpider):
     main_attr_html = 'div'
     main_class = 'cover_global'
-    domain = "https://www.annuaire-telechargement.com/"
+    domain = "https://zone-telechargement2.org/"
     from_website = "zone-telechargement"
 
     def _get_page_url(self, element):
@@ -34,21 +34,21 @@ class ZTBaseSider(BaseSpider):
 
 
 class ZTMoviesSpider(ZTBaseSider):
-    urls = ['/nouveaute/']
+    urls = ['?p=films&no-bluray']
 
 
 class ZTMoviesHDSpider(ZTBaseSider):
-    urls = ['/film-ultra-hd-4k/']
+    urls = ['?p=films&s=ultra-hd-4k']
 
 
 class ZTTvShowsSpider(ZTBaseSider):
-    urls = ['/series-vostfr/']
+    urls = ['?p=series&s=vostfr']
     clean_pattern_title = ["(2010)", "(2011)", "(2012)", "(2013)",
                            "(2014)", "(2015)", "(2016)", "(2017)", "- Saison "]
 
 
 class ZTMangaSpider(ZTBaseSider):
-    urls = ['/animes/']
+    urls = ['?p=mangas&s=vostfr']
     clean_pattern_title = ["(2010)", "(2011)", "(2012)", "(2013)",
                            "(2014)", "(2015)", "(2016)", "(2017)",
                            "[Complete]", "2nd Season", "Saison"]
