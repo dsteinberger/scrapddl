@@ -4,7 +4,7 @@ from base import BaseSpider
 class EDBaseSpider(BaseSpider):
     main_attr_html = 'a'
     main_class = 'top-last thumbnails'
-    domain = 'https://www.extreme-down.in'
+    domain = 'https://ww7.extreme-d0wn.net'
     from_website = "extreme-down"
 
     def _get_page_url(self, element):
