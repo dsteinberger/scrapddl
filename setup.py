@@ -48,7 +48,8 @@ setup(
         "pyOpenSSL",
         "requests",
         "scrap-imdb",
-        "python-slugify"],
+        "python-slugify",
+        "cloudscraper"],
     zip_safe=False,
     keywords='scrapddl'
 )

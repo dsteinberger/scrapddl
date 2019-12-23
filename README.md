@@ -34,6 +34,16 @@ Il faut au préalable installer les dépendances :
 make install
 ```
 
+Pour extreme_down il faut bypass Cloudflare's anti-bot page.
+Pour cela la lib cloudscraper (https://github.com/venomous/cloudscraper) à besoin de node.js :
+
+Your machine may already have Node installed (check with node -v). 
+If not, you can install it with apt-get install nodejs on 
+Ubuntu >= 18.04 and Debian >= 9 and brew install node on macOS. 
+Otherwise, you can get it from Node's download page or their 
+package manager installation page (https://nodejs.org/en/download/)
+
+
 Puis lancer le serveur en locale :
 
 ```

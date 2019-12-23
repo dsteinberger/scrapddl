@@ -1,5 +1,6 @@
 import requests
 import urlparse
+import cloudscraper
 from lxml import html
 
 from slugify import slugify
@@ -18,6 +19,8 @@ class BaseSpider(object):
 
     def __init__(self):
         self.group_items = GroupItem()
+        # use to bypass Cloudflare's anti-bot page
+        self.request_scraper = cloudscraper.create_scraper()
 
     @staticmethod
     def is_absolute(url):
@@ -51,7 +54,8 @@ class BaseSpider(object):
 
     def _get_elements(self, url):
         try:
-            page = requests.get(url, timeout=TIMEOUT_REQUEST_PROVIDERS)
+            page = self.request_scraper.get(url,
+                                            timeout=TIMEOUT_REQUEST_PROVIDERS)
         except requests.RequestException as e:
             print u"ERROR - request url: {} ### {}".format(url, e)
             # Retry without check certificat
