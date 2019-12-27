@@ -5,7 +5,7 @@ from flask import url_for
 from flask import redirect
 from flask_bootstrap import Bootstrap
 
-from werkzeug.contrib.cache import SimpleCache
+from cachelib.simple import SimpleCache
 
 from scrapimdb import ImdbSpider
 
