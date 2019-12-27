@@ -7,6 +7,11 @@ MANGAS_SECTION_ACTIVE = True
 TIMEOUT_REQUEST_PROVIDERS = 15
 
 # DDL ISLAND
+DDLI_ACTIVATE = True
+DDLI_ACTIVATE_MOVIES = True
+DDLI_ACTIVATE_MOVIES_HD = False
+DDLI_ACTIVATE_TVSHOWS = True
+
 DDLI_WEBSITE = "ddl-island"
 DDLI_DOMAIN = "http://www.ddl-island.su"
 DDLI_MAIN_ATTR_HTML = "div"
@@ -16,6 +21,11 @@ DDLI_URLS_MOVIES_HD = ['/emule-telecharger/films-hd-13.html&order=2']
 DDLI_URLS_TVSHOWS = ['/emule-telecharger/series-tv-6.html&order=2']
 
 # Extrem down
+ED_ACTIVATE = True
+ED_ACTIVATE_MOVIES = True
+ED_ACTIVATE_MOVIES_HD = False
+ED_ACTIVATE_TVSHOWS = True
+
 ED_WEBSITE = "extreme-down"
 ED_DOMAIN = "https://wvw.extreme-down.xyz"
 ED_MAIN_ATTR_HTML = "a"
@@ -25,13 +35,20 @@ ED_URLS_MOVIES_HD = ['/films-hd/ultrahd-4k']
 ED_URLS_TVSHOWS = ['/series/vostfr/']
 
 # Univers Anime
+UA_ACTIVATE = True
 UA_WEBSITE = "univers-anime"
 UA_DOMAIN = "https://www.universanimeiz.com/"
 UA_MAIN_ATTR_HTML = "ul"
 UA_MAIN_CLASS = "recent-posts"
 UA_URLS = ['/', '/page/2']
 
-# Zone telecharment
+# Zone telechargement
+ZT_ACTIVATE = True
+ZT_ACTIVATE_MOVIES = True
+ZT_ACTIVATE_MOVIES_HD = False
+ZT_ACTIVATE_TVSHOWS = True
+ZT_ACTIVATE_MANGAS = True
+
 ZT_WEBSITE = "zone-telechargement"
 ZT_DOMAIN = "https://zone-telechargement2.org/"
 ZT_MAIN_ATTR_HTML = "div"
