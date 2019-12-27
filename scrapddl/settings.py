@@ -58,6 +58,16 @@ ZT_URLS_MOVIES_HD = ['?p=films&s=ultra-hd-4k']
 ZT_URLS_TVSHOWS = ['?p=series&s=vostfr']
 ZT_URLS_MANGA = ['?p=mangas&s=vostfr']
 
+CLEAN_PATTERN_TITLE = [
+    "(\s)?(-)?(\s)?(\[.+\])(\s)?(-)?",  # (2018), (WEB)
+    "(\s)?(-)?(\s)?(\[.+\])(\s)?(-)?",  # [WEB], [2012]
+    "(\s)?(-)?(\s)?(\d\D+? Season)(\s)?(-)?",  # 2nd Season, 3th season
+    "(\s)?(-)?(\s)?(S\d+)(\s)?(-)?",  # S1, S2
+    "(\s)?(-)?(\s)?VOSTFR(\w+)?",  # - VOSTFR, VOSTFR, VOSTFR WEB
+    "(\s)?(-)?(\s)?saison( )?(\d+)?(\s)?(-)?",  # - Saison, Saison 2
+    "(\s)?(-)?(\s)?episode( )?(\d+)?(\s)?(-)?",  # - Episode, episode 2
+    "VF",
+]
 
 try:
     from scrapddl.local_settings import *

@@ -36,15 +36,11 @@ class EDBaseSpider(BaseSpider):
 
 class EDMoviesSpider(EDBaseSpider):
     urls = ED_URLS_MOVIES
-    clean_pattern_title = ["- VOSTFR WEB"]
 
 
 class EDMoviesHDSpider(EDBaseSpider):
     urls = ED_URLS_MOVIES_HD
-    clean_pattern_title = ["- VOSTFR WEB"]
 
 
 class EDTvShowsSpider(EDBaseSpider):
     urls = ED_URLS_TVSHOWS
-    clean_pattern_title = ["(2014)", "(2015)", "(2016)", "(2017)", "(2018)",
-                           "(2019)", "(2020)"]

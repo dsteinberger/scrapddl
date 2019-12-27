@@ -11,7 +11,6 @@ class UniversAnimeMangaSpider(BaseSpider):
     main_attr_html = UA_MAIN_ATTR_HTML
     main_class = UA_MAIN_CLASS
     domain = UA_DOMAIN
-    clean_pattern_title = ["(2014)", "(2015)", "(2016)", "(2017)", "VOSTFR", "VF"]
     from_website = UA_WEBSITE
 
     def _get_root(self, tree):

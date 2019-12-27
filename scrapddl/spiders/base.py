@@ -1,10 +1,12 @@
+import re
+
 import requests
 import cloudscraper
 from lxml import html
 from urllib.parse import urlparse
 from slugify import slugify
 
-from scrapddl.settings import TIMEOUT_REQUEST_PROVIDERS
+from scrapddl.settings import TIMEOUT_REQUEST_PROVIDERS, CLEAN_PATTERN_TITLE
 
 from items.items import GroupItem, Item
 
@@ -13,7 +15,6 @@ class BaseSpider(object):
     urls = []
     main_attr_html = None
     main_class = None
-    clean_pattern_title = []
     from_website = None
 
     def __init__(self):
@@ -33,11 +34,9 @@ class BaseSpider(object):
         raise NotImplementedError()
 
     def clean_title(self, title):
-        for pattern in self.clean_pattern_title:
-            if pattern in title:
-                title_clean = title.split(pattern)[0]
-                return title_clean.strip()
-        return title.strip()
+        remove = '|'.join(CLEAN_PATTERN_TITLE)
+        regex = re.compile(r'\b(' + remove + r')\b', flags=re.IGNORECASE)
+        return regex.sub("", title)
 
     def _get_title(self, element):
         raise NotImplementedError()
