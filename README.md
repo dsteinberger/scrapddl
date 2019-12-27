@@ -80,3 +80,5 @@ Activer ou non les notes imdb (default True)
 ```
 IMDB_RATING_ACTIVE = True
 ```
+
+Et plein d'autre options dans le fichier settings !
