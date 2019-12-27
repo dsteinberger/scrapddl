@@ -1,11 +1,18 @@
 from .base import BaseSpider
+from settings import DDLI_MAIN_ATTR_HTML
+from settings import DDLI_MAIN_CLASS
+from settings import DDLI_DOMAIN
+from settings import DDLI_WEBSITE
+from settings import DDLI_URLS_MOVIES
+from settings import DDLI_URLS_MOVIES_HD
+from settings import DDLI_URLS_TVSHOWS
 
 
 class DDLIBaseSpider(BaseSpider):
-    main_attr_html = 'div'
-    main_class = 'fiche_listing'
-    domain = 'http://www.ddl-island.su'
-    from_website = "ddl-island"
+    main_attr_html = DDLI_MAIN_ATTR_HTML
+    main_class = DDLI_MAIN_CLASS
+    domain = DDLI_DOMAIN
+    from_website = DDLI_WEBSITE
 
     def _get_page_url(self, element):
         return element.xpath(".//a")[0].items()[0][1]
@@ -25,15 +32,15 @@ class DDLIBaseSpider(BaseSpider):
 
 
 class DDLIMoviesSpider(DDLIBaseSpider):
-    urls = ['/emule-telecharger/films-1.html&order=2']
+    urls = DDLI_URLS_MOVIES
     clean_pattern_title = ["- VOSTFR"]
 
 
 class DDLIMoviesHDSpider(DDLIBaseSpider):
-    urls = ['/emule-telecharger/films-hd-13.html&order=2']
+    urls = DDLI_URLS_MOVIES_HD
     clean_pattern_title = ["- VOSTFR"]
 
 
 class DDLITvShowsSpider(DDLIBaseSpider):
-    urls = ['/emule-telecharger/series-tv-6.html&order=2']
+    urls = DDLI_URLS_TVSHOWS
     clean_pattern_title = ["(2014)", "(2015)", "(2016)", "(2017)", "- Saison "]

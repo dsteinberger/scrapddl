@@ -1,11 +1,19 @@
 from .base import BaseSpider
+from settings import ZT_MAIN_ATTR_HTML
+from settings import ZT_MAIN_CLASS
+from settings import ZT_DOMAIN
+from settings import ZT_WEBSITE
+from settings import ZT_URLS_MOVIES
+from settings import ZT_URLS_MOVIES_HD
+from settings import ZT_URLS_TVSHOWS
+from settings import ZT_URLS_MANGA
 
 
 class ZTBaseSider(BaseSpider):
-    main_attr_html = 'div'
-    main_class = 'cover_global'
-    domain = "https://zone-telechargement2.org/"
-    from_website = "zone-telechargement"
+    main_attr_html = ZT_MAIN_ATTR_HTML
+    main_class = ZT_MAIN_CLASS
+    domain = ZT_DOMAIN
+    from_website = ZT_WEBSITE
 
     def _get_page_url(self, element):
         return "{}{}".format(self.domain, element.xpath(
@@ -34,22 +42,22 @@ class ZTBaseSider(BaseSpider):
 
 
 class ZTMoviesSpider(ZTBaseSider):
-    urls = ['?p=films&no-bluray']
+    urls = ZT_URLS_MOVIES
 
 
 class ZTMoviesHDSpider(ZTBaseSider):
-    urls = ['?p=films&s=ultra-hd-4k']
+    urls = ZT_URLS_MOVIES_HD
 
 
 class ZTTvShowsSpider(ZTBaseSider):
-    urls = ['?p=series&s=vostfr']
+    urls = ZT_URLS_TVSHOWS
     clean_pattern_title = ["(2010)", "(2011)", "(2012)", "(2013)",
                            "(2014)", "(2015)", "(2016)", "(2017)", "(2018)",
                            "(2019)", "(2020)""- Saison "]
 
 
 class ZTMangaSpider(ZTBaseSider):
-    urls = ['?p=mangas&s=vostfr']
+    urls = ZT_URLS_MANGA
     clean_pattern_title = ["(2010)", "(2011)", "(2012)", "(2013)",
                            "(2014)", "(2015)", "(2016)", "(2017)",
                            "(2018)", "(2019)", "(2020)"

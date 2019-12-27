@@ -1,13 +1,18 @@
 from .base import BaseSpider
+from settings import UA_MAIN_ATTR_HTML
+from settings import UA_MAIN_CLASS
+from settings import UA_DOMAIN
+from settings import UA_WEBSITE
+from settings import UA_URLS
 
 
 class UniversAnimeMangaSpider(BaseSpider):
-    urls = ['/', '/page/2']
-    main_attr_html = 'ul'
-    main_class = 'recent-posts'
-    domain = 'https://www.universanimeiz.com/'
+    urls = UA_URLS
+    main_attr_html = UA_MAIN_ATTR_HTML
+    main_class = UA_MAIN_CLASS
+    domain = UA_DOMAIN
     clean_pattern_title = ["(2014)", "(2015)", "(2016)", "(2017)", "VOSTFR", "VF"]
-    from_website = "univers-anime"
+    from_website = UA_WEBSITE
 
     def _get_root(self, tree):
         return tree.xpath("//{}[@class='{}']/li".format(
