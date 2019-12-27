@@ -1,6 +1,7 @@
 import urllib
 from collections import OrderedDict
-from itertools import chain, izip_longest
+from itertools import chain
+from itertools import zip_longest
 
 
 class GroupItem(object):
@@ -15,7 +16,7 @@ class GroupItem(object):
             for i in range(0, len(self.items), self.per_page)]
 
     def zip_items(self, items_list):
-        self.items = [l for l in chain(*izip_longest(*items_list)) if l]
+        self.items = [l for l in chain(*zip_longest(*items_list)) if l]
 
     def set_unique(self):
         items_processed = OrderedDict()
@@ -37,7 +38,7 @@ class GroupItem(object):
             else:
                 # Unique item
                 items_processed[title] = item
-        self.items = items_processed.values()
+        self.items = list(items_processed.values())
 
     def set_imdb_rating(self):
         for item in self.items[:self.per_page]:

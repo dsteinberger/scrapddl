@@ -1,4 +1,4 @@
-from base import BaseSpider
+from .base import BaseSpider
 
 
 class EDBaseSpider(BaseSpider):

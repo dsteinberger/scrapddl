@@ -56,7 +56,7 @@ def refresh():
 def process_section(section):
     process = simplecache.get("process") or Process()
     if not process.has_process_object(section):
-        print u"######  PROCESS : {}".format(section)
+        print(f"######  PROCESS : {section}")
         getattr(process, "process_{}".format(section))()
         simplecache.set("process", process, CACHE_TIMEOUT)
     return process
@@ -169,18 +169,18 @@ def imdb_rating(slug):
     if IMDB_RATING_ACTIVE:
         title = request.args.get('title')
         if title:
-            cache_key = u"{}_imdb".format(title)
+            cache_key = f"{title}_imdb"
             imdb = simplecache.get(cache_key)
             if not imdb:
                 try:
                     spider = ImdbSpider(title)
-                except Exception, e:
-                    print u"ERROR - {}".format(e)
+                except Exception as e:
+                    print(f"ERROR - {e}")
                     return ''
                 try:
                     rating = spider.get_rating()
                 except Exception:
-                    print u"WARNING - no rating for: {}".format(title)
+                    print(f"WARNING - no rating for: {title}")
                     rating = None
                 imdb = Imdb(rating, spider.get_link())
                 simplecache.set(cache_key, imdb, IMDB_CACHE_TIMEOUT)
