@@ -1,8 +1,8 @@
-IMDB_RATING_ACTIVE = True
-
 MOVIES_SECTION_ACTIVE = True
 TVSHOWS_SECTION_ACTIVE = True
 MANGAS_SECTION_ACTIVE = True
+
+IMDB_RATING_ACTIVE = True
 
 TIMEOUT_REQUEST_PROVIDERS = 15
 
@@ -50,7 +50,7 @@ ZT_ACTIVATE_TVSHOWS = True
 ZT_ACTIVATE_MANGAS = True
 
 ZT_WEBSITE = "zone-telechargement"
-ZT_DOMAIN = "https://zone-telechargement2.org/"
+ZT_DOMAIN = "https://www.zone-telechargement.gg/"
 ZT_MAIN_ATTR_HTML = "div"
 ZT_MAIN_CLASS = "cover_global"
 ZT_URLS_MOVIES = ['?p=films&no-bluray']

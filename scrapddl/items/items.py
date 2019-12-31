@@ -69,7 +69,7 @@ class Item(object):
 
     @property
     def title_urlencoded(self):
-        return urllib.quote_plus(self.title.encode('utf-8'))
+        return urllib.parse.quote_plus(self.title.encode('utf-8'))
 
     def get_clone_property(self, field):
         for item in self.items_clone:
