@@ -49,7 +49,8 @@ setup(
         "requests",
         "scrap-imdb",
         "python-slugify",
-        "cloudscraper"],
+        "cloudscraper",
+        "cachelib"],
     zip_safe=False,
     keywords='scrapddl'
 )
