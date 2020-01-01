@@ -27,8 +27,7 @@ class BaseSpider(object):
         return bool(urlparse(url).netloc)
 
     def _get_root(self, tree):
-        return tree.xpath("//{}[@class='{}']".format(
-            self.main_attr_html, self.main_class))
+        return tree.xpath(f"//{self.main_attr_html}[@class='{self.main_class}']")
 
     def _get_page_url(self, element):
         raise NotImplementedError()

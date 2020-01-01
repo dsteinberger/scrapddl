@@ -9,8 +9,8 @@ from settings import ED_URLS_TVSHOWS
 
 
 class EDBaseSpider(BaseSpider):
-    main_attr_html = ED_MAIN_CLASS
-    main_class = ED_MAIN_ATTR_HTML
+    main_attr_html = ED_MAIN_ATTR_HTML
+    main_class = ED_MAIN_CLASS
     domain = ED_DOMAIN
     from_website = ED_WEBSITE
 
