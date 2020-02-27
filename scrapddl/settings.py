@@ -30,7 +30,7 @@ ED_WEBSITE = "extreme-down"
 ED_DOMAIN = "https://www.extreme-down.ninja"
 ED_MAIN_ATTR_HTML = "a"
 ED_MAIN_CLASS = "top-last thumbnails"
-ED_URLS_MOVIES = ['/films-sd/']
+ED_URLS_MOVIES = ['/films-new-sd/']
 ED_URLS_MOVIES_HD = ['/films-hd/ultrahd-4k']
 ED_URLS_TVSHOWS = ['/series/vostfr/']
 
