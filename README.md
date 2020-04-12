@@ -4,14 +4,14 @@ Pour visualiser les dernières sorties de vos sites DDL préférés !
 
 Films et séries :
 
-- https://zone-telechargement2.org/
+- https://www.zone-telechargement.gg/
 - https://wvw.extreme-down.xyz/home.html
 - http://www.ddl-island.su/
 
 Mangas :
 
 - https://www.universanimeiz.com/
-- https://zone-telechargement2.org/
+- https://www.zone-telechargement.gg/
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
 
