@@ -5,7 +5,7 @@ Pour visualiser les dernières sorties de vos sites DDL préférés !
 Films et séries :
 
 - https://www.zone-telechargement.gg/
-- https://wvw.extreme-down.xyz/home.html
+- https://www.extreme-down.video/home.html
 - http://www.ddl-island.su/
 
 Mangas :

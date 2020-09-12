@@ -27,7 +27,7 @@ ED_ACTIVATE_MOVIES_HD = False
 ED_ACTIVATE_TVSHOWS = True
 
 ED_WEBSITE = "extreme-down"
-ED_DOMAIN = "https://www.extreme-down.ninja"
+ED_DOMAIN = "https://www.extreme-down.video"
 ED_MAIN_ATTR_HTML = "a"
 ED_MAIN_CLASS = "top-last thumbnails"
 ED_URLS_MOVIES = ['/films-new-sd/']
