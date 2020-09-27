@@ -1,3 +1,5 @@
+import re
+
 from .base import BaseSpider
 from settings import ZT_MAIN_ATTR_HTML
 from settings import ZT_MAIN_CLASS
@@ -19,9 +21,14 @@ class ZTBaseSider(BaseSpider):
         return "{}{}".format(self.domain, element.xpath(
             ".//div[@class='cover_infos_title']/a")[0].items()[0][1])
 
-    def _get_title(self, element):
+    @staticmethod
+    def _get_title_path(element):
         title = element.xpath(
             ".//div[@class='cover_infos_title']/a")[0].text
+        return title
+
+    def _get_title(self, element):
+        title = ZTBaseSider._get_title_path(element)
         return self.clean_title(title)
 
     def _get_genre(self, element):
@@ -51,6 +58,14 @@ class ZTMoviesHDSpider(ZTBaseSider):
 
 class ZTTvShowsSpider(ZTBaseSider):
     urls = ZT_URLS_TVSHOWS
+
+    def _get_quality_language(self, element):
+        quality = super()._get_quality_language(element)
+        # Retrieve Saison X on title
+        title = ZTBaseSider._get_title_path(element)
+        p = re.compile(r"(?i)saison( )?(\d+)?")
+        saisons = p.search(title)
+        return f'{saisons.group(0)} {quality}'
 
 
 class ZTMangaSpider(ZTBaseSider):
