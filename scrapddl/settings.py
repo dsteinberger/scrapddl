@@ -13,7 +13,7 @@ DDLI_ACTIVATE_MOVIES_HD = False
 DDLI_ACTIVATE_TVSHOWS = True
 
 DDLI_WEBSITE = "ddl-island"
-DDLI_DOMAIN = "http://www.ddl-island.su"
+DDLI_DOMAIN = "http://www.ddl-is.land"
 DDLI_MAIN_ATTR_HTML = "div"
 DDLI_MAIN_CLASS = "fiche_listing"
 DDLI_URLS_MOVIES = ['/emule-telecharger/films-1.html&order=2']
@@ -59,14 +59,16 @@ ZT_URLS_TVSHOWS = ['?p=series&s=vostfr']
 ZT_URLS_MANGA = ['?p=mangas&s=vostfr']
 
 CLEAN_PATTERN_TITLE = [
-    "(\s)?(-)?(\s)?(\[.+\])(\s)?(-)?",  # (2018), (WEB)
-    "(\s)?(-)?(\s)?(\[.+\])(\s)?(-)?",  # [WEB], [2012]
-    "(\s)?(-)?(\s)?(\d\D+? Season)(\s)?(-)?",  # 2nd Season, 3th season
-    "(\s)?(-)?(\s)?(S\d+)(\s)?(-)?",  # S1, S2
-    "(\s)?(-)?(\s)?VOSTFR(\w+)?",  # - VOSTFR, VOSTFR, VOSTFR WEB
-    "(\s)?(-)?(\s)?saison( )?(\d+)?(\s)?(-)?",  # - Saison, Saison 2
-    "(\s)?(-)?(\s)?episode( )?(\d+)?(\s)?(-)?",  # - Episode, episode 2
-    "VF",
+    "(?i)\(([^\)]+)\)",  # (2018), (WEB)
+    "(?i)\[([^\)]+)\]",  # [WEB], [2012]
+    "(?i)(\d\D+? Season)",  # 2nd Season, 3th season
+    "(?i)(S\d+)",  # S1, S2
+    "(?i)VOSTFR(\w+)?",  # VOSTFR, VOSTFR, VOSTFR WEB
+    "(?i)saison( )?(\d+)?",  # Saison, Saison 2
+    "(?i)episode( )?(\d+)?",  # Episode, episode 2
+    "(?i)VF",  # VF
+    "(-)?",  # remove all -
+    "[ \t]+$",  # removing trailing spaces and tabs at the end
 ]
 
 try:

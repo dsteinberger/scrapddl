@@ -24,3 +24,6 @@ develop:  ## Install dev dependencies
 
 serve: ## Run server
 	python scrapddl/main.py
+
+test: ## Run test
+	pytest scrapddl/tests

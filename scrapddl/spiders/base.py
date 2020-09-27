@@ -6,9 +6,8 @@ from lxml import html
 from urllib.parse import urlparse
 from slugify import slugify
 
+from scrapddl.items.items import GroupItem, Item
 from scrapddl.settings import TIMEOUT_REQUEST_PROVIDERS, CLEAN_PATTERN_TITLE
-
-from items.items import GroupItem, Item
 
 
 class BaseSpider(object):
@@ -33,9 +32,14 @@ class BaseSpider(object):
         raise NotImplementedError()
 
     def clean_title(self, title):
-        remove = '|'.join(CLEAN_PATTERN_TITLE)
-        regex = re.compile(r'\b(' + remove + r')\b', flags=re.IGNORECASE)
-        return regex.sub("", title)
+
+        def _compile_title(title, remove):
+            return re.sub(remove, "", title)
+
+        for pattern in CLEAN_PATTERN_TITLE:
+            title = _compile_title(title, pattern)
+
+        return title
 
     def _get_title(self, element):
         raise NotImplementedError()
