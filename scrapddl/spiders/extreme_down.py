@@ -18,9 +18,7 @@ class EDBaseSpider(BaseSpider):
         return element.items()[1][1]
 
     def _get_title(self, element):
-        title = element.xpath(
-            ".//span[@class='top-title']")[0].text
-        return self.clean_title(title)
+        return element.xpath(".//span[@class='top-title']")[0].text
 
     def _get_genre(self, element):
         return element.xpath(

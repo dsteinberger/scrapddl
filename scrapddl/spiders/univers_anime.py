@@ -21,8 +21,7 @@ class UniversAnimeMangaSpider(BaseSpider):
         return element.xpath(".//div[@class='post-thumb']/a")[0].items()[0][1]
 
     def _get_title(self, element):
-        title = element.xpath(".//h2/a/@title")[0].strip()
-        return self.clean_title(title)
+        return element.xpath(".//h2/a/@title")[0].strip()
 
     def _get_genre(self, element):
         genre = element.xpath(".//p")

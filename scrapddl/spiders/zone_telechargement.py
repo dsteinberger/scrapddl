@@ -21,15 +21,8 @@ class ZTBaseSider(BaseSpider):
         return "{}{}".format(self.domain, element.xpath(
             ".//div[@class='cover_infos_title']/a")[0].items()[0][1])
 
-    @staticmethod
-    def _get_title_path(element):
-        title = element.xpath(
-            ".//div[@class='cover_infos_title']/a")[0].text
-        return title
-
     def _get_title(self, element):
-        title = ZTBaseSider._get_title_path(element)
-        return self.clean_title(title)
+        return element.xpath(".//div[@class='cover_infos_title']/a")[0].text
 
     def _get_genre(self, element):
         genre = element.xpath(".//div[@class='cover_infos_genre']")
@@ -59,14 +52,12 @@ class ZTMoviesHDSpider(ZTBaseSider):
 class ZTTvShowsSpider(ZTBaseSider):
     urls = ZT_URLS_TVSHOWS
 
-    def _get_quality_language(self, element):
-        quality = super()._get_quality_language(element)
-        # Retrieve Saison X on title
-        title = ZTBaseSider._get_title_path(element)
-        p = re.compile(r"(?i)saison( )?(\d+)?")
-        saisons = p.search(title)
-        return f'{saisons.group(0)} {quality}'
+    need_quality_data_from_title = True
+    quality_data_regex = [r"(?i)saison( )?(\d+)?"]
 
 
 class ZTMangaSpider(ZTBaseSider):
     urls = ZT_URLS_MANGA
+
+    need_quality_data_from_title = True
+    quality_data_regex = [r"(?i)saison( )?(\d+)?"]

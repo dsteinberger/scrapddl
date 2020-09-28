@@ -15,6 +15,8 @@ class BaseSpider(object):
     main_attr_html = None
     main_class = None
     from_website = None
+    need_quality_data_from_title = False
+    quality_data_regex = []
 
     def __init__(self):
         self.group_items = GroupItem()
@@ -53,6 +55,18 @@ class BaseSpider(object):
     def _get_quality_language(self, element):
         raise NotImplementedError()
 
+    def _get_quality_language_from_title(self, element):
+        extra_quality = ""
+
+        # Retrieve quality Data on title
+        title = self._get_title(element)
+        for regex in self.quality_data_regex:
+            p = re.compile(regex)
+            data = p.search(title)
+            extra_quality += f'{data.group(0)} '
+
+        return extra_quality
+
     def _get_elements(self, url):
         try:
             page = self.request_scraper.get(url,
@@ -79,27 +93,49 @@ class BaseSpider(object):
                 return
             for element in elements:
                 o = Item(self.from_website)
+
                 try:
                     o.page_url = self._get_page_url(element)
                 except (IndexError, AttributeError) as e:
                     print(f"ERROR - page url: {e} ### {o.__dict__}")
+
                 try:
-                    o.title = self._get_title(element)
+                    title = self._get_title(element)
+                    o.title = self.clean_title(title)
                 except (IndexError, AttributeError) as e:
                     print(f"ERROR - title: {e} ### {o.__dict__}")
                 o.slug = slugify(o.title)
+
                 try:
                     o.genre = self._get_genre(element)
                 except (IndexError, AttributeError) as e:
                     print(f"ERROR - genre: {e} ### {o.__dict__}")
+
                 try:
                     o.image = self._get_image(element)
                 except (IndexError, AttributeError) as e:
                     print(f"ERROR - image: {e} ### {o.__dict__}")
+
                 try:
-                    o.quality_language = self._get_quality_language(element)
+                    quality_language = self._get_quality_language(element)
                 except (IndexError, AttributeError) as e:
                     print(f"ERROR - quality & language: {e} ### {o.__dict__}")
+                if self.need_quality_data_from_title:
+                    try:
+                        extra_quality = self._get_quality_language_from_title(
+                            element)
+                    except (IndexError, AttributeError) as e:
+                        print(f"ERROR - Extra quality & language: {e} ### "
+                              f"{o.__dict__}")
+                    else:
+                        if quality_language:
+                            quality_language = \
+                                f'{extra_quality} {quality_language}'
+                        else:
+                            # when quality_language is None
+                            quality_language = extra_quality
+                o.quality_language = quality_language
+
                 self.group_items.items.append(o)
         except Exception as e:
             print(f"ERROR - GLOBAL: {e} ### {url}")

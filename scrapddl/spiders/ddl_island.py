@@ -18,8 +18,7 @@ class DDLIBaseSpider(BaseSpider):
         return element.xpath(".//a")[0].items()[0][1]
 
     def _get_title(self, element):
-        title = element.xpath(".//a[@class='f titre_fiche']")[0].text_content()
-        return self.clean_title(title)
+        return element.xpath(".//a[@class='f titre_fiche']")[0].text_content()
 
     def _get_genre(self, element):
         return None
@@ -41,3 +40,9 @@ class DDLIMoviesHDSpider(DDLIBaseSpider):
 
 class DDLITvShowsSpider(DDLIBaseSpider):
     urls = DDLI_URLS_TVSHOWS
+
+    need_quality_data_from_title = True
+    quality_data_regex = [
+        r"(?i)saison( )?(\d+)?",
+        r"(?i)VOSTFR(\w+)?"
+    ]
