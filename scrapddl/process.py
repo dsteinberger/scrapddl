@@ -1,4 +1,4 @@
-from spiders.extreme_down import EDMoviesSpider, EDMoviesHDSpider, EDTvShowsSpider
+from spiders.extreme_down import EDMoviesSpider, EDMoviesHDSpider, EDTvShowsSpider, EDMangaSpider
 from spiders.zone_telechargement import ZTMoviesSpider, ZTMoviesHDSpider, ZTTvShowsSpider, ZTMangaSpider
 from spiders.ddl_island import DDLIMoviesSpider, DDLIMoviesHDSpider, DDLITvShowsSpider
 from spiders.univers_anime import UniversAnimeMangaSpider
@@ -9,7 +9,7 @@ from scrapddl.settings import DDLI_ACTIVATE, DDLI_ACTIVATE_MOVIES, \
     DDLI_ACTIVATE_MOVIES_HD, ED_ACTIVATE, ED_ACTIVATE_MOVIES, \
     ED_ACTIVATE_MOVIES_HD, ZT_ACTIVATE, ZT_ACTIVATE_MOVIES, \
     ZT_ACTIVATE_MOVIES_HD, ED_ACTIVATE_TVSHOWS, ZT_ACTIVATE_TVSHOWS, \
-    DDLI_ACTIVATE_TVSHOWS, UA_ACTIVATE, ZT_ACTIVATE_MANGAS
+    DDLI_ACTIVATE_TVSHOWS, UA_ACTIVATE, ZT_ACTIVATE_MANGAS, ED_ACTIVATE_MANGAS
 
 
 class Process(object):
@@ -97,6 +97,12 @@ class Process(object):
             zt_manga_spider = ZTMangaSpider()
             zt_mangas_group_items = zt_manga_spider.parse()
             items_to_process.append(zt_mangas_group_items.items)
+
+        if ED_ACTIVATE_MANGAS:
+            print("##  Extreme Download")
+            ed_manga_spider = EDMangaSpider()
+            ed_mangas_group_items = ed_manga_spider.parse()
+            items_to_process.append(ed_mangas_group_items.items)
 
         self.mangas_group_items.zip_items(items_to_process)
 

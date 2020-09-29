@@ -25,6 +25,7 @@ ED_ACTIVATE = True
 ED_ACTIVATE_MOVIES = True
 ED_ACTIVATE_MOVIES_HD = False
 ED_ACTIVATE_TVSHOWS = True
+ED_ACTIVATE_MANGAS = True
 
 ED_WEBSITE = "extreme-down"
 ED_DOMAIN = "https://www.extreme-down.video"
@@ -33,6 +34,7 @@ ED_MAIN_CLASS = "top-last thumbnails"
 ED_URLS_MOVIES = ['/films-new-sd/']
 ED_URLS_MOVIES_HD = ['/films-hd/ultrahd-4k']
 ED_URLS_TVSHOWS = ['/series/vostfr/']
+ED_URLS_MANGA = ['/mangas/series-vostfr/']
 
 # Univers Anime
 UA_ACTIVATE = True

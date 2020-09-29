@@ -6,6 +6,7 @@ from settings import ED_WEBSITE
 from settings import ED_URLS_MOVIES
 from settings import ED_URLS_MOVIES_HD
 from settings import ED_URLS_TVSHOWS
+from settings import ED_URLS_MANGA
 
 
 class EDBaseSpider(BaseSpider):
@@ -42,3 +43,7 @@ class EDMoviesHDSpider(EDBaseSpider):
 
 class EDTvShowsSpider(EDBaseSpider):
     urls = ED_URLS_TVSHOWS
+
+
+class EDMangaSpider(EDBaseSpider):
+    urls = ED_URLS_MANGA
