@@ -2,16 +2,25 @@
     <div class="carousel-inner {{ section }}">
         {% with need_rating=1 %}
             {% for item_list in objects_list %}
-                <div class="item {% if loop.index == 1 %}active{% endif %}">
+                <div class="carousel-item {% if loop.index == 1 %}active{% endif %}">
                     {% include "_items.html" %}
                 </div>
             {% endfor %}
         {% endwith %}
     </div>
     <nav>
-        <ul class="control-box pager">
-            <li><a data-slide="prev" href="#{{ section }}Carousel" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
-            <li><a data-slide="next" href="#{{ section }}Carousel" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
-        </ul>
+
+    <a data-slide="prev" href="#{{ section }}Carousel" class="carousel-control-prev">
+        <svg class="bi" width="32" height="32" fill="currentColor">
+          <use xlink:href="{{url_for('static', filename='bootstrap-icons.svg#chevron-left.svg')}}"/>
+        </svg>
+    </a>
+
+    <a data-slide="next" href="#{{ section }}Carousel" class="carousel-control-next">
+        <svg class="bi" width="32" height="32" fill="currentColor">
+          <use xlink:href="{{url_for('static', filename='bootstrap-icons.svg#chevron-right.svg')}}"/>
+        </svg>
+    </a>
+
     </nav>
 </div>

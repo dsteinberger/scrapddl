@@ -3,7 +3,6 @@ from flask import render_template
 from flask import request
 from flask import url_for
 from flask import redirect
-from flask_bootstrap import Bootstrap
 
 from cachelib.simple import SimpleCache
 
@@ -25,7 +24,6 @@ IMDB_CACHE_TIMEOUT = 0
 
 def create_app():
     app = Flask(__name__)
-    Bootstrap(app)
     return app
 
 

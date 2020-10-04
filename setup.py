@@ -44,7 +44,6 @@ setup(
     install_requires=[
         "Flask",
         "lxml",
-        "Flask-Bootstrap",
         "pyOpenSSL",
         "requests",
         "scrap-imdb",
