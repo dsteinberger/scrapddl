@@ -28,7 +28,7 @@ ED_ACTIVATE_TVSHOWS = True
 ED_ACTIVATE_MANGAS = True
 
 ED_WEBSITE = "extreme-down"
-ED_DOMAIN = "https://www.extreme-down.live"
+ED_DOMAIN = "https://www.extreme-down.blue"
 ED_MAIN_ATTR_HTML = "a"
 ED_MAIN_CLASS = "top-last thumbnails"
 ED_URLS_MOVIES = ['/films-new-sd/']
@@ -52,7 +52,7 @@ ZT_ACTIVATE_TVSHOWS = True
 ZT_ACTIVATE_MANGAS = True
 
 ZT_WEBSITE = "zone-telechargement"
-ZT_DOMAIN = "https://www.zone-telechargement.blue/"
+ZT_DOMAIN = "https://www.zone-telechargement.work/"
 ZT_MAIN_ATTR_HTML = "div"
 ZT_MAIN_CLASS = "cover_global"
 ZT_URLS_MOVIES = ['?p=films&no-bluray']
