@@ -6,12 +6,15 @@ Films et séries :
 
 - https://www.zone-telechargement.work/
 - https://www.extreme-down.blue/ (info nom de domaine : https://www.extreme-down.info/)
+- https://www2.tirexo.work/
 
 Mangas :
 
+- https://www.universanimeiz.com/
 - https://www.zone-telechargement.work/
 - https://www.extreme-down.blue/ (info nom de domaine : https://www.extreme-down.info/)
-- https://www.universanimeiz.com/
+- https://www2.tirexo.work/
+
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
 

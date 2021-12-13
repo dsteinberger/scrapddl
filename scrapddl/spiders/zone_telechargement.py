@@ -11,7 +11,7 @@ from settings import ZT_URLS_TVSHOWS
 from settings import ZT_URLS_MANGA
 
 
-class ZTBaseSider(BaseSpider):
+class ZTBaseSpider(BaseSpider):
     main_attr_html = ZT_MAIN_ATTR_HTML
     main_class = ZT_MAIN_CLASS
     domain = ZT_DOMAIN
@@ -41,22 +41,22 @@ class ZTBaseSider(BaseSpider):
             ".//div[@class='cover_infos_title']/span/span/b")[0].text.strip()
 
 
-class ZTMoviesSpider(ZTBaseSider):
+class ZTMoviesSpider(ZTBaseSpider):
     urls = ZT_URLS_MOVIES
 
 
-class ZTMoviesHDSpider(ZTBaseSider):
+class ZTMoviesHDSpider(ZTBaseSpider):
     urls = ZT_URLS_MOVIES_HD
 
 
-class ZTTvShowsSpider(ZTBaseSider):
+class ZTTvShowsSpider(ZTBaseSpider):
     urls = ZT_URLS_TVSHOWS
 
     need_quality_data_from_title = True
     quality_data_regex = [r"(?i)saison( )?(\d+)?"]
 
 
-class ZTMangaSpider(ZTBaseSider):
+class ZTMangaSpider(ZTBaseSpider):
     urls = ZT_URLS_MANGA
 
     need_quality_data_from_title = True

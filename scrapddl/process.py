@@ -2,6 +2,7 @@ from spiders.extreme_down import EDMoviesSpider, EDMoviesHDSpider, EDTvShowsSpid
 from spiders.zone_telechargement import ZTMoviesSpider, ZTMoviesHDSpider, ZTTvShowsSpider, ZTMangaSpider
 from spiders.ddl_island import DDLIMoviesSpider, DDLIMoviesHDSpider, DDLITvShowsSpider
 from spiders.univers_anime import UniversAnimeMangaSpider
+from spiders.tirexo import TOMoviesSpider, TOTvShowsSpider, TOMangaSpider, TOMoviesHDSpider
 
 from items.items import GroupItem
 
@@ -9,7 +10,8 @@ from scrapddl.settings import DDLI_ACTIVATE, DDLI_ACTIVATE_MOVIES, \
     DDLI_ACTIVATE_MOVIES_HD, ED_ACTIVATE, ED_ACTIVATE_MOVIES, \
     ED_ACTIVATE_MOVIES_HD, ZT_ACTIVATE, ZT_ACTIVATE_MOVIES, \
     ZT_ACTIVATE_MOVIES_HD, ED_ACTIVATE_TVSHOWS, ZT_ACTIVATE_TVSHOWS, \
-    DDLI_ACTIVATE_TVSHOWS, UA_ACTIVATE, ZT_ACTIVATE_MANGAS, ED_ACTIVATE_MANGAS
+    DDLI_ACTIVATE_TVSHOWS, UA_ACTIVATE, ZT_ACTIVATE_MANGAS, ED_ACTIVATE_MANGAS, \
+    TO_ACTIVATE, TO_ACTIVATE_MOVIES, TO_ACTIVATE_MOVIES_HD, TO_ACTIVATE_TVSHOWS, TO_ACTIVATE_MANGAS
 
 
 class Process(object):
@@ -58,6 +60,18 @@ class Process(object):
                 ddli_movies_hd_group_items = ddli_movies_hd_spider.parse()
                 items_to_process.append(ddli_movies_hd_group_items.items)
 
+        if TO_ACTIVATE:
+            if TO_ACTIVATE_MOVIES:
+                print("##  Tirexo")
+                to_movies_spider = TOMoviesSpider()
+                to_movies_group_items = to_movies_spider.parse()
+                items_to_process.append(to_movies_group_items.items)
+            if TO_ACTIVATE_MOVIES_HD:
+                print("##  Tirexo")
+                to_movies_hd_spider = TOMoviesHDSpider()
+                to_movies_hd_group_items = to_movies_hd_spider.parse()
+                items_to_process.append(to_movies_hd_group_items.items)
+
         self.movies_group_items.zip_items(items_to_process)
 
     def process_tvshows(self):
@@ -81,6 +95,12 @@ class Process(object):
             ddli_tvshows_group_items = ddli_tvshows_spider.parse()
             items_to_process.append(ddli_tvshows_group_items.items)
 
+        if TO_ACTIVATE_TVSHOWS:
+            print("##  Zone Telechargement")
+            to_tvshows_spider = TOTvShowsSpider()
+            to_tvshows_group_items = to_tvshows_spider.parse()
+            items_to_process.append(to_tvshows_group_items.items)
+
         self.tvshows_group_items.zip_items(items_to_process)
 
     def process_mangas(self):
@@ -103,6 +123,12 @@ class Process(object):
             ed_manga_spider = EDMangaSpider()
             ed_mangas_group_items = ed_manga_spider.parse()
             items_to_process.append(ed_mangas_group_items.items)
+
+        if TO_ACTIVATE_MANGAS:
+            print("##  Zone Telechargement")
+            to_manga_spider = TOMangaSpider()
+            to_mangas_group_items = to_manga_spider.parse()
+            items_to_process.append(to_mangas_group_items.items)
 
         self.mangas_group_items.zip_items(items_to_process)
 
