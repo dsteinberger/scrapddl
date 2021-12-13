@@ -26,7 +26,7 @@ et permet de DL les sous titres Français correspondant.
 
 ## Aperçu du site
 
-![capture d'écran](images/homev2.png)
+![screenshot](images/homev3.png)
 
 
 ## Lancer le site

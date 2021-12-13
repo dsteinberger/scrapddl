@@ -77,7 +77,7 @@ ul.thumbnails {
     border-radius: 0px;
 }
 .thumbnail a>img{
-    max-height: 300px;
+    max-height: 270px;
     min-height: 128px;
     width: 100%;
 }

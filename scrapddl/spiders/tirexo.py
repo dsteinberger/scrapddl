@@ -12,7 +12,7 @@ class TOBaseSpider(BaseSpider):
     from_website = TO_WEBSITE
 
     def _get_page_url(self, element):
-        return element.xpath(".//a")[0].items()[0][1]
+        return element.xpath(".//a")[0].items()[1][1]
 
     def _get_title(self, element):
         return element.xpath(".//a")[2].text.strip()
