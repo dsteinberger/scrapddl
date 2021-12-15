@@ -5,14 +5,14 @@ Pour visualiser les dernières sorties de vos sites DDL préférés !
 Films et séries :
 
 - https://www.zone-telechargement.work/
-- https://www.extreme-down.blue/ (info nom de domaine : https://www.extreme-down.info/)
+- http://www.extreme-down.plus/ (info nom de domaine : https://www.extreme-down.info/)
 - https://www2.tirexo.work/
 
 Mangas :
 
 - https://www.universanimeiz.com/
 - https://www.zone-telechargement.work/
-- https://www.extreme-down.blue/ (info nom de domaine : https://www.extreme-down.info/)
+- http://www.extreme-down.plus/ (info nom de domaine : https://www.extreme-down.info/)
 - https://www2.tirexo.work/
 
 
