@@ -77,9 +77,8 @@ ul.thumbnails {
     border-radius: 0px;
 }
 .thumbnail a>img{
-    max-height: 270px;
-    min-height: 128px;
-    width: 100%;
+    height: 250px;
+    width: 200px;
 }
 .mangas .thumbnail a>img{
     max-height: 128px;

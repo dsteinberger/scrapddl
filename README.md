@@ -13,7 +13,7 @@ Mangas :
 - https://www.universanimeiz.com/
 - https://www.zone-telechargement.work/
 - http://www.extreme-down.plus/ (info nom de domaine : https://www.extreme-down.info/)
-- https://www2.tirexo.work/
+- https://www.tirexo.art/ (info sur : https://mamot.fr/@zone_telechargement/)
 
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.

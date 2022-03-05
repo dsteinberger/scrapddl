@@ -68,13 +68,13 @@ TO_ACTIVATE_TVSHOWS = True
 TO_ACTIVATE_MANGAS = True
 
 TO_WEBSITE = "tirexo"
-TO_DOMAIN = "https://www2.tirexo.work"
+TO_DOMAIN = "https://www2.tirexo.art/"
 TO_MAIN_ATTR_HTML = "div"
 TO_MAIN_CLASS = "mov clearfix"
-TO_URLS_MOVIES = ['?do=cat&category=films-gratuit&epoque=2021']
-TO_URLS_MOVIES_HD = ['?do=cat&category=films-gratuit&epoque=2021&qualite=17']
-TO_URLS_TVSHOWS = ['?do=cat&category=telecharger-series&epoque=2021']
-TO_URLS_MANGA = ['?do=cat&category=animes&epoque=2021']
+TO_URLS_MOVIES = ['?do=cat&category=last-films']
+TO_URLS_MOVIES_HD = ['?do=cat&category=films-bluray-hd-1080']
+TO_URLS_TVSHOWS = ['?do=cat&category=series-vostfr']
+TO_URLS_MANGA = ['?do=cat&category=animes-vostfr']
 
 CLEAN_PATTERN_TITLE = [
     "(?i)\(([^\)]+)\)",  # (2018), (WEB)
