@@ -4,14 +4,14 @@ Pour visualiser les dernières sorties de vos sites DDL préférés !
 
 Films et séries :
 
-- https://www.zone-telechargement.work/
+- https://www.zone-telechargement.click/
 - http://www.extreme-down.plus/ (info nom de domaine : https://www.extreme-down.info/)
 - https://www.tirexo.art/ (info sur : https://mamot.fr/@zone_telechargement/)
 
 Mangas :
 
 - https://www.universanimeiz.com/
-- https://www.zone-telechargement.work/
+- https://www.zone-telechargement.click/
 - http://www.extreme-down.plus/ (info nom de domaine : https://www.extreme-down.info/)
 - https://www.tirexo.art/ (info sur : https://mamot.fr/@zone_telechargement/)
 
