@@ -8,9 +8,9 @@ TIMEOUT_REQUEST_PROVIDERS = 15
 
 # DDL ISLAND
 DDLI_ACTIVATE = False
-DDLI_ACTIVATE_MOVIES = True
+DDLI_ACTIVATE_MOVIES = False
 DDLI_ACTIVATE_MOVIES_HD = False
-DDLI_ACTIVATE_TVSHOWS = True
+DDLI_ACTIVATE_TVSHOWS = False
 
 DDLI_WEBSITE = "ddl-island"
 DDLI_DOMAIN = "http://www.ddl-is.land"
@@ -28,7 +28,7 @@ ED_ACTIVATE_TVSHOWS = True
 ED_ACTIVATE_MANGAS = True
 
 ED_WEBSITE = "extreme-down"
-ED_DOMAIN = "http://www.extreme-down.plus"
+ED_DOMAIN = "https://www.extreme-down.io"
 ED_MAIN_ATTR_HTML = "a"
 ED_MAIN_CLASS = "top-last thumbnails"
 ED_URLS_MOVIES = ['/films-new-sd/']
@@ -68,7 +68,7 @@ TO_ACTIVATE_TVSHOWS = True
 TO_ACTIVATE_MANGAS = True
 
 TO_WEBSITE = "tirexo"
-TO_DOMAIN = "https://www2.tirexo.art/"
+TO_DOMAIN = "https://www2.papaflix.com/"
 TO_MAIN_ATTR_HTML = "div"
 TO_MAIN_CLASS = "mov clearfix"
 TO_URLS_MOVIES = ['?do=cat&category=last-films']
