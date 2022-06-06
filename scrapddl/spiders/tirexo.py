@@ -27,9 +27,8 @@ class TOBaseSpider(BaseSpider):
         return image
 
     def _get_quality_language(self, element):
-        genre = element.xpath(".//span[@class='qualite']/b")[0].text.strip()
-        language = element.xpath(".//span[@class='langue']/b")[0].text.strip()
-        return f"{genre} {language}"
+        # hard to discover now...
+        return
 
 
 class TOMoviesSpider(TOBaseSpider):

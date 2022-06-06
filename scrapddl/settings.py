@@ -68,7 +68,7 @@ TO_ACTIVATE_TVSHOWS = True
 TO_ACTIVATE_MANGAS = True
 
 TO_WEBSITE = "tirexo"
-TO_DOMAIN = "https://www2.papaflix.com/"
+TO_DOMAIN = "https://www2.palixi.com/"
 TO_MAIN_ATTR_HTML = "div"
 TO_MAIN_CLASS = "mov clearfix"
 TO_URLS_MOVIES = ['?do=cat&category=last-films']

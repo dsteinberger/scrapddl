@@ -6,14 +6,14 @@ Films et séries :
 
 - https://www.zone-telechargement.click/
 - http://www.extreme-down.plus/ (info nom de domaine : https://www.extreme-down.info/)
-- https://www2.papaflix.com/ (anciennement Tirexo)
+- https://www2.palixi.com/ (anciennement Tirexo)
 
 Mangas :
 
 - https://www.universanimeiz.com/
 - https://www.zone-telechargement.click/
 - http://www.extreme-down.plus/ (info nom de domaine : https://www.extreme-down.info/)
-- https://www2.papaflix.com/ (anciennement Tirexo)
+- https://www2.palixi.com/ (anciennement Tirexo)
 
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
