@@ -28,7 +28,7 @@ ED_ACTIVATE_TVSHOWS = True
 ED_ACTIVATE_MANGAS = True
 
 ED_WEBSITE = "extreme-down"
-ED_DOMAIN = "https://www.extreme-down.io"
+ED_DOMAIN = "https://www.extreme-down.lol"
 ED_MAIN_ATTR_HTML = "a"
 ED_MAIN_CLASS = "top-last thumbnails"
 ED_URLS_MOVIES = ['/films-new-sd/']
@@ -61,11 +61,11 @@ ZT_URLS_TVSHOWS = ['?p=series&s=vostfr']
 ZT_URLS_MANGA = ['?p=mangas&s=vostfr']
 
 # Tirexo
-TO_ACTIVATE = True
-TO_ACTIVATE_MOVIES = True
+TO_ACTIVATE = False
+TO_ACTIVATE_MOVIES = False
 TO_ACTIVATE_MOVIES_HD = False
-TO_ACTIVATE_TVSHOWS = True
-TO_ACTIVATE_MANGAS = True
+TO_ACTIVATE_TVSHOWS = False
+TO_ACTIVATE_MANGAS = False
 
 TO_WEBSITE = "tirexo"
 TO_DOMAIN = "https://www2.palixi.com/"
