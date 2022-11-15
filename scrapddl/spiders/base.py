@@ -4,6 +4,8 @@ import requests
 import cloudscraper
 from lxml import html
 from urllib.parse import urlparse
+
+from lxml.etree import XPathEvalError
 from slugify import slugify
 
 from scrapddl.items.items import GroupItem, Item
@@ -93,18 +95,18 @@ class BaseSpider(object):
                 return
             for element in elements:
                 o = Item(self.from_website)
-
                 try:
                     o.page_url = self._get_page_url(element)
                 except (IndexError, AttributeError) as e:
                     print(f"ERROR - page url: {e} ### {o.__dict__}")
-
                 try:
                     title = self._get_title(element)
                     o.title = self.clean_title(title)
-                except (IndexError, AttributeError) as e:
+                except (IndexError, AttributeError, TypeError, XPathEvalError) as e:
                     print(f"ERROR - title: {e} ### {o.__dict__}")
-                o.slug = slugify(o.title)
+                    o.title = ""
+                else:
+                    o.slug = slugify(o.title)
 
                 try:
                     o.genre = self._get_genre(element)
