@@ -5,13 +5,14 @@ Pour visualiser les dernières sorties de vos sites DDL préférés !
 Films et séries :
 
 - https://www.zone-telechargement.ink/
-- http://www.extreme-down.plus/ (info nom de domaine : https://www.extreme-down.info/)
+- https://www.extreme-down.lol (info nom de domaine : https://www.extreme-down.info/)
+- https://www.wawacity.moe/
 
 Mangas :
 
 - https://www.universanimeiz.com/
 - https://www.zone-telechargement.ink/
-- http://www.extreme-down.plus/ (info nom de domaine : https://www.extreme-down.info/)
+- https://www.extreme-down.lol (info nom de domaine : https://www.extreme-down.info/)
 
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.

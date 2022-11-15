@@ -6,20 +6,6 @@ IMDB_RATING_ACTIVE = True
 
 TIMEOUT_REQUEST_PROVIDERS = 15
 
-# DDL ISLAND
-DDLI_ACTIVATE = False
-DDLI_ACTIVATE_MOVIES = False
-DDLI_ACTIVATE_MOVIES_HD = False
-DDLI_ACTIVATE_TVSHOWS = False
-
-DDLI_WEBSITE = "ddl-island"
-DDLI_DOMAIN = "http://www.ddl-is.land"
-DDLI_MAIN_ATTR_HTML = "div"
-DDLI_MAIN_CLASS = "fiche_listing"
-DDLI_URLS_MOVIES = ['/emule-telecharger/films-1.html&order=2']
-DDLI_URLS_MOVIES_HD = ['/emule-telecharger/films-hd-13.html&order=2']
-DDLI_URLS_TVSHOWS = ['/emule-telecharger/series-tv-6.html&order=2']
-
 # Extrem down
 ED_ACTIVATE = True
 ED_ACTIVATE_MOVIES = True
@@ -60,6 +46,24 @@ ZT_URLS_MOVIES_HD = ['?p=films&s=ultra-hd-4k']
 ZT_URLS_TVSHOWS = ['?p=series&s=vostfr']
 ZT_URLS_MANGA = ['?p=mangas&s=vostfr']
 
+# WawaCity
+WC_ACTIVATE = True
+WC_ACTIVATE_MOVIES = True
+WC_ACTIVATE_MOVIES_HD = False
+WC_ACTIVATE_TVSHOWS = True
+WC_ACTIVATE_MANGAS = True
+
+WC_WEBSITE = "wawacity"
+WC_DOMAIN = "https://www.wawacity.cam/"
+WC_MAIN_ATTR_HTML = "div"
+WC_MAIN_CLASS = "wa-sub-block wa-post-detail-item"
+WC_URLS_MOVIES = ['?p=films&no-bluray']
+WC_URLS_MOVIES_HD = ['?p=films&s=ultra-hd-4k']
+WC_URLS_TVSHOWS = ['?p=series&s=vostfr']
+WC_URLS_MANGA = ['?p=mangas&s=vostfr']
+
+# --- OBSOLETE
+
 # Tirexo
 TO_ACTIVATE = False
 TO_ACTIVATE_MOVIES = False
@@ -75,6 +79,20 @@ TO_URLS_MOVIES = ['?do=cat&category=last-films']
 TO_URLS_MOVIES_HD = ['?do=cat&category=films-bluray-hd-1080']
 TO_URLS_TVSHOWS = ['?do=cat&category=series-vostfr']
 TO_URLS_MANGA = ['?do=cat&category=animes-vostfr']
+
+# DDL ISLAND
+DDLI_ACTIVATE = False
+DDLI_ACTIVATE_MOVIES = False
+DDLI_ACTIVATE_MOVIES_HD = False
+DDLI_ACTIVATE_TVSHOWS = False
+
+DDLI_WEBSITE = "ddl-island"
+DDLI_DOMAIN = "http://www.ddl-is.land"
+DDLI_MAIN_ATTR_HTML = "div"
+DDLI_MAIN_CLASS = "fiche_listing"
+DDLI_URLS_MOVIES = ['/emule-telecharger/films-1.html&order=2']
+DDLI_URLS_MOVIES_HD = ['/emule-telecharger/films-hd-13.html&order=2']
+DDLI_URLS_TVSHOWS = ['/emule-telecharger/series-tv-6.html&order=2']
 
 CLEAN_PATTERN_TITLE = [
     "(?i)\(([^\)]+)\)",  # (2018), (WEB)
