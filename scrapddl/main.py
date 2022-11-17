@@ -10,7 +10,7 @@ from cachelib.simple import SimpleCache
 from scrapimdb import ImdbSpider
 
 from process import Process
-from settings import IMDB_RATING_ACTIVE
+from settings import IMDB_RATING_ACTIVE, ED_DOMAIN, UA_DOMAIN, ZT_DOMAIN, WC_DOMAIN
 from settings import MOVIES_SECTION_ACTIVE
 from settings import TVSHOWS_SECTION_ACTIVE
 from settings import MANGAS_SECTION_ACTIVE
@@ -38,7 +38,11 @@ def settings():
         "imdb_rating_active": IMDB_RATING_ACTIVE,
         "movies_section_active": MOVIES_SECTION_ACTIVE,
         "tvshows_section_active": TVSHOWS_SECTION_ACTIVE,
-        "mangas_section_active": MANGAS_SECTION_ACTIVE
+        "mangas_section_active": MANGAS_SECTION_ACTIVE,
+        "ed_url": ED_DOMAIN,
+        "zt_url": ZT_DOMAIN,
+        "wc_url": WC_DOMAIN,
+        "ua_url": UA_DOMAIN,
     }
 
 

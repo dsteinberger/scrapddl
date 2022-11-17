@@ -5,6 +5,18 @@
         <div class="col-xs-12">
             <div class="row">
                 <a href="/refresh" class="btn btn-warning refresh">Tout actualiser</a>
+                <a href="{{ ed_url }}" target="_blank">
+                    <img class="favicon" src="{{url_for('static', filename='extreme-down.ico')}}"/>
+                </a>
+                <a href="{{ zt_url }}" target="_blank">
+                    <img class="favicon" src="{{url_for('static', filename='zone-telechargement.ico')}}"/>
+                </a>
+                <a href="{{ wc_url }}" target="_blank">
+                    <img class="favicon" src="{{url_for('static', filename='wawacity.ico')}}"/>
+                </a>
+                <a href="{{ ua_url }}" target="_blank">
+                    <img class="favicon" src="{{url_for('static', filename='univers-anime.ico')}}"/>
+                </a>
              </div>
         </div>
         {% if movies_section_active %}
