@@ -5,8 +5,11 @@ from settings import UA_DOMAIN
 from settings import UA_WEBSITE
 from settings import UA_URLS
 
+from settings import UA_ACTIVATE
+
 
 class UniversAnimeMangaSpider(BaseSpider):
+    name = "Univers Anime"
     urls = UA_URLS
     main_attr_html = UA_MAIN_ATTR_HTML
     main_class = UA_MAIN_CLASS
@@ -33,3 +36,7 @@ class UniversAnimeMangaSpider(BaseSpider):
 
     def _get_quality_language(self, element):
         return None
+
+    @staticmethod
+    def is_activated():
+        return True if UA_ACTIVATE else False

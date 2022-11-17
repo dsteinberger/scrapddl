@@ -35,6 +35,10 @@ class BaseSpider(object):
     def _get_page_url(self, element):
         raise NotImplementedError()
 
+    @staticmethod
+    def is_activated():
+        raise NotImplementedError()
+
     def clean_title(self, title):
 
         def _compile_title(title, remove):

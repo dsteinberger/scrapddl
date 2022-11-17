@@ -1,7 +1,7 @@
 import re
 
 from .base import BaseSpider
-from settings import ZT_MAIN_ATTR_HTML
+from settings import ZT_MAIN_ATTR_HTML, ZT_ACTIVATE_MOVIES_HD, ZT_ACTIVATE_TVSHOWS, ZT_ACTIVATE_MANGAS
 from settings import ZT_MAIN_CLASS
 from settings import ZT_DOMAIN
 from settings import ZT_WEBSITE
@@ -10,8 +10,11 @@ from settings import ZT_URLS_MOVIES_HD
 from settings import ZT_URLS_TVSHOWS
 from settings import ZT_URLS_MANGA
 
+from settings import ZT_ACTIVATE, ZT_ACTIVATE_MOVIES
+
 
 class ZTBaseSpider(BaseSpider):
+    name = "Zone telechargement"
     main_attr_html = ZT_MAIN_ATTR_HTML
     main_class = ZT_MAIN_CLASS
     domain = ZT_DOMAIN
@@ -44,9 +47,17 @@ class ZTBaseSpider(BaseSpider):
 class ZTMoviesSpider(ZTBaseSpider):
     urls = ZT_URLS_MOVIES
 
+    @staticmethod
+    def is_activated():
+        return True if ZT_ACTIVATE and ZT_ACTIVATE_MOVIES else False
+
 
 class ZTMoviesHDSpider(ZTBaseSpider):
     urls = ZT_URLS_MOVIES_HD
+
+    @staticmethod
+    def is_activated():
+        return True if ZT_ACTIVATE and ZT_ACTIVATE_MOVIES_HD else False
 
 
 class ZTTvShowsSpider(ZTBaseSpider):
@@ -55,9 +66,17 @@ class ZTTvShowsSpider(ZTBaseSpider):
     need_quality_data_from_title = True
     quality_data_regex = [r"(?i)saison( )?(\d+)?"]
 
+    @staticmethod
+    def is_activated():
+        return True if ZT_ACTIVATE and ZT_ACTIVATE_TVSHOWS else False
+
 
 class ZTMangaSpider(ZTBaseSpider):
     urls = ZT_URLS_MANGA
 
     need_quality_data_from_title = True
     quality_data_regex = [r"(?i)saison( )?(\d+)?"]
+
+    @staticmethod
+    def is_activated():
+        return True if ZT_ACTIVATE and ZT_ACTIVATE_MANGAS else False

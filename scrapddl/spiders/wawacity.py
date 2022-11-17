@@ -8,15 +8,21 @@ from settings import WC_URLS_MOVIES_HD
 from settings import WC_URLS_TVSHOWS
 from settings import WC_URLS_MANGA
 
+from settings import WC_ACTIVATE, WC_ACTIVATE_MOVIES, WC_ACTIVATE_MOVIES_HD, WC_ACTIVATE_TVSHOWS, WC_ACTIVATE_MANGAS
+
 
 class WCBaseSpider(BaseSpider):
+    name = "Wawa city"
     main_attr_html = WC_MAIN_ATTR_HTML
     main_class = WC_MAIN_CLASS
     domain = WC_DOMAIN
     from_website = WC_WEBSITE
 
     def _get_page_url(self, element):
-        return element.xpath(".//div[@class='wa-sub-block-title']/a")[0].items()[0][1]
+        url = element.xpath(".//div[@class='wa-sub-block-title']/a")[0].items()[0][1]
+        if not self.is_absolute(url):
+            return "{}{}".format(self.domain, url)
+        return url
 
     def _get_title(self, element):
         return element.xpath(".//div[@class='wa-sub-block-title']/a/text()")[0].strip()
@@ -38,14 +44,30 @@ class WCBaseSpider(BaseSpider):
 class WCMoviesSpider(WCBaseSpider):
     urls = WC_URLS_MOVIES
 
+    @staticmethod
+    def is_activated():
+        return True if WC_ACTIVATE and WC_ACTIVATE_MOVIES else False
+
 
 class WCMoviesHDSpider(WCBaseSpider):
     urls = WC_URLS_MOVIES_HD
+
+    @staticmethod
+    def is_activated():
+        return True if WC_ACTIVATE and WC_ACTIVATE_MOVIES_HD else False
 
 
 class WCTvShowsSpider(WCBaseSpider):
     urls = WC_URLS_TVSHOWS
 
+    @staticmethod
+    def is_activated():
+        return True if WC_ACTIVATE and WC_ACTIVATE_TVSHOWS else False
+
 
 class WCMangaSpider(WCBaseSpider):
     urls = WC_URLS_MANGA
+
+    @staticmethod
+    def is_activated():
+        return True if WC_ACTIVATE and WC_ACTIVATE_MANGAS else False
