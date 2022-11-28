@@ -54,7 +54,7 @@ WC_ACTIVATE_TVSHOWS = True
 WC_ACTIVATE_MANGAS = True
 
 WC_WEBSITE = "wawacity"
-WC_DOMAIN = "https://www.wawacity.cam/"
+WC_DOMAIN = "https://www.wawacity.moe/"
 WC_MAIN_ATTR_HTML = "div"
 WC_MAIN_CLASS = "wa-sub-block wa-post-detail-item"
 WC_URLS_MOVIES = ['?p=films&no-bluray']
