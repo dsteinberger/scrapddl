@@ -2,16 +2,19 @@
 
 Pour visualiser les dernières sorties de vos sites DDL préférés !
 
+!!! Attention il est possible que votre FAI bloque les sites ci-dessous, vous pouvez utiliser un `VPN`, 
+il en existe des gratuits comme `protonvpn`
+
 Films et séries :
 
-- https://www.zone-telechargement.bond/
+- https://www.zone-telechargement.tech/
 - https://www.extreme-down.lol (info nom de domaine : https://www.extreme-down.info/)
-- https://www.wawacity.bond/
+- https://www.wawacity.tech/
 
 Mangas :
 
 - https://www.universanimeiz.com/
-- https://www.zone-telechargement.bond/
+- https://www.zone-telechargement.tech/
 - https://www.extreme-down.lol (info nom de domaine : https://www.extreme-down.info/)
 
 
