@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "scrapddl"
+version = "0.1.0"
+description = ""
+authors = ["dsteinberger <david.steinberger@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+flask = "^2.2.2"
+lxml = "^4.9.2"
+flask-bootstrap = "^3.3.7.1"
+pyopenssl = "^23.0.0"
+requests = "^2.28.2"
+scrap-imdb = "^0.1.6"
+python-slugify = "^8.0.0"
+cachelib = "^0.10.2"
+cloudscraper = "^1.2.68"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.1"
+ipdb = "^0.13.11"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

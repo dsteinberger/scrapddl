@@ -33,7 +33,7 @@ et permet de DL les sous titres Français correspondant.
 
 ## Lancer le site
 
-Il faut au préalable installer les dépendances (installer les deps avec virtualenv, pour utiliser: run.sh.dist):
+Installer poetry (https://python-poetry.org/docs/#installation)
 
 ```
 make install

@@ -1,5 +1,0 @@
-#!/bin/bash
-
-. <path>/scrapddl/env/bin/activate;
-
-make -C <path>/scrapddl serve;
