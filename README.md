@@ -8,7 +8,7 @@ il en existe des gratuits comme `protonvpn`
 Films et séries :
 
 - https://www.zone-telechargement.hair/
-- https://www.extreme-down.cam (info nom de domaine : https://www.extreme-down.info/)
+- https://www.extreme-down.cam
 - https://www.wawacity.hair/
 
 Mangas :
