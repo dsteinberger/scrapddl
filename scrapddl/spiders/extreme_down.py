@@ -21,7 +21,7 @@ class EDBaseSpider(BaseSpider):
     from_website = ED_WEBSITE
 
     def _get_page_url(self, element):
-        return element.items()[1][1]
+        return "{}{}".format(self.domain, element.items()[1][1])
 
     def _get_title(self, element):
         return element.xpath(".//span[@class='top-title']")[0].text
@@ -31,7 +31,7 @@ class EDBaseSpider(BaseSpider):
             ".//span[@class='top-genre']")[0].text.strip()
 
     def _get_image(self, element):
-        return element.xpath(".//img/@src")[0]
+        return "{}{}".format(self.domain, element.xpath(".//img/@src")[0])
 
     def _get_quality_language(self, element):
         return element.xpath(
