@@ -19,7 +19,7 @@ ED_MAIN_ATTR_HTML = "a"
 ED_MAIN_CLASS = "top-last thumbnails"
 ED_URLS_MOVIES = ['/?p=films&no-bluray']
 ED_URLS_MOVIES_HD = ['/?p=films&s=ultra-hd-4k']
-ED_URLS_TVSHOWS = ['/?p=films&s=ultra-hd-4k']
+ED_URLS_TVSHOWS = ['/?p=series&s=vostfr']
 ED_URLS_MANGA = ['/?p=mangas']
 
 # Univers Anime
