@@ -38,7 +38,7 @@ ZT_ACTIVATE_TVSHOWS = True
 ZT_ACTIVATE_MANGAS = True
 
 ZT_WEBSITE = "zone-telechargement"
-ZT_DOMAIN = "https://www.zone-telechargement.hair/"
+ZT_DOMAIN = "https://www.zone-telechargement.biz/"
 ZT_MAIN_ATTR_HTML = "div"
 ZT_MAIN_CLASS = "cover_global"
 ZT_URLS_MOVIES = ['?p=films&no-bluray']
