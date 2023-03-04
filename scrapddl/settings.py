@@ -14,7 +14,7 @@ ED_ACTIVATE_TVSHOWS = True
 ED_ACTIVATE_MANGAS = True
 
 ED_WEBSITE = "extreme-down"
-ED_DOMAIN = "https://www.extreme-down.cam"
+ED_DOMAIN = "https://www.extreme-down.moe"
 ED_MAIN_ATTR_HTML = "a"
 ED_MAIN_CLASS = "top-last thumbnails"
 ED_URLS_MOVIES = ['/?p=films&no-bluray']
@@ -54,7 +54,7 @@ WC_ACTIVATE_TVSHOWS = True
 WC_ACTIVATE_MANGAS = True
 
 WC_WEBSITE = "wawacity"
-WC_DOMAIN = "https://www.wawacity.hair/"
+WC_DOMAIN = "https://www.wawacity.cloud/"
 WC_MAIN_ATTR_HTML = "div"
 WC_MAIN_CLASS = "wa-sub-block wa-post-detail-item"
 WC_URLS_MOVIES = ['?p=films&no-bluray']

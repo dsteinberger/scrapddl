@@ -8,14 +8,14 @@ il en existe des gratuits comme `protonvpn`
 Films et séries :
 
 - https://www.zone-telechargement.hair/
-- https://www.extreme-down.cam
-- https://www.wawacity.hair/
+- https://www.extreme-down.moe
+- https://www.wawacity.cloud/
 
 Mangas :
 
 - https://www.universanimeiz.com/
 - https://www.zone-telechargement.tech/
-- https://www.extreme-down.lol (info nom de domaine : https://www.extreme-down.info/)
+- https://www.extreme-down.moe
 
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
