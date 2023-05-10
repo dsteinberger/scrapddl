@@ -2,7 +2,7 @@ MOVIES_SECTION_ACTIVE = True
 TVSHOWS_SECTION_ACTIVE = True
 MANGAS_SECTION_ACTIVE = True
 
-IMDB_RATING_ACTIVE = True
+IMDB_RATING_ACTIVE = False
 
 TIMEOUT_REQUEST_PROVIDERS = 15
 
@@ -65,20 +65,20 @@ WC_URLS_MANGA = ['?p=mangas&s=vostfr']
 # --- OBSOLETE
 
 # Tirexo
-TO_ACTIVATE = False
-TO_ACTIVATE_MOVIES = False
+TO_ACTIVATE = True
+TO_ACTIVATE_MOVIES = True
 TO_ACTIVATE_MOVIES_HD = False
-TO_ACTIVATE_TVSHOWS = False
-TO_ACTIVATE_MANGAS = False
+TO_ACTIVATE_TVSHOWS = True
+TO_ACTIVATE_MANGAS = True
 
 TO_WEBSITE = "tirexo"
-TO_DOMAIN = "https://www2.palixi.com/"
+TO_DOMAIN = "https://www.tirexo.tel/"
 TO_MAIN_ATTR_HTML = "div"
 TO_MAIN_CLASS = "mov clearfix"
-TO_URLS_MOVIES = ['?do=cat&category=last-films']
-TO_URLS_MOVIES_HD = ['?do=cat&category=films-bluray-hd-1080']
-TO_URLS_TVSHOWS = ['?do=cat&category=series-vostfr']
-TO_URLS_MANGA = ['?do=cat&category=animes-vostfr']
+TO_URLS_MOVIES = ['?p=films&no-bluray']
+TO_URLS_MOVIES_HD = ['?p=films&s=ultra-hd-4k']
+TO_URLS_TVSHOWS = ['?p=series&s=vostfr']
+TO_URLS_MANGA = ['?p=mangas&s=vostfr']
 
 # DDL ISLAND
 DDLI_ACTIVATE = False
