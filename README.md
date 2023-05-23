@@ -7,14 +7,14 @@ il en existe des gratuits comme `protonvpn`
 
 Films et séries :
 
-- https://www.zone-telechargement.day/
+- https://www.zone-telechargement.pics/
 - https://www.extreme-down.moe
-- https://www.wawacity.boo/
+- https://www.wawacity.pics/
 
 Mangas :
 
 - https://www.universanimeiz.com/
-- https://www.zone-telechargement.day/
+- https://www.zone-telechargement.pics/
 - https://www.extreme-down.moe
 
 
