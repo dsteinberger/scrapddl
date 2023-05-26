@@ -25,7 +25,7 @@ ED_URLS_MANGA = ['/?p=mangas']
 # Univers Anime
 UA_ACTIVATE = True
 UA_WEBSITE = "univers-anime"
-UA_DOMAIN = "https://www.universanimeiz.com/"
+UA_DOMAIN = "https://www.universanimeiz.co/"
 UA_MAIN_ATTR_HTML = "ul"
 UA_MAIN_CLASS = "recent-posts"
 UA_URLS = ['/', '/page/2']

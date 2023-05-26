@@ -13,7 +13,7 @@ Films et séries :
 
 Mangas :
 
-- https://www.universanimeiz.com/
+- https://www.universanimeiz.co/
 - https://www.zone-telechargement.pics/
 - https://www.extreme-down.moe
 
