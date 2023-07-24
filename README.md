@@ -7,14 +7,14 @@ il en existe des gratuits comme `protonvpn`
 
 Films et séries :
 
-- https://www.zone-telechargement.bet/
+- https://www.zone-telechargement.homes/
 - https://www.extreme-down.moe
-- https://www.wawacity.bet/
+- https://www.wawacity.homes/
 
 Mangas :
 
 - https://www.universanimeiz.co/
-- https://www.zone-telechargement.bet/
+- https://www.zone-telechargement.homes/
 - https://www.extreme-down.moe
 
 
