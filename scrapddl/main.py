@@ -10,7 +10,10 @@ from cachelib.simple import SimpleCache
 from scrapimdb import ImdbSpider
 
 from process import Process
-from settings import IMDB_RATING_ACTIVE, ED_DOMAIN, UA_DOMAIN, ZT_DOMAIN, WC_DOMAIN
+from settings import IMDB_RATING_ACTIVE
+from settings import IMDB_RATING_MINIMAL_TOP
+from settings import ED_DOMAIN, UA_DOMAIN
+from settings import ZT_DOMAIN, WC_DOMAIN
 from settings import MOVIES_SECTION_ACTIVE
 from settings import TVSHOWS_SECTION_ACTIVE
 from settings import MANGAS_SECTION_ACTIVE
@@ -169,7 +172,6 @@ class Imdb(object):
 
 @app.route("/imdb/<slug>/")
 def imdb_rating(slug):
-
     if IMDB_RATING_ACTIVE:
         title = request.args.get('title')
         if title:
@@ -189,6 +191,11 @@ def imdb_rating(slug):
                 imdb = Imdb(rating, spider.get_link())
                 simplecache.set(cache_key, imdb, IMDB_CACHE_TIMEOUT)
             if imdb.rating:
+                rating = float(imdb.rating)
+                if rating >= IMDB_RATING_MINIMAL_TOP:
+                    imdb.is_top = True
+                else:
+                    imdb.is_top = False
                 return render_template('___imdb_rating.html', imdb=imdb)
     return ''
 

@@ -160,6 +160,13 @@ ul.thumbnails {
 .imdb-rating span b{
     font-size: 14px;
 }
+.imdb-rating a.imdb-top span{
+    background-color: darkmagenta;
+    padding: 2px;
+}
+.imdb-rating a.imdb-top{
+    color: white;
+}
 
 
 /* Mobile Only */

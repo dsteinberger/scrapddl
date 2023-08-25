@@ -86,4 +86,10 @@ Activer ou non les notes imdb (default True)
 IMDB_RATING_ACTIVE = True
 ```
 
+Définir la note minimale pour considérer un film, série ou un manga en tant que top !
+
+```
+IMDB_RATING_MINIMAL_TOP = True
+```
+
 Et plein d'autre options dans le fichier settings !
