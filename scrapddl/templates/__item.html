@@ -8,7 +8,7 @@
         <h4 class="title">
             <a href="{{ item.page_url }}" target="_blank" title="{{ item.title }}">
                 <img class="favicon" src="{{url_for('static', filename=item.from_website+'.ico')}}"/>
-                {{ item.title }}
+                {{ item.title|truncate(40) }}
             </a>
         </h4>
         {% if item.quality_language %}
