@@ -2,7 +2,7 @@
 name = "scrapddl"
 version = "0.1.0"
 description = ""
-authors = ["dsteinberger <scrapddl.q4g1w@simplelogin.com>"]
+authors = ["scrapddl <scrapddl.q4g1w@simplelogin.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
