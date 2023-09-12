@@ -26,7 +26,7 @@ ED_URLS_MANGA = ['/?p=mangas']
 # Univers Anime
 UA_ACTIVATE = True
 UA_WEBSITE = "univers-anime"
-UA_DOMAIN = "https://www.universanimeiz.co/"
+UA_DOMAIN = "https://www.universanime.co/"
 UA_MAIN_ATTR_HTML = "ul"
 UA_MAIN_CLASS = "recent-posts"
 UA_URLS = ['/', '/page/2']
@@ -39,7 +39,7 @@ ZT_ACTIVATE_TVSHOWS = True
 ZT_ACTIVATE_MANGAS = True
 
 ZT_WEBSITE = "zone-telechargement"
-ZT_DOMAIN = "https://www.zone-telechargement.homes/"
+ZT_DOMAIN = "https://www.zone-telechargement.rocks/"
 ZT_MAIN_ATTR_HTML = "div"
 ZT_MAIN_CLASS = "cover_global"
 ZT_URLS_MOVIES = ['?p=films&no-bluray']
@@ -55,7 +55,7 @@ WC_ACTIVATE_TVSHOWS = True
 WC_ACTIVATE_MANGAS = True
 
 WC_WEBSITE = "wawacity"
-WC_DOMAIN = "https://www.wawacity.homes/"
+WC_DOMAIN = "https://www.wawacity.rocks/"
 WC_MAIN_ATTR_HTML = "div"
 WC_MAIN_CLASS = "wa-sub-block wa-post-detail-item"
 WC_URLS_MOVIES = ['?p=films&no-bluray']
