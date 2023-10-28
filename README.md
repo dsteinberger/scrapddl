@@ -7,14 +7,14 @@ il en existe des gratuits comme `protonvpn`
 
 Films et séries :
 
-- https://www.zone-telechargement.rsvp/
+- https://www.zone-telechargement.kim/
 - https://www.extreme-down.moe
-- https://www.wawacity.rsvp/
+- https://www.wawacity.kim/
 
 Mangas :
 
 - https://www.universanime.co/
-- https://www.zone-telechargement.rsvp/
+- https://www.zone-telechargement.kim/
 - https://www.extreme-down.moe
 
 
