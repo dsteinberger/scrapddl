@@ -39,7 +39,7 @@ ZT_ACTIVATE_TVSHOWS = True
 ZT_ACTIVATE_MANGAS = True
 
 ZT_WEBSITE = "zone-telechargement"
-ZT_DOMAIN = "https://www.zone-telechargement.kim/"
+ZT_DOMAIN = "https://www.zone-telechargement.fit/"
 ZT_MAIN_ATTR_HTML = "div"
 ZT_MAIN_CLASS = "cover_global"
 ZT_URLS_MOVIES = ['?p=films&no-bluray']
@@ -55,7 +55,7 @@ WC_ACTIVATE_TVSHOWS = True
 WC_ACTIVATE_MANGAS = True
 
 WC_WEBSITE = "wawacity"
-WC_DOMAIN = "https://www.wawacity.kim/"
+WC_DOMAIN = "https://www.wawacity.fit/"
 WC_MAIN_ATTR_HTML = "div"
 WC_MAIN_CLASS = "wa-sub-block wa-post-detail-item"
 WC_URLS_MOVIES = ['?p=films&no-bluray']
