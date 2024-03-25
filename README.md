@@ -8,14 +8,14 @@ il en existe des gratuits comme `protonvpn`
 Films et séries :
 
 - https://www.zone-telechargement.tokyo/
-- https://www.extreme-down.moe
+- https://www.extreme-down.boats
 - https://www.wawacity.tokyo/
 
 Mangas :
 
 - https://www.universanime.co/
 - https://www.zone-telechargement.tokyo/
-- https://www.extreme-down.moe
+- https://www.extreme-down.boats
 
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
