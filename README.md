@@ -7,14 +7,14 @@ il en existe des gratuits comme `protonvpn`
 
 Films et séries :
 
-- https://www.zone-telechargement.meme/
+- https://www.zone-telechargement.fyi/
 - https://www.extreme-down.gdn
-- https://www.wawacity.meme/
+- https://www.wawacity.cfd/
 
 Mangas :
 
 - https://www.universanime.co/
-- https://www.zone-telechargement.meme/
+- https://www.zone-telechargement.fyi/
 - https://www.extreme-down.gdn
 
 
