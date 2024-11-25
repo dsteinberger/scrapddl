@@ -7,15 +7,15 @@ il en existe des gratuits comme `protonvpn`
 
 Films et séries :
 
-- https://www.zone-telechargement.monster/
-- https://www.extreme-down.monster
-- https://www.wawacity.beauty/
+- https://www.zone-telechargement.makeup/
+- https://www.extreme-down.makeup
+- https://www.wawacity.makeup/
 
 Mangas :
 
-- https://www.zone-telechargement.monster/
-- https://www.extreme-down.monster
-- https://www.wawacity.beauty/
+- https://www.zone-telechargement.makeup/
+- https://www.extreme-down.makeup
+- https://www.wawacity.makeup/
 
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
