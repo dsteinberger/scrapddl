@@ -8,13 +8,13 @@ il en existe des gratuits comme `protonvpn`
 Films et séries :
 
 - https://www.zone-telechargement.supply/
-- https://www.extreme-down.quest
+- https://www.extreme-down.supply
 - https://www.wawacity.supply/
 
 Mangas :
 
 - https://www.zone-telechargement.supply/
-- https://www.extreme-down.quest
+- https://www.extreme-down.supply
 - https://www.wawacity.supply/
 
 
