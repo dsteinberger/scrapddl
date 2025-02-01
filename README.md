@@ -7,15 +7,15 @@ il en existe des gratuits comme `protonvpn`
 
 Films et séries :
 
-- https://www.zone-telechargement.supply/
-- https://www.extreme-down.party
-- https://www.wawacity.supply/
+- https://www.zone-telechargement.mom/
+- https://www.extreme-down.mom
+- https://www.wawacity.mom/
 
 Mangas :
 
-- https://www.zone-telechargement.supply/
-- https://www.extreme-down.party
-- https://www.wawacity.supply/
+- https://www.zone-telechargement.mom/
+- https://www.extreme-down.mom
+- https://www.wawacity.mom/
 
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
