@@ -7,15 +7,15 @@ il en existe des gratuits comme `protonvpn`
 
 Films et séries :
 
-- https://www.zone-telechargement.beer/
-- https://www.extreme-down.beer
-- https://www.wawacity.beer/
+- https://www.zone-telechargement.rodeo/
+- https://www.extreme-down.rodeo
+- https://www.wawacity.rodeo/
 
 Mangas :
 
-- https://www.zone-telechargement.beer/
-- https://www.extreme-down.beer
-- https://www.wawacity.beer/
+- https://www.zone-telechargement.rodeo/
+- https://www.extreme-down.rodeo
+- https://www.wawacity.rodeo/
 
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
