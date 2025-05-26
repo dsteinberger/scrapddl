@@ -7,15 +7,15 @@ il en existe des gratuits comme `protonvpn`
 
 Films et séries :
 
-- https://www.zone-telechargement.rodeo/
-- https://www.extreme-down.rodeo
-- https://www.wawacity.rodeo/
+- https://www.zone-telechargement.pictures/
+- https://www.extreme-down.pictures
+- https://www.wawacity.pictures/
 
 Mangas :
 
-- https://www.zone-telechargement.rodeo/
-- https://www.extreme-down.rodeo
-- https://www.wawacity.rodeo/
+- https://www.zone-telechargement.pictures/
+- https://www.extreme-down.pictures
+- https://www.wawacity.pictures/
 
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
