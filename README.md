@@ -7,15 +7,15 @@ il en existe des gratuits comme `protonvpn`
 
 Films et séries :
 
-- https://www.zone-telechargement.energy/
-- https://www.extrem-down.energy/
-- https://www.wawacity.energy/
+- https://www.zone-telechargement.surf/
+- https://www.extrem-down.surf/
+- https://www.wawacity.surf/
 
 Mangas :
 
-- https://www.zone-telechargement.energy/
-- https://www.extrem-down.energy/
-- https://www.wawacity.energy/
+- https://www.zone-telechargement.surf/
+- https://www.extrem-down.surf/
+- https://www.wawacity.surf/
 
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
