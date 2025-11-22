@@ -1,16 +1,16 @@
 from .base import BaseSpider
-from settings import ED_MAIN_CLASS
-from settings import ED_MAIN_ATTR_HTML
-from settings import ED_DOMAIN
-from settings import ED_WEBSITE
-from settings import ED_URLS_MOVIES
-from settings import ED_URLS_MOVIES_HD
-from settings import ED_URLS_TVSHOWS
-from settings import ED_URLS_MANGA
+from scrapddl.settings import ED_MAIN_CLASS
+from scrapddl.settings import ED_MAIN_ATTR_HTML
+from scrapddl.settings import ED_DOMAIN
+from scrapddl.settings import ED_WEBSITE
+from scrapddl.settings import ED_URLS_MOVIES
+from scrapddl.settings import ED_URLS_MOVIES_HD
+from scrapddl.settings import ED_URLS_TVSHOWS
+from scrapddl.settings import ED_URLS_MANGA
 
-from settings import ED_ACTIVATE
+from scrapddl.settings import ED_ACTIVATE
 
-from settings import ED_ACTIVATE_MOVIES, ED_ACTIVATE_MOVIES_HD, ED_ACTIVATE_TVSHOWS, ED_ACTIVATE_MANGAS
+from scrapddl.settings import ED_ACTIVATE_MOVIES, ED_ACTIVATE_MOVIES_HD, ED_ACTIVATE_TVSHOWS, ED_ACTIVATE_MANGAS
 
 
 class EDBaseSpider(BaseSpider):

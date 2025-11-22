@@ -1,16 +1,16 @@
 import re
 
 from .base import BaseSpider
-from settings import ZT_MAIN_ATTR_HTML, ZT_ACTIVATE_MOVIES_HD, ZT_ACTIVATE_TVSHOWS, ZT_ACTIVATE_MANGAS
-from settings import ZT_MAIN_CLASS
-from settings import ZT_DOMAIN
-from settings import ZT_WEBSITE
-from settings import ZT_URLS_MOVIES
-from settings import ZT_URLS_MOVIES_HD
-from settings import ZT_URLS_TVSHOWS
-from settings import ZT_URLS_MANGA
+from scrapddl.settings import ZT_MAIN_ATTR_HTML, ZT_ACTIVATE_MOVIES_HD, ZT_ACTIVATE_TVSHOWS, ZT_ACTIVATE_MANGAS
+from scrapddl.settings import ZT_MAIN_CLASS
+from scrapddl.settings import ZT_DOMAIN
+from scrapddl.settings import ZT_WEBSITE
+from scrapddl.settings import ZT_URLS_MOVIES
+from scrapddl.settings import ZT_URLS_MOVIES_HD
+from scrapddl.settings import ZT_URLS_TVSHOWS
+from scrapddl.settings import ZT_URLS_MANGA
 
-from settings import ZT_ACTIVATE, ZT_ACTIVATE_MOVIES
+from scrapddl.settings import ZT_ACTIVATE, ZT_ACTIVATE_MOVIES
 
 
 class ZTBaseSpider(BaseSpider):

@@ -1,14 +1,14 @@
 from .base import BaseSpider
-from settings import WC_MAIN_CLASS
-from settings import WC_MAIN_ATTR_HTML
-from settings import WC_DOMAIN
-from settings import WC_WEBSITE
-from settings import WC_URLS_MOVIES
-from settings import WC_URLS_MOVIES_HD
-from settings import WC_URLS_TVSHOWS
-from settings import WC_URLS_MANGA
+from scrapddl.settings import WC_MAIN_CLASS
+from scrapddl.settings import WC_MAIN_ATTR_HTML
+from scrapddl.settings import WC_DOMAIN
+from scrapddl.settings import WC_WEBSITE
+from scrapddl.settings import WC_URLS_MOVIES
+from scrapddl.settings import WC_URLS_MOVIES_HD
+from scrapddl.settings import WC_URLS_TVSHOWS
+from scrapddl.settings import WC_URLS_MANGA
 
-from settings import WC_ACTIVATE, WC_ACTIVATE_MOVIES, WC_ACTIVATE_MOVIES_HD, WC_ACTIVATE_TVSHOWS, WC_ACTIVATE_MANGAS
+from scrapddl.settings import WC_ACTIVATE, WC_ACTIVATE_MOVIES, WC_ACTIVATE_MOVIES_HD, WC_ACTIVATE_TVSHOWS, WC_ACTIVATE_MANGAS
 
 
 class WCBaseSpider(BaseSpider):
