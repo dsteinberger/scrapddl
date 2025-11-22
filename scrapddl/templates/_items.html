@@ -1,7 +1,7 @@
-<ul class="thumbnails">
+<div class="row g-2">
     {% for item in item_list %}
-        <li class="col-lg-2 col-md-2 col-sm-2">
+        <div class="col-lg-2 col-md-2 col-sm-4 col-6">
             {% include "__item.html" %}
-        </li>
+        </div>
     {% endfor %}
-</ul>
+</div>

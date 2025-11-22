@@ -21,12 +21,47 @@ a:hover {
 body{
     border-top:0;
     background:#c4e17f;
+    margin: 0;
+    padding: 0;
+}
 
+/* Bouton Actualiser */
+.btn-actualiser {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: #f0ad4e;
+    color: #000;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.btn-actualiser:hover {
+    background: #ec971f;
+    text-decoration: none;
+    opacity: 1;
+}
+
+/* Icônes des sites */
+.site-icons {
+    padding: 10px 0 15px 15px;
+}
+.site-icons a {
+    display: inline-block;
+    margin-right: 15px;
+}
+.site-icons .favicon {
+    width: 16px;
+    height: 16px;
 }
 
 .home-page h1{
+    margin-top: 15px;
     margin-bottom: 20px;
-    margin-left: 55px;
+    margin-left: 15px;
 }
 
 .title-link{
@@ -34,19 +69,11 @@ body{
     font-style: italic;
     margin-left: 3px;
 }
-a.refresh{
-    float: right;
-    margin: 16px;
-}
+
 
 .section-refresh{
     font-size: 16px;
     margin-left: 10px;
-}
-
-.thumbnails li> .fff .caption {
-    background:#fff !important;
-    padding:10px
 }
 
 /* Page Header */
@@ -64,40 +91,61 @@ a.refresh{
     color: #000;
 }
 
-ul.thumbnails {
+/* Card Box */
+.card{
     margin-bottom: 0px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
-
-
-
-/* Thumbnail Box */
-.thumbnail{
-    margin-bottom: 0px;
-    border: none;
-    border-radius: 0px;
+.card .card-img-top{
+    height: 250px !important;
+    width: 100% !important;
+    min-width: 100%;
+    object-fit: fill !important;
+    border-radius: 4px 4px 0 0;
 }
-.thumbnail a>img{
-    height: 250px;
-    width: 200px;
+.mangas .card .card-img-top{
+    height: 150px;
+    object-fit: contain;
+    background: #f5f5f5;
 }
-.mangas .thumbnail a>img{
-    max-height: 128px;
+.card-body {
+    padding: 10px 15px;
+    min-height: 140px;
+    background: #fff;
 }
-.thumbnails li> .fff .caption {
-    padding: 1px 15px;
-    height: 136px;
-}
-.caption h4 {
+.card-title {
     color: #444;
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.card-title a {
+    color: #337ab7;
+    text-decoration: none;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.card-title a:hover {
+    color: #23527c;
 }
 
-.caption p {
-    color: #999;
+.card-text {
+    color: #666;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
 }
 
 .favicon {
     height: 16px;
     width: 16px;
+    vertical-align: middle;
 }
 .title .favicon{
     margin: 1px 5px 0px 0px;
@@ -107,13 +155,20 @@ ul.thumbnails {
 .favicon-clone{
     position: absolute;
     bottom: 10px;
+    left: 15px;
+}
+.favicon-clone a {
+    display: inline-block;
+    margin-right: 3px;
+    line-height: 0;
 }
 .favicon-clone .favicon{
-    margin: 0 2px;
+    margin: 0;
+    background: none !important;
 }
 
 /* Movies */
-.detail-items .item .thumbnails li{
+.detail-items .item .row > div{
     margin-bottom: 50px;
 }
 
@@ -121,41 +176,81 @@ ul.thumbnails {
 .control-box {
     text-align: right;
     width: 100%;
+    margin-top: 5px;
+    padding: 0;
 }
-.carousel-control{
-    background: #666;
-    border: 0px;
-    border-radius: 0px;
+.control-box li {
     display: inline-block;
-    font-size: 34px;
-    font-weight: 200;
-    line-height: 18px;
-    opacity: 0.5;
-    padding: 4px 10px 0px;
-    position: static;
-    height: 30px;
-    width: 15px;
+    margin: 0 2px;
+    list-style: none;
+}
+.control-box a {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    opacity: 0.6;
+    transition: all 0.2s;
+}
+.control-box a:hover {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.7);
+    text-decoration: none;
+}
+
+/* Carousel BS5 */
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.carousel-item {
+    display: none;
+    position: relative;
+    transition: transform 0.6s ease-in-out;
+}
+.carousel-item.active {
+    display: block;
+}
+.carousel-item-next,
+.carousel-item-prev {
+    display: block;
+}
+.carousel-item-next:not(.carousel-item-start),
+.active.carousel-item-end {
+    transform: translateX(100%);
+}
+.carousel-item-prev:not(.carousel-item-end),
+.active.carousel-item-start {
+    transform: translateX(-100%);
 }
 
 /* Imdb rating */
 .imdb-rating{
     position: absolute;
-    right: 22px;
-    bottom: 6px;
-    background-color: white;
-    padding: 3px;
+    right: 10px;
+    bottom: 10px;
 }
 .imdb-rating a{
     color: black;
+    text-decoration: none;
 }
 .imdb-rating a:hover{
     text-decoration: none;
+    opacity: 0.8;
 }
 .imdb-rating img{
     margin-right: 5px;
 }
 .imdb-rating span{
-    font-size: 12px;;
+    font-size: 12px;
 }
 .imdb-rating span b{
     font-size: 14px;

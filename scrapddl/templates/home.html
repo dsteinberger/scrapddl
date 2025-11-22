@@ -1,27 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <a href="/refresh" class="btn-actualiser">Actualiser</a>
     <div class="container-fluid home-page">
-        <div class="col-xs-12">
-            <div class="row">
-                <a href="/refresh" class="btn btn-warning refresh">Tout actualiser</a>
-                <a href="{{ ed_url }}" target="_blank">
-                    <img class="favicon" src="{{url_for('static', filename='extreme-down.ico')}}"/>
-                </a>
-                <a href="{{ zt_url }}" target="_blank">
-                    <img class="favicon" src="{{url_for('static', filename='zone-telechargement.ico')}}"/>
-                </a>
-                <a href="{{ wc_url }}" target="_blank">
-                    <img class="favicon" src="{{url_for('static', filename='wawacity.ico')}}"/>
-                </a>
-             </div>
+        <div class="site-icons">
+            <a href="{{ ed_url }}" target="_blank">
+                <img class="favicon" src="{{url_for('static', filename='extreme-down.ico')}}"/>
+            </a>
+            <a href="{{ zt_url }}" target="_blank">
+                <img class="favicon" src="{{url_for('static', filename='zone-telechargement.ico')}}"/>
+            </a>
+            <a href="{{ wc_url }}" target="_blank">
+                <img class="favicon" src="{{url_for('static', filename='wawacity.ico')}}"/>
+            </a>
         </div>
         {% if movies_section_active %}
-            <div class="col-xs-12">
+            <div class="col-12">
                 <div class="row">
                     <h1>
                         Films
-                        <a class="section-refresh" href="/movies-refresh"><i class="glyphicon glyphicon-refresh"></i></a>
+                        <a class="section-refresh" href="/movies-refresh"><i class="bi bi-arrow-clockwise"></i></a>
                         <a class="title-link" href="/movies">(Voir tout)</a>
                     </h1>
                     <div class="home-section home-movies"><div class="loader"></div></div>
@@ -30,11 +28,11 @@
         {% endif %}
 
         {% if tvshows_section_active %}
-            <div class="col-xs-12">
+            <div class="col-12">
                 <div class="row">
                     <h1>
                         TV Shows
-                        <a class="section-refresh" href="/tvshows-refresh"><i class="glyphicon glyphicon-refresh"></i></a>
+                        <a class="section-refresh" href="/tvshows-refresh"><i class="bi bi-arrow-clockwise"></i></a>
                         <a class="title-link" href="/tvshows">(Voir tout)</a>
                     </h1>
                     <div class="home-section home-tvshows"><div class="loader"></div></div>
@@ -43,11 +41,11 @@
         {% endif %}
 
         {% if mangas_section_active %}
-            <div class="col-xs-12">
+            <div class="col-12">
                 <div class="row">
                     <h1>
                         Mangas
-                        <a class="section-refresh" href="/mangas-refresh"><i class="glyphicon glyphicon-refresh"></i></a>
+                        <a class="section-refresh" href="/mangas-refresh"><i class="bi bi-arrow-clockwise"></i></a>
                         <a class="title-link" href="/mangas">(Voir tout)</a>
                     </h1>
                     <div class="home-section home-mangas"><div class="loader"></div></div>

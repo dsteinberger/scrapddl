@@ -1,21 +1,19 @@
-<div class="fff">
-    <div class="thumbnail">
-        <a href="{{ item.page_url }}" target="_blank">
-            <img src="{{ item.image }}" alt="">
-        </a>
-    </div>
-    <div class="caption">
-        <h4 class="title">
+<div class="card h-100">
+    <a href="{{ item.page_url }}" target="_blank">
+        <img src="{{ item.image }}" class="card-img-top" alt="{{ item.title }}">
+    </a>
+    <div class="card-body position-relative">
+        <div class="card-title title">
             <a href="{{ item.page_url }}" target="_blank" title="{{ item.title }}">
                 <img class="favicon" src="{{url_for('static', filename=item.from_website+'.ico')}}"/>
-                {{ item.title|truncate(40) }}
+                {{ item.title|truncate(35) }}
             </a>
-        </h4>
+        </div>
         {% if item.quality_language %}
-            <i>{{ item.quality_language }}</i>
+            <p class="card-text mb-1"><em>{{ item.quality_language }}</em></p>
         {% endif %}
         {% if item.genre %}
-            <p>{{ item.genre }}</p>
+            <p class="card-text mb-1" style="font-size: 0.8rem;">{{ item.genre }}</p>
         {% endif %}
 
         <div class="favicon-clone">
