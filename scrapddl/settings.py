@@ -18,10 +18,10 @@ ED_WEBSITE = "extreme-down"
 ED_DOMAIN = "https://www.extrem-down.live/"
 ED_MAIN_ATTR_HTML = "a"
 ED_MAIN_CLASS = "top-last thumbnails"
-ED_URLS_MOVIES = ['/?p=films&no-bluray']
-ED_URLS_MOVIES_HD = ['/?p=films&s=ultra-hd-4k']
-ED_URLS_TVSHOWS = ['/?p=series&s=vostfr']
-ED_URLS_MANGA = ['/?p=mangas']
+ED_URLS_MOVIES = ['/?p=films&no-bluray', '/?p=films&no-bluray=1&page=2']
+ED_URLS_MOVIES_HD = ['/?p=films&s=ultra-hd-4k', '/?p=films&s=ultra-hd-4k&page=2']
+ED_URLS_TVSHOWS = ['/?p=series&s=vostfr', '/?p=series&s=vostfr&page=2']
+ED_URLS_MANGA = ['/?p=mangas', '/?p=mangas&page=2']
 
 # Zone telechargement
 ZT_ACTIVATE = True
@@ -34,10 +34,10 @@ ZT_WEBSITE = "zone-telechargement"
 ZT_DOMAIN = "https://www.zone-telechargement.irish/"
 ZT_MAIN_ATTR_HTML = "div"
 ZT_MAIN_CLASS = "cover_global"
-ZT_URLS_MOVIES = ['?p=films&no-bluray']
-ZT_URLS_MOVIES_HD = ['?p=films&s=ultra-hd-4k']
-ZT_URLS_TVSHOWS = ['?p=series&s=vostfr']
-ZT_URLS_MANGA = ['?p=mangas&s=vostfr']
+ZT_URLS_MOVIES = ['?p=films&no-bluray', '?p=films&no-bluray=1&page=2']
+ZT_URLS_MOVIES_HD = ['?p=films&s=ultra-hd-4k', '?p=films&s=ultra-hd-4k&page=2']
+ZT_URLS_TVSHOWS = ['?p=series&s=vostfr', '?p=series&s=vostfr&page=2']
+ZT_URLS_MANGA = ['?p=mangas&s=vostfr', '?p=mangas&s=vostfr&page=2']
 
 # WawaCity
 WC_ACTIVATE = True
@@ -50,10 +50,10 @@ WC_WEBSITE = "wawacity"
 WC_DOMAIN = "https://www.wawacity.irish/"
 WC_MAIN_ATTR_HTML = "div"
 WC_MAIN_CLASS = "wa-sub-block wa-post-detail-item"
-WC_URLS_MOVIES = ['?p=films&no-bluray']
-WC_URLS_MOVIES_HD = ['?p=films&s=ultra-hd-4k']
-WC_URLS_TVSHOWS = ['?p=series&s=vostfr']
-WC_URLS_MANGA = ['?p=mangas&s=vostfr']
+WC_URLS_MOVIES = ['?p=films&no-bluray', '?p=films&no-bluray=1&page=2']
+WC_URLS_MOVIES_HD = ['?p=films&s=ultra-hd-4k', '?p=films&s=ultra-hd-4k&page=2']
+WC_URLS_TVSHOWS = ['?p=series&s=vostfr', '?p=series&s=vostfr&page=2']
+WC_URLS_MANGA = ['?p=mangas&s=vostfr', '?p=mangas&s=vostfr&page=2']
 
 # Tirexo
 TR_ACTIVATE = True
@@ -66,10 +66,10 @@ TR_WEBSITE = "tirexo"
 TR_DOMAIN = "https://www.tirexo.live/"
 TR_MAIN_ATTR_HTML = "div"
 TR_MAIN_CLASS = "mov clearfix"
-TR_URLS_MOVIES = ['?p=films&no-bluray']
-TR_URLS_MOVIES_HD = ['?p=films&s=ultra-hd-4k']
-TR_URLS_TVSHOWS = ['?p=series&s=vostfr']
-TR_URLS_MANGA = ['?p=mangas&s=vostfr']
+TR_URLS_MOVIES = ['?p=films&no-bluray', '/?p=films&no-bluray=1&page=2']
+TR_URLS_MOVIES_HD = ['?p=films&s=ultra-hd-4k', '/?p=films&s=ultra-hd-4k&page=2']
+TR_URLS_TVSHOWS = ['?p=series&s=vostfr', '/?p=series&s=vostfr&page=2']
+TR_URLS_MANGA = ['?p=mangas&s=vostfr', '/?p=mangas&s=vostfr&page=2']
 
 # Annuaire Telechargement
 AT_ACTIVATE = True
@@ -82,10 +82,10 @@ AT_WEBSITE = "annuaire-telechargement"
 AT_DOMAIN = "https://www.annuaire-telechargement.live/"
 AT_MAIN_ATTR_HTML = "div"
 AT_MAIN_CLASS = "statcard statcard-fiche"
-AT_URLS_MOVIES = ['?p=films&no-bluray']
-AT_URLS_MOVIES_HD = ['?p=films&s=ultra-hd-4k']
-AT_URLS_TVSHOWS = ['?p=series']
-AT_URLS_MANGA = ['?p=mangas']
+AT_URLS_MOVIES = ['?p=films&no-bluray', '?p=films&no-bluray=1&page=2']
+AT_URLS_MOVIES_HD = ['?p=films&s=ultra-hd-4k', '?p=films&s=ultra-hd-4k&page=2']
+AT_URLS_TVSHOWS = ['?p=series', '?p=series&page=2']
+AT_URLS_MANGA = ['?p=mangas', '?p=mangas&page=2']
 
 CLEAN_PATTERN_TITLE = [
     r"(?i)\(([^\)]+)\)",  # (2018), (WEB)
