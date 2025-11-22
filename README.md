@@ -7,15 +7,15 @@ il en existe des gratuits comme `protonvpn`
 
 Films et séries :
 
-- https://www.zone-telechargement.surf/
-- https://www.extrem-down.surf/
-- https://www.wawacity.surf/
+- https://www.zone-telechargement.irish/
+- https://www.extrem-down.live/
+- https://www.wawacity.irish/
 
 Mangas :
 
-- https://www.zone-telechargement.surf/
-- https://www.extrem-down.surf/
-- https://www.wawacity.surf/
+- https://www.zone-telechargement.irish/
+- https://www.extrem-down.live/
+- https://www.wawacity.irish/
 
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
