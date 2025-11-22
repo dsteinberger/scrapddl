@@ -1,26 +1,29 @@
-[tool.poetry]
+[project]
 name = "scrapddl"
 version = "0.1.0"
 description = ""
-authors = ["scrapddl <scrapddl.q4g1w@simplelogin.com>"]
+authors = [
+    {name = "scrapddl", email = "scrapddl.q4g1w@simplelogin.com"}
+]
 readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "flask>=2.2.2",
+    "lxml>=6.0.2",
+    "pyopenssl>=23.0.0",
+    "requests>=2.28.2",
+    "scrap-imdb>=0.1.7",
+    "python-slugify>=8.0.0",
+    "cachelib>=0.10.2",
+    "cloudscraper>=1.2.68",
+]
 
-[tool.poetry.dependencies]
-python = "^3.11"
-flask = "^2.2.2"
-lxml = "^6.0.2"
-pyopenssl = "^23.0.0"
-requests = "^2.28.2"
-scrap-imdb = "^0.1.7"
-python-slugify = "^8.0.0"
-cachelib = "^0.10.2"
-cloudscraper = "^1.2.68"
-
-
-[tool.poetry.group.dev.dependencies]
-pytest = "^7.2.1"
-ipdb = "^0.13.11"
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.2.1",
+    "ipdb>=0.13.11",
+]
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"

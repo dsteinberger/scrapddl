@@ -17,10 +17,10 @@ help:
 	@perl -nle'print $& if m{^[a-zA-Z_-]+:.*?## .*$$}' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-25s\033[0m %s\n", $$1, $$2}'
 
 install:  ## Install dependencies
-	poetry install
+	uv sync --all-extras
 
 serve: ## Run server
-	poetry run python scrapddl/main.py
+	uv run python scrapddl/main.py
 
 test: ## Run test
-	poetry run pytest scrapddl/tests
+	uv run pytest scrapddl/tests

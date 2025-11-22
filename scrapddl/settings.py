@@ -56,16 +56,16 @@ WC_URLS_TVSHOWS = ['?p=series&s=vostfr']
 WC_URLS_MANGA = ['?p=mangas&s=vostfr']
 
 CLEAN_PATTERN_TITLE = [
-    "(?i)\(([^\)]+)\)",  # (2018), (WEB)
-    "(?i)\[([^\)]+)\]",  # [WEB], [2012]
-    "(?i)(\d\D+? Season)",  # 2nd Season, 3th season
-    "(?i)(S\d+)",  # S1, S2
-    "(?i)VOSTFR(\w+)?",  # VOSTFR, VOSTFR, VOSTFR WEB
-    "(?i)saison( )?(\d+)?",  # Saison, Saison 2
-    "(?i)episode( )?(\d+)?",  # Episode, episode 2
-    "(?i)VF",  # VF
-    "(-)?",  # remove all -
-    "[ \t]+$",  # removing trailing spaces and tabs at the end
+    r"(?i)\(([^\)]+)\)",  # (2018), (WEB)
+    r"(?i)\[([^\)]+)\]",  # [WEB], [2012]
+    r"(?i)(\d\D+? Season)",  # 2nd Season, 3th season
+    r"(?i)(S\d+)",  # S1, S2
+    r"(?i)VOSTFR(\w+)?",  # VOSTFR, VOSTFR, VOSTFR WEB
+    r"(?i)saison( )?(\d+)?",  # Saison, Saison 2
+    r"(?i)episode( )?(\d+)?",  # Episode, episode 2
+    r"(?i)VF",  # VF
+    r"(-)?",  # remove all -
+    r"[ \t]+$",  # removing trailing spaces and tabs at the end
 ]
 
 try:
