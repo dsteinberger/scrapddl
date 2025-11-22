@@ -71,6 +71,22 @@ TR_URLS_MOVIES_HD = ['?p=films&s=ultra-hd-4k']
 TR_URLS_TVSHOWS = ['?p=series&s=vostfr']
 TR_URLS_MANGA = ['?p=mangas&s=vostfr']
 
+# Annuaire Telechargement
+AT_ACTIVATE = True
+AT_ACTIVATE_MOVIES = True
+AT_ACTIVATE_MOVIES_HD = False
+AT_ACTIVATE_TVSHOWS = True
+AT_ACTIVATE_MANGAS = True
+
+AT_WEBSITE = "annuaire-telechargement"
+AT_DOMAIN = "https://www.annuaire-telechargement.live/"
+AT_MAIN_ATTR_HTML = "div"
+AT_MAIN_CLASS = "statcard statcard-fiche"
+AT_URLS_MOVIES = ['?p=films&no-bluray']
+AT_URLS_MOVIES_HD = ['?p=films&s=ultra-hd-4k']
+AT_URLS_TVSHOWS = ['?p=series']
+AT_URLS_MANGA = ['?p=mangas']
+
 CLEAN_PATTERN_TITLE = [
     r"(?i)\(([^\)]+)\)",  # (2018), (WEB)
     r"(?i)\[([^\)]+)\]",  # [WEB], [2012]

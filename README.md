@@ -11,6 +11,7 @@ Films et séries :
 - https://www.extrem-down.live/
 - https://www.wawacity.irish/
 - https://www.tirexo.live/
+- https://www.annuaire-telechargement.live/
 
 Mangas :
 
@@ -18,6 +19,7 @@ Mangas :
 - https://www.extrem-down.live/
 - https://www.wawacity.irish/
 - https://www.tirexo.live/
+- https://www.annuaire-telechargement.live/
 
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.

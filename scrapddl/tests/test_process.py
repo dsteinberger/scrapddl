@@ -28,18 +28,18 @@ class TestProcessConstants:
 
     def test_movies_class_has_correct_count(self):
         """Verify that MOVIES_CLASS contains the correct number of spiders"""
-        # ED, ZT, WC, TR × 2 (Movies + MoviesHD) = 8
-        assert len(MOVIES_CLASS) == 8
+        # ED, ZT, WC, TR, AT × 2 (Movies + MoviesHD) = 10
+        assert len(MOVIES_CLASS) == 10
 
     def test_tvshows_class_has_correct_count(self):
         """Verify that TVSHOWS_CLASS contains the correct number of spiders"""
-        # ED, ZT, WC, TR = 4
-        assert len(TVSHOWS_CLASS) == 4
+        # ED, ZT, WC, TR, AT = 5
+        assert len(TVSHOWS_CLASS) == 5
 
     def test_mangas_class_has_correct_count(self):
         """Verify that MANGAS_CLASS contains the correct number of spiders"""
-        # ED, ZT, WC, TR = 4
-        assert len(MANGAS_CLASS) == 4
+        # ED, ZT, WC, TR, AT = 5
+        assert len(MANGAS_CLASS) == 5
 
 
 class TestProcessInitialization:

@@ -28,6 +28,12 @@ from scrapddl.spiders.tirexo import (
     TRTvShowsSpider,
     TRMangaSpider
 )
+from scrapddl.spiders.annuaire_telechargement import (
+    ATMoviesSpider,
+    ATMoviesHDSpider,
+    ATTvShowsSpider,
+    ATMangaSpider
+)
 
 
 # Liste de tous les spiders actifs
@@ -48,6 +54,10 @@ ALL_SPIDERS = [
     TRMoviesHDSpider,
     TRTvShowsSpider,
     TRMangaSpider,
+    ATMoviesSpider,
+    ATMoviesHDSpider,
+    ATTvShowsSpider,
+    ATMangaSpider,
 ]
 
 
@@ -136,7 +146,8 @@ class TestSpidersNaming:
             'ED': 'extreme-down',
             'ZT': 'zone-telechargement',
             'WC': 'wawacity',
-            'TR': 'tirexo'
+            'TR': 'tirexo',
+            'AT': 'annuaire-telechargement'
         }
 
         # Extraire le préfixe (ED, ZT, WC)
