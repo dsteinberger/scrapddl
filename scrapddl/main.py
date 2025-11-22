@@ -12,7 +12,7 @@ from scrapddl.process import Process
 from scrapddl.settings import IMDB_RATING_ACTIVE
 from scrapddl.settings import IMDB_RATING_MINIMAL_TOP
 from scrapddl.settings import ED_DOMAIN
-from scrapddl.settings import ZT_DOMAIN, WC_DOMAIN
+from scrapddl.settings import ZT_DOMAIN, WC_DOMAIN, TR_DOMAIN
 from scrapddl.settings import MOVIES_SECTION_ACTIVE
 from scrapddl.settings import TVSHOWS_SECTION_ACTIVE
 from scrapddl.settings import MANGAS_SECTION_ACTIVE
@@ -43,6 +43,7 @@ def settings():
         "ed_url": ED_DOMAIN,
         "zt_url": ZT_DOMAIN,
         "wc_url": WC_DOMAIN,
+        "tr_url": TR_DOMAIN,
     }
 
 

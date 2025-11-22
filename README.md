@@ -10,12 +10,14 @@ Films et séries :
 - https://www.zone-telechargement.irish/
 - https://www.extrem-down.live/
 - https://www.wawacity.irish/
+- https://www.tirexo.live/
 
 Mangas :
 
 - https://www.zone-telechargement.irish/
 - https://www.extrem-down.live/
 - https://www.wawacity.irish/
+- https://www.tirexo.live/
 
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.

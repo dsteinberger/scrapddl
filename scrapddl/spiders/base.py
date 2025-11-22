@@ -69,7 +69,8 @@ class BaseSpider(object):
         for regex in self.quality_data_regex:
             p = re.compile(regex)
             data = p.search(title)
-            extra_quality += f'{data.group(0)} '
+            if data:  # Check if regex matched
+                extra_quality += f'{data.group(0)} '
 
         return extra_quality
 

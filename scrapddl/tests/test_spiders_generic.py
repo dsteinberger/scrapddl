@@ -22,6 +22,12 @@ from scrapddl.spiders.wawacity import (
     WCTvShowsSpider,
     WCMangaSpider
 )
+from scrapddl.spiders.tirexo import (
+    TRMoviesSpider,
+    TRMoviesHDSpider,
+    TRTvShowsSpider,
+    TRMangaSpider
+)
 
 
 # Liste de tous les spiders actifs
@@ -38,6 +44,10 @@ ALL_SPIDERS = [
     WCMoviesHDSpider,
     WCTvShowsSpider,
     WCMangaSpider,
+    TRMoviesSpider,
+    TRMoviesHDSpider,
+    TRTvShowsSpider,
+    TRMangaSpider,
 ]
 
 
@@ -125,7 +135,8 @@ class TestSpidersNaming:
         expected_websites = {
             'ED': 'extreme-down',
             'ZT': 'zone-telechargement',
-            'WC': 'wawacity'
+            'WC': 'wawacity',
+            'TR': 'tirexo'
         }
 
         # Extraire le préfixe (ED, ZT, WC)

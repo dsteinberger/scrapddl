@@ -1,14 +1,16 @@
 from scrapddl.spiders.wawacity import WCMoviesSpider, WCMoviesHDSpider, WCTvShowsSpider, WCMangaSpider
 from scrapddl.spiders.extreme_down import EDMoviesSpider, EDMoviesHDSpider, EDTvShowsSpider, EDMangaSpider
 from scrapddl.spiders.zone_telechargement import ZTMoviesSpider, ZTMoviesHDSpider, ZTTvShowsSpider, ZTMangaSpider
+from scrapddl.spiders.tirexo import TRMoviesSpider, TRMoviesHDSpider, TRTvShowsSpider, TRMangaSpider
 
 from scrapddl.items.items import GroupItem
 
 MOVIES_CLASS = [EDMoviesSpider, EDMoviesHDSpider,
                 ZTMoviesSpider, ZTMoviesHDSpider,
-                WCMoviesSpider, WCMoviesHDSpider]
-TVSHOWS_CLASS = [EDTvShowsSpider, ZTTvShowsSpider, WCTvShowsSpider]
-MANGAS_CLASS = [ZTMangaSpider, EDMangaSpider, WCMangaSpider]
+                WCMoviesSpider, WCMoviesHDSpider,
+                TRMoviesSpider, TRMoviesHDSpider]
+TVSHOWS_CLASS = [EDTvShowsSpider, ZTTvShowsSpider, WCTvShowsSpider, TRTvShowsSpider]
+MANGAS_CLASS = [ZTMangaSpider, EDMangaSpider, WCMangaSpider, TRMangaSpider]
 
 
 class Process(object):

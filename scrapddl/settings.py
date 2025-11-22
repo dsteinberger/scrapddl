@@ -55,6 +55,22 @@ WC_URLS_MOVIES_HD = ['?p=films&s=ultra-hd-4k']
 WC_URLS_TVSHOWS = ['?p=series&s=vostfr']
 WC_URLS_MANGA = ['?p=mangas&s=vostfr']
 
+# Tirexo
+TR_ACTIVATE = True
+TR_ACTIVATE_MOVIES = True
+TR_ACTIVATE_MOVIES_HD = False
+TR_ACTIVATE_TVSHOWS = True
+TR_ACTIVATE_MANGAS = True
+
+TR_WEBSITE = "tirexo"
+TR_DOMAIN = "https://www.tirexo.live/"
+TR_MAIN_ATTR_HTML = "div"
+TR_MAIN_CLASS = "mov clearfix"
+TR_URLS_MOVIES = ['?p=films&no-bluray']
+TR_URLS_MOVIES_HD = ['?p=films&s=ultra-hd-4k']
+TR_URLS_TVSHOWS = ['?p=series&s=vostfr']
+TR_URLS_MANGA = ['?p=mangas&s=vostfr']
+
 CLEAN_PATTERN_TITLE = [
     r"(?i)\(([^\)]+)\)",  # (2018), (WEB)
     r"(?i)\[([^\)]+)\]",  # [WEB], [2012]
