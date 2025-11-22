@@ -23,14 +23,6 @@ ED_URLS_MOVIES_HD = ['/?p=films&s=ultra-hd-4k']
 ED_URLS_TVSHOWS = ['/?p=series&s=vostfr']
 ED_URLS_MANGA = ['/?p=mangas']
 
-# Univers Anime
-UA_ACTIVATE = False
-UA_WEBSITE = "univers-anime"
-UA_DOMAIN = "https://www.universanime.co/"
-UA_MAIN_ATTR_HTML = "ul"
-UA_MAIN_CLASS = "recent-posts"
-UA_URLS = ['/', '/page/2']
-
 # Zone telechargement
 ZT_ACTIVATE = True
 ZT_ACTIVATE_MOVIES = True
@@ -62,38 +54,6 @@ WC_URLS_MOVIES = ['?p=films&no-bluray']
 WC_URLS_MOVIES_HD = ['?p=films&s=ultra-hd-4k']
 WC_URLS_TVSHOWS = ['?p=series&s=vostfr']
 WC_URLS_MANGA = ['?p=mangas&s=vostfr']
-
-# --- OBSOLETE
-
-# Tirexo
-TO_ACTIVATE = False
-TO_ACTIVATE_MOVIES = False
-TO_ACTIVATE_MOVIES_HD = False
-TO_ACTIVATE_TVSHOWS = False
-TO_ACTIVATE_MANGAS = False
-
-TO_WEBSITE = "tirexo"
-TO_DOMAIN = "https://www2.palixi.com/"
-TO_MAIN_ATTR_HTML = "div"
-TO_MAIN_CLASS = "mov clearfix"
-TO_URLS_MOVIES = ['?do=cat&category=last-films']
-TO_URLS_MOVIES_HD = ['?do=cat&category=films-bluray-hd-1080']
-TO_URLS_TVSHOWS = ['?do=cat&category=series-vostfr']
-TO_URLS_MANGA = ['?do=cat&category=animes-vostfr']
-
-# DDL ISLAND
-DDLI_ACTIVATE = False
-DDLI_ACTIVATE_MOVIES = False
-DDLI_ACTIVATE_MOVIES_HD = False
-DDLI_ACTIVATE_TVSHOWS = False
-
-DDLI_WEBSITE = "ddl-island"
-DDLI_DOMAIN = "http://www.ddl-is.land"
-DDLI_MAIN_ATTR_HTML = "div"
-DDLI_MAIN_CLASS = "fiche_listing"
-DDLI_URLS_MOVIES = ['/emule-telecharger/films-1.html&order=2']
-DDLI_URLS_MOVIES_HD = ['/emule-telecharger/films-hd-13.html&order=2']
-DDLI_URLS_TVSHOWS = ['/emule-telecharger/series-tv-6.html&order=2']
 
 CLEAN_PATTERN_TITLE = [
     "(?i)\(([^\)]+)\)",  # (2018), (WEB)

@@ -1,7 +1,6 @@
 from scrapddl.spiders.wawacity import WCMoviesSpider, WCMoviesHDSpider, WCTvShowsSpider, WCMangaSpider
 from spiders.extreme_down import EDMoviesSpider, EDMoviesHDSpider, EDTvShowsSpider, EDMangaSpider
 from spiders.zone_telechargement import ZTMoviesSpider, ZTMoviesHDSpider, ZTTvShowsSpider, ZTMangaSpider
-from spiders.univers_anime import UniversAnimeMangaSpider
 
 from items.items import GroupItem
 
@@ -9,7 +8,7 @@ MOVIES_CLASS = [EDMoviesSpider, EDMoviesHDSpider,
                 ZTMoviesSpider, ZTMoviesHDSpider,
                 WCMoviesSpider, WCMoviesHDSpider]
 TVSHOWS_CLASS = [EDTvShowsSpider, ZTTvShowsSpider, WCTvShowsSpider]
-MANGAS_CLASS = [UniversAnimeMangaSpider, ZTMangaSpider, EDMangaSpider, WCMangaSpider]
+MANGAS_CLASS = [ZTMangaSpider, EDMangaSpider, WCMangaSpider]
 
 
 class Process(object):
