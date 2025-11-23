@@ -20,7 +20,11 @@ install:  ## Install dependencies
 	uv sync --all-extras
 
 serve: ## Run server
-	uv run python scrapddl/main.py
+	@echo "🛑 Killing any existing Flask processes..."
+	@pkill -9 -f "python.*main.py" 2>/dev/null || true
+	@sleep 1
+	@echo "🚀 Starting ScrapDDL server (with increased file limit)..."
+	@sh -c 'ulimit -n 4096 && uv run python scrapddl/main.py'
 
 test: ## Run test
 	uv run pytest scrapddl/tests

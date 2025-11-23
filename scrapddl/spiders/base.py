@@ -20,10 +20,28 @@ class BaseSpider(object):
     need_quality_data_from_title = False
     quality_data_regex = []
 
+    # Shared cloudscraper session for all spider instances
+    _shared_scraper = None
+
+    @classmethod
+    def get_scraper(cls):
+        """Get or create a shared cloudscraper session"""
+        if cls._shared_scraper is None:
+            cls._shared_scraper = cloudscraper.create_scraper()
+            # Limit the number of connections in the pool
+            adapter = requests.adapters.HTTPAdapter(
+                pool_connections=5,
+                pool_maxsize=10,
+                max_retries=2
+            )
+            cls._shared_scraper.mount('http://', adapter)
+            cls._shared_scraper.mount('https://', adapter)
+        return cls._shared_scraper
+
     def __init__(self):
         self.group_items = GroupItem()
-        # use to bypass Cloudflare's anti-bot page
-        self.request_scraper = cloudscraper.create_scraper()
+        # Use shared scraper to avoid creating too many sessions
+        self.request_scraper = self.get_scraper()
 
     @staticmethod
     def is_absolute(url):
@@ -75,18 +93,25 @@ class BaseSpider(object):
         return extra_quality
 
     def _get_elements(self, url):
+        page = None
         try:
             page = self.request_scraper.get(url,
                                             timeout=TIMEOUT_REQUEST_PROVIDERS)
+            content = page.content
+            page.close()  # Close response to free file descriptor
         except requests.RequestException as e:
             print(f"ERROR - request url: {url} ### {e}")
             # Retry without check certificat
             try:
                 page = requests.get(url, timeout=TIMEOUT_REQUEST_PROVIDERS,
                                     verify=False)
+                content = page.content
+                page.close()  # Close response to free file descriptor
             except requests.RequestException as e:
                 print(f"ERROR - request url: {url} ### {e}")
-        tree = html.fromstring(page.content)
+                return None
+
+        tree = html.fromstring(content)
         try:
             return self._get_root(tree)
         except (IndexError, AttributeError) as e:
