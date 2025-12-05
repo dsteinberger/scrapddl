@@ -2,32 +2,22 @@
 
 Pour visualiser les dernières sorties de vos sites DDL préférés !
 
-!!! Attention il est possible que votre FAI bloque les sites ci-dessous, vous pouvez utiliser un `VPN`, 
-il en existe des gratuits comme `protonvpn`
+Attention : il est possible que votre FAI bloque les sites ci-dessous, vous pouvez utiliser un VPN (ex: ProtonVPN).
 
-Films et séries :
-
-- https://www.zone-telechargement.irish/
-- https://www.extreme-down.rent/
-- https://www.wawacity.irish/
-- https://www.tirexo.rent/
-- https://www.annuaire-telechargement.rent/
-
-Mangas :
+## Providers supportés
 
 - https://www.zone-telechargement.irish/
 - https://www.extreme-down.rent/
 - https://www.wawacity.irish/
 - https://www.tirexo.rent/
 - https://www.annuaire-telechargement.rent/
-
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
 
 Les notes IMDB sont également récupérées si possible.
 
-Un lien vers le site https://www.opensubtitles.org/fr/ est présent pour chaque films/series/mangas
-et permet de DL les sous titres Français correspondant.
+Un lien vers https://www.opensubtitles.org/fr/ est présent pour chaque film/série/manga
+et permet de télécharger les sous-titres français correspondants.
 
 
 ## Aperçu du site
@@ -35,65 +25,58 @@ et permet de DL les sous titres Français correspondant.
 ![screenshot](images/homev3.png)
 
 
-## Lancer le site
+## Installation
 
-Installer poetry (https://python-poetry.org/docs/#installation)
+Installer [uv](https://docs.astral.sh/uv/getting-started/installation/)
 
-```
+```bash
 make install
 ```
 
-Pour extreme_down il faut bypass Cloudflare's anti-bot page.
-Pour cela la lib cloudscraper (https://github.com/venomous/cloudscraper) à besoin de node.js :
+Lancer le serveur en local :
 
-Your machine may already have Node installed (check with node -v). 
-If not, you can install it with apt-get install nodejs on 
-Ubuntu >= 18.04 and Debian >= 9 and brew install node on macOS. 
-Otherwise, you can get it from Node's download page or their 
-package manager installation page (https://nodejs.org/en/download/)
-
-
-Puis lancer le serveur en locale :
-
-```
+```bash
 make serve
 ```
 
-Se rendre sur son navigateur et taper l'url suivante :
-http://127.0.0.1:5000/
-
-Ou il est possible d'utiliser le fichier `run.sh.dist` en tant qu'executable.
-Pour cela il suffit de le renommer pour enlever le suffixe `.dist` et remplacer dans celui ci les `<path>`.
-Puis copier le ou vous le souhaitez, donnez lui les droits d'exécution:
-‘sudo chmod 755 run.sh‘
-Enfin ouvrir avec le terminal.
-
-ENJOY!
+Se rendre sur http://127.0.0.1:5000/
 
 
-## Extra options
+## Options
 
-Un fichier settings permet d'activer ou non certaines options.
+Le fichier `scrapddl/settings.py` permet de configurer l'application.
 
-Activer ou non les sections, Films, Series ou Mangas selon vos envies avec les settings suivant :
-(Toutes les sections sont activés par défaut)
+Activer ou non les sections Films, Séries ou Mangas :
 
-```
+```python
 MOVIES_SECTION_ACTIVE = True
 TVSHOWS_SECTION_ACTIVE = True
-MANGAS_SECTION_ACTIVE = False  # Unactive mangas section
+MANGAS_SECTION_ACTIVE = False  # Désactiver la section mangas
 ```
 
-Activer ou non les notes imdb (default True)
+Activer ou non les notes IMDB :
 
-```
+```python
 IMDB_RATING_ACTIVE = True
 ```
 
-Définir la note minimale pour considérer un film, série ou un manga en tant que top !
+Définir la note minimale pour considérer un contenu en tant que "top" :
 
-```
-IMDB_RATING_MINIMAL_TOP = True
+```python
+IMDB_RATING_MINIMAL_TOP = 8
 ```
 
-Et plein d'autre options dans le fichier settings !
+Voir le fichier settings pour toutes les options disponibles.
+
+
+## Mise à jour des URLs
+
+Les sites DDL changent régulièrement de domaine. Un script permet de détecter et mettre à jour automatiquement les URLs :
+
+```bash
+uv run check_urls.py              # Vérifier les URLs
+uv run check_urls.py --update     # Mettre à jour settings.py et README.md
+uv run check_urls.py --commit     # Mettre à jour et créer un commit
+```
+
+Une GitHub Action exécute ce script quotidiennement.
