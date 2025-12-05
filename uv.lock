@@ -765,16 +765,16 @@ wheels = [
 
 [[package]]
 name = "scrap-imdb"
-version = "0.1.7"
+version = "0.1.8"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "cloudscraper" },
     { name = "lxml" },
     { name = "requests" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/32/dd/d12d0a1f031085ead863995662a355e2965672748f4692dd65776bda5112/scrap_imdb-0.1.7.tar.gz", hash = "sha256:24403e5be10fc192a684f06c7c82fd0e2266d67952e3930c8f5eb676df042b84", size = 6020, upload-time = "2025-11-22T08:35:09.545Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/4c/8c/88de3177b6a95aafdce18772f2b978a8edcf8ab4b058751203b9e7ded64c/scrap_imdb-0.1.8.tar.gz", hash = "sha256:a34110a0a237fb2d1a1a3af8ace4d2167827a7f9c60e2f48138c52e2790b9cb7", size = 6333, upload-time = "2025-11-23T08:57:09.214Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/bf/5f/0f9447aebca2b3ca2804839100eeeb9fd1a790c64ec39cbcd96ffb670c60/scrap_imdb-0.1.7-py3-none-any.whl", hash = "sha256:a248097870e51675bf5c7599458983b46a30c3c5bc3c9f00d549966bc473b2b8", size = 7137, upload-time = "2025-11-22T08:35:08.304Z" },
+    { url = "https://files.pythonhosted.org/packages/bf/37/e8030907977af0a81ebae4c02ec7b66d03b2ad8df7b767a6c93e66803792/scrap_imdb-0.1.8-py3-none-any.whl", hash = "sha256:d2361742e80543aed0f578ec659870d53f2700a3481575fce722cd3ef0a84dde", size = 7471, upload-time = "2025-11-23T08:57:07.867Z" },
 ]
 
 [[package]]
@@ -809,7 +809,7 @@ requires-dist = [
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=7.2.1" },
     { name = "python-slugify", specifier = ">=8.0.0" },
     { name = "requests", specifier = ">=2.28.2" },
-    { name = "scrap-imdb", specifier = ">=0.1.7" },
+    { name = "scrap-imdb", specifier = ">=0.1.8" },
 ]
 provides-extras = ["dev"]
 

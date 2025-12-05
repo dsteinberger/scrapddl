@@ -8,18 +8,18 @@ il en existe des gratuits comme `protonvpn`
 Films et séries :
 
 - https://www.zone-telechargement.irish/
-- https://www.extrem-down.live/
+- https://www.extreme-down.rent/
 - https://www.wawacity.irish/
-- https://www.tirexo.live/
-- https://www.annuaire-telechargement.live/
+- https://www.tirexo.rent/
+- https://www.annuaire-telechargement.rent/
 
 Mangas :
 
 - https://www.zone-telechargement.irish/
-- https://www.extrem-down.live/
+- https://www.extreme-down.rent/
 - https://www.wawacity.irish/
-- https://www.tirexo.live/
-- https://www.annuaire-telechargement.live/
+- https://www.tirexo.rent/
+- https://www.annuaire-telechargement.rent/
 
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
