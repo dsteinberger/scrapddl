@@ -4,42 +4,43 @@ Tests for Process class
 
 import pytest
 from unittest.mock import Mock, patch, MagicMock
-from scrapddl.process import Process, MOVIES_CLASS, TVSHOWS_CLASS, MANGAS_CLASS
+from scrapddl.process import Process
+from scrapddl.spiders import MOVIES_SPIDERS, TVSHOWS_SPIDERS, MANGAS_SPIDERS
 from scrapddl.items.items import GroupItem, Item
 
 
 class TestProcessConstants:
     """Tests for Process constants"""
 
-    def test_movies_class_list_exists(self):
-        """Verify that MOVIES_CLASS exists and contains classes"""
-        assert isinstance(MOVIES_CLASS, list)
-        assert len(MOVIES_CLASS) > 0
+    def test_movies_spiders_list_exists(self):
+        """Verify that MOVIES_SPIDERS exists and contains classes"""
+        assert isinstance(MOVIES_SPIDERS, list)
+        assert len(MOVIES_SPIDERS) > 0
 
-    def test_tvshows_class_list_exists(self):
-        """Verify that TVSHOWS_CLASS exists and contains classes"""
-        assert isinstance(TVSHOWS_CLASS, list)
-        assert len(TVSHOWS_CLASS) > 0
+    def test_tvshows_spiders_list_exists(self):
+        """Verify that TVSHOWS_SPIDERS exists and contains classes"""
+        assert isinstance(TVSHOWS_SPIDERS, list)
+        assert len(TVSHOWS_SPIDERS) > 0
 
-    def test_mangas_class_list_exists(self):
-        """Verify that MANGAS_CLASS exists and contains classes"""
-        assert isinstance(MANGAS_CLASS, list)
-        assert len(MANGAS_CLASS) > 0
+    def test_mangas_spiders_list_exists(self):
+        """Verify that MANGAS_SPIDERS exists and contains classes"""
+        assert isinstance(MANGAS_SPIDERS, list)
+        assert len(MANGAS_SPIDERS) > 0
 
-    def test_movies_class_has_correct_count(self):
-        """Verify that MOVIES_CLASS contains the correct number of spiders"""
+    def test_movies_spiders_has_correct_count(self):
+        """Verify that MOVIES_SPIDERS contains the correct number of spiders"""
         # ED, ZT, WC, TR, AT × 2 (Movies + MoviesHD) = 10
-        assert len(MOVIES_CLASS) == 10
+        assert len(MOVIES_SPIDERS) == 10
 
-    def test_tvshows_class_has_correct_count(self):
-        """Verify that TVSHOWS_CLASS contains the correct number of spiders"""
+    def test_tvshows_spiders_has_correct_count(self):
+        """Verify that TVSHOWS_SPIDERS contains the correct number of spiders"""
         # ED, ZT, WC, TR, AT = 5
-        assert len(TVSHOWS_CLASS) == 5
+        assert len(TVSHOWS_SPIDERS) == 5
 
-    def test_mangas_class_has_correct_count(self):
-        """Verify that MANGAS_CLASS contains the correct number of spiders"""
+    def test_mangas_spiders_has_correct_count(self):
+        """Verify that MANGAS_SPIDERS contains the correct number of spiders"""
         # ED, ZT, WC, TR, AT = 5
-        assert len(MANGAS_CLASS) == 5
+        assert len(MANGAS_SPIDERS) == 5
 
 
 class TestProcessInitialization:
@@ -79,12 +80,12 @@ class TestProcessMethods:
         assert process.has_process_object("movies") is True
         assert process.has_process_object("tvshows") is False
 
-    @patch('scrapddl.process.MOVIES_CLASS')
-    def test_process_movies_with_no_activated_spiders(self, mock_movies_class):
+    @patch('scrapddl.process.MOVIES_SPIDERS')
+    def test_process_movies_with_no_activated_spiders(self, mock_movies_spiders):
         """Verify process_movies when no spider is activated"""
         mock_spider_class = Mock()
         mock_spider_class.is_activated.return_value = False
-        mock_movies_class.__iter__ = Mock(return_value=iter([mock_spider_class]))
+        mock_movies_spiders.__iter__ = Mock(return_value=iter([mock_spider_class]))
 
         process = Process()
         process.process_movies()
@@ -92,8 +93,8 @@ class TestProcessMethods:
         assert len(process.movies_group_items.items) == 0
         mock_spider_class.is_activated.assert_called_once()
 
-    @patch('scrapddl.process.MOVIES_CLASS')
-    def test_process_movies_with_activated_spider(self, mock_movies_class):
+    @patch('scrapddl.process.MOVIES_SPIDERS')
+    def test_process_movies_with_activated_spider(self, mock_movies_spiders):
         """Verify process_movies with an activated spider"""
         # Create mock spider
         mock_spider_class = Mock()
@@ -108,7 +109,7 @@ class TestProcessMethods:
         mock_spider_instance.parse.return_value = mock_group_items
 
         mock_spider_class.return_value = mock_spider_instance
-        mock_movies_class.__iter__ = Mock(return_value=iter([mock_spider_class]))
+        mock_movies_spiders.__iter__ = Mock(return_value=iter([mock_spider_class]))
 
         process = Process()
         process.process_movies()
@@ -117,8 +118,8 @@ class TestProcessMethods:
         mock_spider_class.assert_called_once()
         mock_spider_instance.parse.assert_called_once()
 
-    @patch('scrapddl.process.TVSHOWS_CLASS')
-    def test_process_tvshows_with_activated_spider(self, mock_tvshows_class):
+    @patch('scrapddl.process.TVSHOWS_SPIDERS')
+    def test_process_tvshows_with_activated_spider(self, mock_tvshows_spiders):
         """Verify process_tvshows with an activated spider"""
         mock_spider_class = Mock()
         mock_spider_class.is_activated.return_value = True
@@ -129,7 +130,7 @@ class TestProcessMethods:
         mock_spider_instance.parse.return_value = mock_group_items
 
         mock_spider_class.return_value = mock_spider_instance
-        mock_tvshows_class.__iter__ = Mock(return_value=iter([mock_spider_class]))
+        mock_tvshows_spiders.__iter__ = Mock(return_value=iter([mock_spider_class]))
 
         process = Process()
         process.process_tvshows()
@@ -137,8 +138,8 @@ class TestProcessMethods:
         mock_spider_class.is_activated.assert_called_once()
         mock_spider_instance.parse.assert_called_once()
 
-    @patch('scrapddl.process.MANGAS_CLASS')
-    def test_process_mangas_with_activated_spider(self, mock_mangas_class):
+    @patch('scrapddl.process.MANGAS_SPIDERS')
+    def test_process_mangas_with_activated_spider(self, mock_mangas_spiders):
         """Verify process_mangas with an activated spider"""
         mock_spider_class = Mock()
         mock_spider_class.is_activated.return_value = True
@@ -149,7 +150,7 @@ class TestProcessMethods:
         mock_spider_instance.parse.return_value = mock_group_items
 
         mock_spider_class.return_value = mock_spider_instance
-        mock_mangas_class.__iter__ = Mock(return_value=iter([mock_spider_class]))
+        mock_mangas_spiders.__iter__ = Mock(return_value=iter([mock_spider_class]))
 
         process = Process()
         process.process_mangas()
@@ -176,7 +177,7 @@ class TestProcessMethods:
         # We can't easily mock real classes here
         # so just verify method executes without error
         # and that zip_items was called (by checking items is not None)
-        with patch('scrapddl.process.MOVIES_CLASS', []):
+        with patch('scrapddl.process.MOVIES_SPIDERS', []):
             process.process_movies()
             # With empty list, items should remain empty
             assert process.movies_group_items.items == []

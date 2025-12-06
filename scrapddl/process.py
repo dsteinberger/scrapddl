@@ -1,18 +1,5 @@
-from scrapddl.spiders.wawacity import WCMoviesSpider, WCMoviesHDSpider, WCTvShowsSpider, WCMangaSpider
-from scrapddl.spiders.extreme_down import EDMoviesSpider, EDMoviesHDSpider, EDTvShowsSpider, EDMangaSpider
-from scrapddl.spiders.zone_telechargement import ZTMoviesSpider, ZTMoviesHDSpider, ZTTvShowsSpider, ZTMangaSpider
-from scrapddl.spiders.tirexo import TRMoviesSpider, TRMoviesHDSpider, TRTvShowsSpider, TRMangaSpider
-from scrapddl.spiders.annuaire_telechargement import ATMoviesSpider, ATMoviesHDSpider, ATTvShowsSpider, ATMangaSpider
-
+from scrapddl.spiders import MOVIES_SPIDERS, TVSHOWS_SPIDERS, MANGAS_SPIDERS
 from scrapddl.items.items import GroupItem
-
-MOVIES_CLASS = [EDMoviesSpider, EDMoviesHDSpider,
-                ZTMoviesSpider, ZTMoviesHDSpider,
-                WCMoviesSpider, WCMoviesHDSpider,
-                TRMoviesSpider, TRMoviesHDSpider,
-                ATMoviesSpider, ATMoviesHDSpider]
-TVSHOWS_CLASS = [EDTvShowsSpider, ZTTvShowsSpider, WCTvShowsSpider, TRTvShowsSpider, ATTvShowsSpider]
-MANGAS_CLASS = [ZTMangaSpider, EDMangaSpider, WCMangaSpider, TRMangaSpider, ATMangaSpider]
 
 
 class Process(object):
@@ -35,13 +22,13 @@ class Process(object):
         getattr(self, f"{content_type}_group_items").zip_items(items_to_process)
 
     def process_movies(self):
-        self._process_content('movies', MOVIES_CLASS)
+        self._process_content('movies', MOVIES_SPIDERS)
 
     def process_tvshows(self):
-        self._process_content('tvshows', TVSHOWS_CLASS)
+        self._process_content('tvshows', TVSHOWS_SPIDERS)
 
     def process_mangas(self):
-        self._process_content('mangas', MANGAS_CLASS)
+        self._process_content('mangas', MANGAS_SPIDERS)
 
     def has_process_object(self, section):
         return len(getattr(self, f"{section}_group_items").items) > 0
