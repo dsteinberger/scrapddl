@@ -7,6 +7,9 @@ on:
   # Lancement manuel possible
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   check-urls:
     runs-on: ubuntu-latest
