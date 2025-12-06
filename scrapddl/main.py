@@ -17,12 +17,12 @@ from scrapddl.settings import MOVIES_SECTION_ACTIVE
 from scrapddl.settings import TVSHOWS_SECTION_ACTIVE
 from scrapddl.settings import MANGAS_SECTION_ACTIVE
 
-from scrapddl.items.items import Item
+from scrapddl.items.items import Item, GroupItem
 
 
 simplecache = SimpleCache()
 CACHE_TIMEOUT = 60
-IMDB_CACHE_TIMEOUT = 0
+IMDB_CACHE_TIMEOUT = 3600  # 1 hour cache for IMDB ratings
 
 
 def create_app():
@@ -109,7 +109,7 @@ def mangas_home():
 def movies_refresh():
     process = simplecache.get("process")
     if process:
-        process.movies_group_items.items = []
+        process.movies_group_items = GroupItem()  # New object instead of mutation
         simplecache.set("process", process, CACHE_TIMEOUT)
     return redirect(url_for('movies_home'))
 
@@ -118,7 +118,7 @@ def movies_refresh():
 def tvshows_refresh():
     process = simplecache.get("process")
     if process:
-        process.tvshows_group_items.items = []
+        process.tvshows_group_items = GroupItem()  # New object instead of mutation
         simplecache.set("process", process, CACHE_TIMEOUT)
     return redirect(url_for('tvshows_home'))
 
@@ -127,7 +127,7 @@ def tvshows_refresh():
 def mangas_refresh():
     process = simplecache.get("process")
     if process:
-        process.mangas_group_items.items = []
+        process.mangas_group_items = GroupItem()  # New object instead of mutation
         simplecache.set("process", process, CACHE_TIMEOUT)
     return redirect(url_for('mangas_home'))
 
