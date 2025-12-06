@@ -1,16 +1,8 @@
-import re
-
 from .base import BaseSpider
-from scrapddl.settings import ZT_MAIN_ATTR_HTML, ZT_ACTIVATE_MOVIES_HD, ZT_ACTIVATE_TVSHOWS, ZT_ACTIVATE_MANGAS
-from scrapddl.settings import ZT_MAIN_CLASS
-from scrapddl.settings import ZT_DOMAIN
-from scrapddl.settings import ZT_WEBSITE
-from scrapddl.settings import ZT_URLS_MOVIES
-from scrapddl.settings import ZT_URLS_MOVIES_HD
-from scrapddl.settings import ZT_URLS_TVSHOWS
-from scrapddl.settings import ZT_URLS_MANGA
-
-from scrapddl.settings import ZT_ACTIVATE, ZT_ACTIVATE_MOVIES
+from .factory import create_provider_spiders
+from scrapddl.settings import (
+    ZT_MAIN_CLASS, ZT_MAIN_ATTR_HTML, ZT_DOMAIN, ZT_WEBSITE
+)
 
 
 class ZTBaseSpider(BaseSpider):
@@ -30,7 +22,6 @@ class ZTBaseSpider(BaseSpider):
     def _get_genre(self, element):
         genre = element.xpath(".//div[@class='cover_infos_genre']")
         if genre:
-            # NOT WORKING WHY... ?
             return genre[0].text
 
     def _get_image(self, element):
@@ -44,39 +35,10 @@ class ZTBaseSpider(BaseSpider):
             ".//div[@class='cover_infos_title']/span/span/b")[0].text.strip()
 
 
-class ZTMoviesSpider(ZTBaseSpider):
-    urls = ZT_URLS_MOVIES
+# Auto-generate spider classes
+_spiders = create_provider_spiders(ZTBaseSpider, 'ZT')
 
-    @staticmethod
-    def is_activated():
-        return True if ZT_ACTIVATE and ZT_ACTIVATE_MOVIES else False
-
-
-class ZTMoviesHDSpider(ZTBaseSpider):
-    urls = ZT_URLS_MOVIES_HD
-
-    @staticmethod
-    def is_activated():
-        return True if ZT_ACTIVATE and ZT_ACTIVATE_MOVIES_HD else False
-
-
-class ZTTvShowsSpider(ZTBaseSpider):
-    urls = ZT_URLS_TVSHOWS
-
-    need_quality_data_from_title = True
-    quality_data_regex = [r"(?i)saison( )?(\d+)?"]
-
-    @staticmethod
-    def is_activated():
-        return True if ZT_ACTIVATE and ZT_ACTIVATE_TVSHOWS else False
-
-
-class ZTMangaSpider(ZTBaseSpider):
-    urls = ZT_URLS_MANGA
-
-    need_quality_data_from_title = True
-    quality_data_regex = [r"(?i)saison( )?(\d+)?"]
-
-    @staticmethod
-    def is_activated():
-        return True if ZT_ACTIVATE and ZT_ACTIVATE_MANGAS else False
+ZTMoviesSpider = _spiders['movies']
+ZTMoviesHDSpider = _spiders['movies_hd']
+ZTTvShowsSpider = _spiders['tvshows']
+ZTMangaSpider = _spiders['manga']

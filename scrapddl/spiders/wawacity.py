@@ -1,14 +1,8 @@
 from .base import BaseSpider
-from scrapddl.settings import WC_MAIN_CLASS
-from scrapddl.settings import WC_MAIN_ATTR_HTML
-from scrapddl.settings import WC_DOMAIN
-from scrapddl.settings import WC_WEBSITE
-from scrapddl.settings import WC_URLS_MOVIES
-from scrapddl.settings import WC_URLS_MOVIES_HD
-from scrapddl.settings import WC_URLS_TVSHOWS
-from scrapddl.settings import WC_URLS_MANGA
-
-from scrapddl.settings import WC_ACTIVATE, WC_ACTIVATE_MOVIES, WC_ACTIVATE_MOVIES_HD, WC_ACTIVATE_TVSHOWS, WC_ACTIVATE_MANGAS
+from .factory import create_provider_spiders
+from scrapddl.settings import (
+    WC_MAIN_CLASS, WC_MAIN_ATTR_HTML, WC_DOMAIN, WC_WEBSITE
+)
 
 
 class WCBaseSpider(BaseSpider):
@@ -41,33 +35,10 @@ class WCBaseSpider(BaseSpider):
             ".//div[@class='wa-sub-block-title']/a/i")[1].text.strip()
 
 
-class WCMoviesSpider(WCBaseSpider):
-    urls = WC_URLS_MOVIES
+# Auto-generate spider classes
+_spiders = create_provider_spiders(WCBaseSpider, 'WC')
 
-    @staticmethod
-    def is_activated():
-        return True if WC_ACTIVATE and WC_ACTIVATE_MOVIES else False
-
-
-class WCMoviesHDSpider(WCBaseSpider):
-    urls = WC_URLS_MOVIES_HD
-
-    @staticmethod
-    def is_activated():
-        return True if WC_ACTIVATE and WC_ACTIVATE_MOVIES_HD else False
-
-
-class WCTvShowsSpider(WCBaseSpider):
-    urls = WC_URLS_TVSHOWS
-
-    @staticmethod
-    def is_activated():
-        return True if WC_ACTIVATE and WC_ACTIVATE_TVSHOWS else False
-
-
-class WCMangaSpider(WCBaseSpider):
-    urls = WC_URLS_MANGA
-
-    @staticmethod
-    def is_activated():
-        return True if WC_ACTIVATE and WC_ACTIVATE_MANGAS else False
+WCMoviesSpider = _spiders['movies']
+WCMoviesHDSpider = _spiders['movies_hd']
+WCTvShowsSpider = _spiders['tvshows']
+WCMangaSpider = _spiders['manga']

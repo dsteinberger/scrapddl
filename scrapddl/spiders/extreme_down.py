@@ -1,16 +1,8 @@
 from .base import BaseSpider
-from scrapddl.settings import ED_MAIN_CLASS
-from scrapddl.settings import ED_MAIN_ATTR_HTML
-from scrapddl.settings import ED_DOMAIN
-from scrapddl.settings import ED_WEBSITE
-from scrapddl.settings import ED_URLS_MOVIES
-from scrapddl.settings import ED_URLS_MOVIES_HD
-from scrapddl.settings import ED_URLS_TVSHOWS
-from scrapddl.settings import ED_URLS_MANGA
-
-from scrapddl.settings import ED_ACTIVATE
-
-from scrapddl.settings import ED_ACTIVATE_MOVIES, ED_ACTIVATE_MOVIES_HD, ED_ACTIVATE_TVSHOWS, ED_ACTIVATE_MANGAS
+from .factory import create_provider_spiders
+from scrapddl.settings import (
+    ED_MAIN_CLASS, ED_MAIN_ATTR_HTML, ED_DOMAIN, ED_WEBSITE
+)
 
 
 class EDBaseSpider(BaseSpider):
@@ -27,43 +19,19 @@ class EDBaseSpider(BaseSpider):
         return element.xpath(".//span[@class='top-title']")[0].text
 
     def _get_genre(self, element):
-        return element.xpath(
-            ".//span[@class='top-genre']")[0].text.strip()
+        return element.xpath(".//span[@class='top-genre']")[0].text.strip()
 
     def _get_image(self, element):
         return "{}{}".format(self.domain, element.xpath(".//img/@src")[0])
 
     def _get_quality_language(self, element):
-        return element.xpath(
-            ".//span[@class='top-lasttitle']")[0].text.strip()
+        return element.xpath(".//span[@class='top-lasttitle']")[0].text.strip()
 
 
-class EDMoviesSpider(EDBaseSpider):
-    urls = ED_URLS_MOVIES
+# Auto-generate spider classes
+_spiders = create_provider_spiders(EDBaseSpider, 'ED')
 
-    @staticmethod
-    def is_activated():
-        return True if ED_ACTIVATE and ED_ACTIVATE_MOVIES else False
-
-class EDMoviesHDSpider(EDBaseSpider):
-    urls = ED_URLS_MOVIES_HD
-
-    @staticmethod
-    def is_activated():
-        return True if ED_ACTIVATE and ED_ACTIVATE_MOVIES_HD else False
-
-
-class EDTvShowsSpider(EDBaseSpider):
-    urls = ED_URLS_TVSHOWS
-
-    @staticmethod
-    def is_activated():
-        return True if ED_ACTIVATE and ED_ACTIVATE_TVSHOWS else False
-
-
-class EDMangaSpider(EDBaseSpider):
-    urls = ED_URLS_MANGA
-
-    @staticmethod
-    def is_activated():
-        return True if ED_ACTIVATE and ED_ACTIVATE_MANGAS else False
+EDMoviesSpider = _spiders['movies']
+EDMoviesHDSpider = _spiders['movies_hd']
+EDTvShowsSpider = _spiders['tvshows']
+EDMangaSpider = _spiders['manga']
