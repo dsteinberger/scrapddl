@@ -1,3 +1,5 @@
+from lxml.html import HtmlElement
+
 from .base import BaseSpider
 from .factory import create_provider_spiders
 from scrapddl.settings import (
@@ -12,25 +14,26 @@ class ZTBaseSpider(BaseSpider):
     domain = ZT_DOMAIN
     from_website = ZT_WEBSITE
 
-    def _get_page_url(self, element):
+    def _get_page_url(self, element: HtmlElement) -> str:
         return "{}{}".format(self.domain, element.xpath(
             ".//div[@class='cover_infos_title']/a")[0].items()[0][1])
 
-    def _get_title(self, element):
+    def _get_title(self, element: HtmlElement) -> str:
         return element.xpath(".//div[@class='cover_infos_title']/a")[0].text
 
-    def _get_genre(self, element):
+    def _get_genre(self, element: HtmlElement) -> str | None:
         genre = element.xpath(".//div[@class='cover_infos_genre']")
         if genre:
             return genre[0].text
+        return None
 
-    def _get_image(self, element):
-        image = element.xpath(".//img/@src")[0]
+    def _get_image(self, element: HtmlElement) -> str:
+        image: str = element.xpath(".//img/@src")[0]
         if not self.is_absolute(image):
             return "{}{}".format(self.domain, image)
         return image
 
-    def _get_quality_language(self, element):
+    def _get_quality_language(self, element: HtmlElement) -> str:
         return element.xpath(
             ".//div[@class='cover_infos_title']/span/span/b")[0].text.strip()
 

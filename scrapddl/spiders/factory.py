@@ -4,11 +4,20 @@ Factory to dynamically generate Spider classes.
 Instead of having 20 nearly identical classes, we generate spiders
 from configuration.
 """
+from typing import Any, TypedDict
+
 from scrapddl import settings
 
 
+class ContentTypeConfig(TypedDict, total=False):
+    urls_suffix: str
+    activate_suffix: str
+    need_quality_data_from_title: bool
+    quality_data_regex: list[str]
+
+
 # Content types configuration
-CONTENT_TYPES = {
+CONTENT_TYPES: dict[str, ContentTypeConfig] = {
     'movies': {
         'urls_suffix': 'URLS_MOVIES',
         'activate_suffix': 'ACTIVATE_MOVIES',
@@ -32,7 +41,7 @@ CONTENT_TYPES = {
 }
 
 
-def create_spider_class(base_class, prefix: str, content_type: str):
+def create_spider_class(base_class: type, prefix: str, content_type: str) -> type:
     """
     Dynamically create a Spider class for a provider and content type.
 
@@ -51,12 +60,12 @@ def create_spider_class(base_class, prefix: str, content_type: str):
     activate_key = f"{prefix}_{config['activate_suffix']}"
     main_activate_key = f"{prefix}_ACTIVATE"
 
-    urls = getattr(settings, urls_key)
-    activate = getattr(settings, activate_key)
-    main_activate = getattr(settings, main_activate_key)
+    urls: list[str] = getattr(settings, urls_key)
+    activate: bool = getattr(settings, activate_key)
+    main_activate: bool = getattr(settings, main_activate_key)
 
     # Class attributes
-    class_attrs = {
+    class_attrs: dict[str, Any] = {
         'urls': urls,
         '_activate': activate,
         '_main_activate': main_activate,
@@ -78,7 +87,7 @@ def create_spider_class(base_class, prefix: str, content_type: str):
     return type(class_name, (base_class,), class_attrs)
 
 
-def create_provider_spiders(base_class, prefix: str) -> dict:
+def create_provider_spiders(base_class: type, prefix: str) -> dict[str, type]:
     """
     Create all spiders for a provider.
 

@@ -22,8 +22,21 @@ dependencies = [
 dev = [
     "pytest>=7.2.1",
     "ipdb>=0.13.11",
+    "mypy>=1.8.0",
+    "types-requests>=2.31.0",
 ]
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = false
+warn_unused_ignores = false
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+ignore_missing_imports = true
+exclude = [
+    "scrapddl/tests/",
+]

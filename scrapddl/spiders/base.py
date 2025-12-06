@@ -1,8 +1,12 @@
+import logging
 import re
+from abc import ABC, abstractmethod
+from typing import ClassVar
 
 import requests
 import cloudscraper
 from lxml import html
+from lxml.html import HtmlElement
 from urllib.parse import urlparse
 
 from lxml.etree import XPathEvalError
@@ -14,20 +18,23 @@ from scrapddl.settings import (
     HTTP_POOL_CONNECTIONS, HTTP_POOL_MAXSIZE, HTTP_MAX_RETRIES,
 )
 
+logger = logging.getLogger(__name__)
 
-class BaseSpider(object):
-    urls = []
-    main_attr_html = None
-    main_class = None
-    from_website = None
-    need_quality_data_from_title = False
-    quality_data_regex = []
+
+class BaseSpider(ABC):
+    urls: ClassVar[list[str]] = []
+    main_attr_html: ClassVar[str | None] = None
+    main_class: ClassVar[str | None] = None
+    from_website: ClassVar[str | None] = None
+    need_quality_data_from_title: ClassVar[bool] = False
+    quality_data_regex: ClassVar[list[str]] = []
+    domain: ClassVar[str] = ""
 
     # Shared cloudscraper session for all spider instances
-    _shared_scraper = None
+    _shared_scraper: ClassVar[cloudscraper.CloudScraper | None] = None
 
     @classmethod
-    def get_scraper(cls):
+    def get_scraper(cls) -> cloudscraper.CloudScraper:
         """Get or create a shared cloudscraper session"""
         if cls._shared_scraper is None:
             cls._shared_scraper = cloudscraper.create_scraper()
@@ -40,28 +47,30 @@ class BaseSpider(object):
             cls._shared_scraper.mount('https://', adapter)
         return cls._shared_scraper
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.group_items = GroupItem()
         # Use shared scraper to avoid creating too many sessions
         self.request_scraper = self.get_scraper()
 
     @staticmethod
-    def is_absolute(url):
+    def is_absolute(url: str) -> bool:
         return bool(urlparse(url).netloc)
 
-    def _get_root(self, tree):
+    def _get_root(self, tree: HtmlElement) -> list[HtmlElement]:
         return tree.xpath(f"//{self.main_attr_html}[@class='{self.main_class}']")
 
-    def _get_page_url(self, element):
-        raise NotImplementedError()
+    @abstractmethod
+    def _get_page_url(self, element: HtmlElement) -> str:
+        pass
 
     @staticmethod
-    def is_activated():
-        raise NotImplementedError()
+    @abstractmethod
+    def is_activated() -> bool:
+        pass
 
-    def clean_title(self, title):
+    def clean_title(self, title: str) -> str:
 
-        def _compile_title(title, remove):
+        def _compile_title(title: str, remove: str) -> str:
             return re.sub(remove, "", title)
 
         for pattern in CLEAN_PATTERN_TITLE:
@@ -69,19 +78,23 @@ class BaseSpider(object):
 
         return title
 
-    def _get_title(self, element):
-        raise NotImplementedError()
+    @abstractmethod
+    def _get_title(self, element: HtmlElement) -> str:
+        pass
 
-    def _get_genre(self, element):
-        raise NotImplementedError()
+    @abstractmethod
+    def _get_genre(self, element: HtmlElement) -> str | None:
+        pass
 
-    def _get_image(self, element):
-        raise NotImplementedError()
+    @abstractmethod
+    def _get_image(self, element: HtmlElement) -> str | None:
+        pass
 
-    def _get_quality_language(self, element):
-        raise NotImplementedError()
+    @abstractmethod
+    def _get_quality_language(self, element: HtmlElement) -> str | None:
+        pass
 
-    def _get_quality_language_from_title(self, element):
+    def _get_quality_language_from_title(self, element: HtmlElement) -> str:
         extra_quality = ""
 
         # Retrieve quality Data on title
@@ -94,48 +107,60 @@ class BaseSpider(object):
 
         return extra_quality
 
-    def _get_elements(self, url):
+    def _get_elements(self, url: str) -> list[HtmlElement] | None:
         page = None
+        content = None
+
+        # First attempt with cloudscraper
         try:
             page = self.request_scraper.get(url,
                                             timeout=TIMEOUT_REQUEST_PROVIDERS)
             content = page.content
-            page.close()  # Close response to free file descriptor
         except requests.RequestException as e:
-            print(f"ERROR - request url: {url} ### {e}")
-            # Retry without check certificat
+            logger.error("Request failed for %s: %s", url, e)
+        finally:
+            if page is not None:
+                page.close()
+
+        # Retry without certificate verification if first attempt failed
+        if content is None:
+            page = None
             try:
+                logger.warning("Retrying %s without SSL verification", url)
                 page = requests.get(url, timeout=TIMEOUT_REQUEST_PROVIDERS,
                                     verify=False)
                 content = page.content
-                page.close()  # Close response to free file descriptor
             except requests.RequestException as e:
-                print(f"ERROR - request url: {url} ### {e}")
+                logger.error("Request failed for %s: %s", url, e)
                 return None
+            finally:
+                if page is not None:
+                    page.close()
 
         tree = html.fromstring(content)
         try:
             return self._get_root(tree)
         except (IndexError, AttributeError) as e:
-            print(f"ERROR - get root: {url} ### {e}")
+            logger.error("Failed to get root for %s: %s", url, e)
+            return None
 
-    def _parse_page(self, url):
+    def _parse_page(self, url: str) -> None:
         try:
             elements = self._get_elements(url)
             if not elements:
-                print(f"ERROR - get root is empty: {url}")
+                logger.warning("No elements found for %s", url)
                 return
             for element in elements:
-                o = Item(self.from_website)
+                o = Item(self.from_website or "")
                 try:
                     o.page_url = self._get_page_url(element)
                 except (IndexError, AttributeError) as e:
-                    print(f"ERROR - page url: {e} ### {o.__dict__}")
+                    logger.debug("Failed to get page_url: %s - %s", e, o.__dict__)
                 try:
                     title = self._get_title(element)
                     o.title = self.clean_title(title)
                 except (IndexError, AttributeError, TypeError, XPathEvalError) as e:
-                    print(f"ERROR - title: {e} ### {o.__dict__}")
+                    logger.debug("Failed to get title: %s - %s", e, o.__dict__)
                     o.title = ""
                 else:
                     o.slug = slugify(o.title)
@@ -143,24 +168,24 @@ class BaseSpider(object):
                 try:
                     o.genre = self._get_genre(element)
                 except (IndexError, AttributeError) as e:
-                    print(f"ERROR - genre: {e} ### {o.__dict__}")
+                    logger.debug("Failed to get genre: %s - %s", e, o.__dict__)
 
                 try:
                     o.image = self._get_image(element)
                 except (IndexError, AttributeError) as e:
-                    print(f"ERROR - image: {e} ### {o.__dict__}")
+                    logger.debug("Failed to get image: %s - %s", e, o.__dict__)
 
+                quality_language: str | None = None
                 try:
                     quality_language = self._get_quality_language(element)
                 except (IndexError, AttributeError) as e:
-                    print(f"ERROR - quality & language: {e} ### {o.__dict__}")
+                    logger.debug("Failed to get quality_language: %s - %s", e, o.__dict__)
                 if self.need_quality_data_from_title:
                     try:
                         extra_quality = self._get_quality_language_from_title(
                             element)
                     except (IndexError, AttributeError) as e:
-                        print(f"ERROR - Extra quality & language: {e} ### "
-                              f"{o.__dict__}")
+                        logger.debug("Failed to get extra quality: %s - %s", e, o.__dict__)
                     else:
                         if quality_language:
                             quality_language = \
@@ -172,9 +197,9 @@ class BaseSpider(object):
 
                 self.group_items.items.append(o)
         except Exception as e:
-            print(f"ERROR - GLOBAL: {e} ### {url}")
+            logger.exception("Unexpected error parsing %s: %s", url, e)
 
-    def parse(self):
+    def parse(self) -> GroupItem:
         for relative_url in self.urls:
             url = "{}{}".format(self.domain, relative_url)
             self._parse_page(url)

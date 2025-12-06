@@ -1,3 +1,5 @@
+from lxml.html import HtmlElement
+
 from .base import BaseSpider
 from .factory import create_provider_spiders
 from scrapddl.settings import (
@@ -12,14 +14,14 @@ class TRBaseSpider(BaseSpider):
     domain = TR_DOMAIN
     from_website = TR_WEBSITE
 
-    def _get_page_url(self, element):
+    def _get_page_url(self, element: HtmlElement) -> str:
         url = element.xpath(".//a[@class='mov-t nowrap']/@href")[0]
         return "{}{}".format(self.domain, url)
 
-    def _get_title(self, element):
+    def _get_title(self, element: HtmlElement) -> str:
         return element.xpath(".//img/@title")[0]
 
-    def _get_genre(self, element):
+    def _get_genre(self, element: HtmlElement) -> str | None:
         genre_elem = element.xpath(".//div[@class='cover_infos_genre']")
         if genre_elem:
             texts = genre_elem[0].xpath('.//text()')
@@ -27,13 +29,13 @@ class TRBaseSpider(BaseSpider):
             return genre_text if genre_text else None
         return None
 
-    def _get_image(self, element):
-        image = element.xpath(".//img/@src")[0]
+    def _get_image(self, element: HtmlElement) -> str:
+        image: str = element.xpath(".//img/@src")[0]
         if not self.is_absolute(image):
             return "{}{}".format(self.domain, image)
         return image
 
-    def _get_quality_language(self, element):
+    def _get_quality_language(self, element: HtmlElement) -> str:
         qualite = element.xpath(".//span[@class='qualite']//text()")
         langue = element.xpath(".//span[@class='langue']//text()")
 

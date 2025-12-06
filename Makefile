@@ -1,4 +1,4 @@
-.PHONY: help install serve test
+.PHONY: help install serve test typecheck
 .DEFAULT_GOAL := help
 
 help:
@@ -16,3 +16,6 @@ serve: ## Run server
 
 test: ## Run tests
 	uv run pytest scrapddl/tests
+
+typecheck: ## Run type checking with mypy
+	uv run mypy scrapddl

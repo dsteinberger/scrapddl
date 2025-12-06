@@ -1,29 +1,30 @@
-import urllib
+import urllib.parse
 from collections import OrderedDict
 from itertools import chain
 from itertools import zip_longest
+from typing import Any
 
 from scrapddl.settings import ITEMS_PER_PAGE
 
 
-class GroupItem(object):
-    per_page = ITEMS_PER_PAGE
+class GroupItem:
+    per_page: int = ITEMS_PER_PAGE
 
-    def __init__(self):
-        self.items = []
+    def __init__(self) -> None:
+        self.items: list[Item] = []
 
-    def _paginate(self):
+    def _paginate(self) -> list[list["Item"]]:
         return [
             self.items[i:i + self.per_page]
             for i in range(0, len(self.items), self.per_page)]
 
-    def zip_items(self, items_list):
-        self.items = [l for l in chain(*zip_longest(*items_list)) if l]
+    def zip_items(self, items_list: list[list["Item"]]) -> None:
+        self.items = [item for item in chain(*zip_longest(*items_list)) if item]
 
-    def set_unique(self):
-        items_processed = OrderedDict()
+    def set_unique(self) -> None:
+        items_processed: OrderedDict[str, Item] = OrderedDict()
         for item in self.items:
-            title = item.title.lower()
+            title = item.title.lower() if item.title else ""
             if title in items_processed:
                 # Manage clone
                 item_from = items_processed[title]
@@ -42,11 +43,11 @@ class GroupItem(object):
                 items_processed[title] = item
         self.items = list(items_processed.values())
 
-    def set_imdb_rating(self):
+    def set_imdb_rating(self) -> None:
         for item in self.items[:self.per_page]:
             item.rating_imdb = Item.fetch_imdb_rating(item.title)
 
-    def renderer(self, unique=False, need_rating=False):
+    def renderer(self, unique: bool = False, need_rating: bool = False) -> list[list["Item"]]:
         if not unique:
             self.set_unique()
         if need_rating:
@@ -55,64 +56,75 @@ class GroupItem(object):
         return items_paginate
 
 
-class Item(object):
-    title = None
-    slug = None
-    description = None
-    genre = None
-    image = None
-    quality_language = None
-    page_url = None
-    rating_imdb = None
+class Item:
+    title: str | None = None
+    slug: str | None = None
+    _description: str | None = None
+    _genre: str | None = None
+    image: str | None = None
+    _quality_language: str | None = None
+    page_url: str | None = None
+    rating_imdb: str | None = None
 
-    def __init__(self, from_website):
+    def __init__(self, from_website: str) -> None:
         self.from_website = from_website
-        self.items_clone = []
+        self.items_clone: list[Item] = []
+
+    @staticmethod
+    def fetch_imdb_rating(title: str | None) -> str | None:
+        # Placeholder - actual implementation would fetch from IMDB
+        return None
 
     @property
-    def title_urlencoded(self):
-        return urllib.parse.quote_plus(self.title.encode('utf-8'))
+    def title_urlencoded(self) -> str:
+        if self.title:
+            return urllib.parse.quote_plus(self.title.encode('utf-8'))
+        return ""
 
-    def get_clone_property(self, field):
+    def get_clone_property(self, field: str) -> Any:
         for item in self.items_clone:
             if getattr(item, field):
                 return getattr(item, field)
+        return None
 
     @property
-    def description(self):
+    def description(self) -> str | None:
         if self._description:
             return self._description
         else:
             # Get the clone one if exist
             if self.items_clone:
                 return self.get_clone_property("description")
+        return None
 
     @description.setter
-    def description(self, value):
+    def description(self, value: str | None) -> None:
         self._description = value
 
     @property
-    def genre(self):
+    def genre(self) -> str | None:
         if self._genre:
             return self._genre
         else:
             # Get the clone one if exist
             if self.items_clone:
                 return self.get_clone_property("genre")
+        return None
 
     @genre.setter
-    def genre(self, value):
+    def genre(self, value: str | None) -> None:
         self._genre = value
 
     @property
-    def quality_language(self):
+    def quality_language(self) -> str | None:
         if self._quality_language:
             return self._quality_language
         else:
             # Get the clone one if exist
             if self.items_clone:
                 return self.get_clone_property("quality_language")
+        return None
 
     @quality_language.setter
-    def quality_language(self, value):
+    def quality_language(self, value: str | None) -> None:
         self._quality_language = value

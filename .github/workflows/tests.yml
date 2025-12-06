@@ -16,5 +16,8 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v4
 
+      - name: Run type checking
+        run: uv run mypy scrapddl
+
       - name: Run tests
         run: uv run pytest scrapddl/tests -v

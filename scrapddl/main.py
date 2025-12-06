@@ -1,8 +1,13 @@
+import logging
+
 from flask import Flask
 from flask import render_template
 from flask import request
 from flask import url_for
 from flask import redirect
+from werkzeug.wrappers import Response
+
+logger = logging.getLogger(__name__)
 
 from cachelib.simple import SimpleCache
 
@@ -17,13 +22,17 @@ from scrapddl.settings import MOVIES_SECTION_ACTIVE
 from scrapddl.settings import TVSHOWS_SECTION_ACTIVE
 from scrapddl.settings import MANGAS_SECTION_ACTIVE
 
-from scrapddl.items.items import Item, GroupItem
+from scrapddl.items.items import GroupItem
 
 
-simplecache = SimpleCache()
+simplecache: SimpleCache = SimpleCache()
 
 
-def create_app():
+def create_app() -> Flask:
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    )
     app = Flask(__name__)
     return app
 
@@ -32,7 +41,7 @@ app = create_app()
 
 
 @app.context_processor
-def settings():
+def settings() -> dict[str, object]:
     return {
         "imdb_rating_active": IMDB_RATING_ACTIVE,
         "movies_section_active": MOVIES_SECTION_ACTIVE,
@@ -47,20 +56,20 @@ def settings():
 
 
 @app.route("/")
-def home():
+def home() -> str:
     return render_template('home.html')
 
 
 @app.route("/refresh")
-def refresh():
+def refresh() -> Response:
     simplecache.delete("process")
     return redirect(url_for('home'))
 
 
-def process_section(section):
+def process_section(section: str) -> Process:
     process = simplecache.get("process") or Process()
     if not process.has_process_object(section):
-        print(f"######  PROCESS : {section}")
+        logger.info("Processing section: %s", section)
         getattr(process, "process_{}".format(section))()
         simplecache.set("process", process, CACHE_TIMEOUT)
     return process
@@ -71,7 +80,7 @@ def process_section(section):
 
 
 @app.route("/movies-home")
-def movies_home():
+def movies_home() -> str:
     if MOVIES_SECTION_ACTIVE:
         section = "movies"
         process = process_section(section)
@@ -82,7 +91,7 @@ def movies_home():
 
 
 @app.route("/tvshows-home")
-def tvshows_home():
+def tvshows_home() -> str:
     if TVSHOWS_SECTION_ACTIVE:
         section = "tvshows"
         process = process_section(section)
@@ -93,7 +102,7 @@ def tvshows_home():
 
 
 @app.route("/mangas-home")
-def mangas_home():
+def mangas_home() -> str:
     if MANGAS_SECTION_ACTIVE:
         section = "mangas"
         process = process_section(section)
@@ -104,7 +113,7 @@ def mangas_home():
 
 
 @app.route("/movies-refresh")
-def movies_refresh():
+def movies_refresh() -> Response:
     process = simplecache.get("process")
     if process:
         process.movies_group_items = GroupItem()  # New object instead of mutation
@@ -113,7 +122,7 @@ def movies_refresh():
 
 
 @app.route("/tvshows-refresh")
-def tvshows_refresh():
+def tvshows_refresh() -> Response:
     process = simplecache.get("process")
     if process:
         process.tvshows_group_items = GroupItem()  # New object instead of mutation
@@ -122,7 +131,7 @@ def tvshows_refresh():
 
 
 @app.route("/mangas-refresh")
-def mangas_refresh():
+def mangas_refresh() -> Response:
     process = simplecache.get("process")
     if process:
         process.mangas_group_items = GroupItem()  # New object instead of mutation
@@ -135,7 +144,7 @@ def mangas_refresh():
 
 
 @app.route("/movies")
-def movies():
+def movies() -> str:
     section = "movies"
     process = process_section(section)
     return render_template('movies.html',
@@ -144,7 +153,7 @@ def movies():
 
 
 @app.route("/tvshows")
-def tvshows():
+def tvshows() -> str:
     section = "tvshows"
     process = process_section(section)
     return render_template('tvshows.html',
@@ -152,7 +161,7 @@ def tvshows():
 
 
 @app.route("/mangas")
-def mangas():
+def mangas() -> str:
     section = "mangas"
     process = process_section(section)
     return render_template('mangas.html',
@@ -162,13 +171,14 @@ def mangas():
 # IMDB
 # ----
 
-class Imdb(object):
-    def __init__(self, rating, url):
+class Imdb:
+    def __init__(self, rating: str | None, url: str) -> None:
         self.rating = rating
         self.url = url
+        self.is_top: bool = False
 
 @app.route("/imdb/<slug>/")
-def imdb_rating(slug):
+def imdb_rating(slug: str) -> str:
     if IMDB_RATING_ACTIVE:
         title = request.args.get('title')
         if title:
@@ -178,12 +188,12 @@ def imdb_rating(slug):
                 try:
                     spider = ImdbSpider(title)
                 except Exception as e:
-                    print(f"ERROR - {e}")
+                    logger.error("IMDB spider error: %s", e)
                     return ''
                 try:
                     rating = spider.get_rating()
                 except Exception:
-                    print(f"WARNING - no rating for: {title}")
+                    logger.warning("No IMDB rating found for: %s", title)
                     rating = None
                 imdb = Imdb(rating, spider.get_link())
                 simplecache.set(cache_key, imdb, IMDB_CACHE_TIMEOUT)
@@ -198,7 +208,7 @@ def imdb_rating(slug):
 
 
 @app.route('/<path:path>')
-def static_proxy(path):
+def static_proxy(path: str) -> Response:
     return app.send_static_file(path)
 
 

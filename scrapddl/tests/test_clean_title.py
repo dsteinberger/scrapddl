@@ -1,15 +1,35 @@
 import pytest
 
 from scrapddl.spiders.base import BaseSpider
+from lxml.html import HtmlElement
 
 
-class testSpider(BaseSpider):
-    pass
+class ConcreteSpider(BaseSpider):
+    """Concrete spider implementation for testing."""
+
+    def _get_page_url(self, element: HtmlElement) -> str:
+        return ""
+
+    @staticmethod
+    def is_activated() -> bool:
+        return True
+
+    def _get_title(self, element: HtmlElement) -> str:
+        return ""
+
+    def _get_genre(self, element: HtmlElement) -> str | None:
+        return None
+
+    def _get_image(self, element: HtmlElement) -> str | None:
+        return None
+
+    def _get_quality_language(self, element: HtmlElement) -> str | None:
+        return None
 
 
 @pytest.fixture()
 def spider():
-    return testSpider()
+    return ConcreteSpider()
 
 
 @pytest.mark.parametrize(

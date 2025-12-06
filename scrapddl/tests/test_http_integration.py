@@ -7,7 +7,7 @@ from unittest.mock import Mock, patch, MagicMock
 import requests
 
 from scrapddl.spiders.base import BaseSpider
-from scrapddl.spiders.extreme_down import EDBaseSpider, EDMoviesSpider
+from scrapddl.spiders.extreme_down import EDMoviesSpider
 from scrapddl.items.items import GroupItem
 
 
@@ -329,25 +329,25 @@ class TestCleanTitle:
 
     def test_clean_title_removes_year(self):
         """Verify clean_title removes year patterns"""
-        spider = EDBaseSpider()
+        spider = EDMoviesSpider()
         result = spider.clean_title("Movie Title (2023)")
         assert "(2023)" not in result
 
     def test_clean_title_removes_quality(self):
         """Verify clean_title removes quality patterns"""
-        spider = EDBaseSpider()
+        spider = EDMoviesSpider()
         result = spider.clean_title("Movie Title VOSTFR")
         assert "VOSTFR" not in result
 
     def test_clean_title_removes_season(self):
         """Verify clean_title removes season patterns"""
-        spider = EDBaseSpider()
+        spider = EDMoviesSpider()
         result = spider.clean_title("Show Title Saison 2")
         assert "Saison" not in result
         assert "2" not in result or "Title" in result
 
     def test_clean_title_preserves_actual_title(self):
         """Verify clean_title preserves the actual title"""
-        spider = EDBaseSpider()
+        spider = EDMoviesSpider()
         result = spider.clean_title("The Matrix")
         assert "Matrix" in result

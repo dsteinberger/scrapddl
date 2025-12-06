@@ -1,3 +1,5 @@
+from lxml.html import HtmlElement
+
 from .base import BaseSpider
 from .factory import create_provider_spiders
 from scrapddl.settings import (
@@ -12,25 +14,25 @@ class WCBaseSpider(BaseSpider):
     domain = WC_DOMAIN
     from_website = WC_WEBSITE
 
-    def _get_page_url(self, element):
-        url = element.xpath(".//div[@class='wa-sub-block-title']/a")[0].items()[0][1]
+    def _get_page_url(self, element: HtmlElement) -> str:
+        url: str = element.xpath(".//div[@class='wa-sub-block-title']/a")[0].items()[0][1]
         if not self.is_absolute(url):
             return "{}{}".format(self.domain, url)
         return url
 
-    def _get_title(self, element):
+    def _get_title(self, element: HtmlElement) -> str:
         return element.xpath(".//div[@class='wa-sub-block-title']/a/text()")[0].strip()
 
-    def _get_genre(self, element):
+    def _get_genre(self, element: HtmlElement) -> str:
         return ""
 
-    def _get_image(self, element):
-        image = element.xpath(".//div[@class='cover col-md-2']/a/img/@src")[0]
+    def _get_image(self, element: HtmlElement) -> str:
+        image: str = element.xpath(".//div[@class='cover col-md-2']/a/img/@src")[0]
         if not self.is_absolute(image):
             return "{}{}".format(self.domain, image)
         return image
 
-    def _get_quality_language(self, element):
+    def _get_quality_language(self, element: HtmlElement) -> str:
         return element.xpath(
             ".//div[@class='wa-sub-block-title']/a/i")[1].text.strip()
 

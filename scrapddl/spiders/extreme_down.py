@@ -1,3 +1,5 @@
+from lxml.html import HtmlElement
+
 from .base import BaseSpider
 from .factory import create_provider_spiders
 from scrapddl.settings import (
@@ -12,19 +14,19 @@ class EDBaseSpider(BaseSpider):
     domain = ED_DOMAIN
     from_website = ED_WEBSITE
 
-    def _get_page_url(self, element):
+    def _get_page_url(self, element: HtmlElement) -> str:
         return "{}{}".format(self.domain, element.items()[1][1])
 
-    def _get_title(self, element):
+    def _get_title(self, element: HtmlElement) -> str:
         return element.xpath(".//span[@class='top-title']")[0].text
 
-    def _get_genre(self, element):
+    def _get_genre(self, element: HtmlElement) -> str:
         return element.xpath(".//span[@class='top-genre']")[0].text.strip()
 
-    def _get_image(self, element):
+    def _get_image(self, element: HtmlElement) -> str:
         return "{}{}".format(self.domain, element.xpath(".//img/@src")[0])
 
-    def _get_quality_language(self, element):
+    def _get_quality_language(self, element: HtmlElement) -> str:
         return element.xpath(".//span[@class='top-lasttitle']")[0].text.strip()
 
 
