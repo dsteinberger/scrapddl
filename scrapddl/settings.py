@@ -7,6 +7,10 @@ IMDB_RATING_MINIMAL_TOP = 8
 
 TIMEOUT_REQUEST_PROVIDERS = 15
 
+# Cache settings
+CACHE_TIMEOUT = 60  # Process cache timeout in seconds
+IMDB_CACHE_TIMEOUT = 3600  # IMDB ratings cache timeout (1 hour)
+
 # Extrem down
 ED_ACTIVATE = True
 ED_ACTIVATE_MOVIES = True

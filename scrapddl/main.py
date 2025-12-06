@@ -9,8 +9,8 @@ from cachelib.simple import SimpleCache
 from scrapimdb import ImdbSpider
 
 from scrapddl.process import Process
-from scrapddl.settings import IMDB_RATING_ACTIVE
-from scrapddl.settings import IMDB_RATING_MINIMAL_TOP
+from scrapddl.settings import IMDB_RATING_ACTIVE, IMDB_RATING_MINIMAL_TOP
+from scrapddl.settings import CACHE_TIMEOUT, IMDB_CACHE_TIMEOUT
 from scrapddl.settings import ED_DOMAIN
 from scrapddl.settings import ZT_DOMAIN, WC_DOMAIN, TR_DOMAIN, AT_DOMAIN
 from scrapddl.settings import MOVIES_SECTION_ACTIVE
@@ -21,8 +21,6 @@ from scrapddl.items.items import Item, GroupItem
 
 
 simplecache = SimpleCache()
-CACHE_TIMEOUT = 60
-IMDB_CACHE_TIMEOUT = 3600  # 1 hour cache for IMDB ratings
 
 
 def create_app():
