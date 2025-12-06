@@ -7,10 +7,10 @@ Attention : il est possible que votre FAI bloque les sites ci-dessous, vous pouv
 ## Providers supportés
 
 - https://www.zone-telechargement.irish/
-- https://www.extreme-down.rent/
+- https://www.extreme-down.rocks/
 - https://www.wawacity.irish/
-- https://www.tirexo.rent/
-- https://www.annuaire-telechargement.rent/
+- https://www.tirexo.rocks/
+- https://www.annuaire-telechargement.rocks/
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
 
