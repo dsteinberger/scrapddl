@@ -1,1 +1,20 @@
+# Local settings
 scrapddl/local_settings.py
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+
+# Cache
+.cache/
+.pytest_cache/
