@@ -11,6 +11,14 @@ TIMEOUT_REQUEST_PROVIDERS = 15
 CACHE_TIMEOUT = 60  # Process cache timeout in seconds
 IMDB_CACHE_TIMEOUT = 3600  # IMDB ratings cache timeout (1 hour)
 
+# Pagination
+ITEMS_PER_PAGE = 6
+
+# HTTP pool settings
+HTTP_POOL_CONNECTIONS = 5
+HTTP_POOL_MAXSIZE = 10
+HTTP_MAX_RETRIES = 2
+
 # Extrem down
 ED_ACTIVATE = True
 ED_ACTIVATE_MOVIES = True

@@ -3,9 +3,11 @@ from collections import OrderedDict
 from itertools import chain
 from itertools import zip_longest
 
+from scrapddl.settings import ITEMS_PER_PAGE
+
 
 class GroupItem(object):
-    per_page = 6
+    per_page = ITEMS_PER_PAGE
 
     def __init__(self):
         self.items = []

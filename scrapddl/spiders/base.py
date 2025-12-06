@@ -9,7 +9,10 @@ from lxml.etree import XPathEvalError
 from slugify import slugify
 
 from scrapddl.items.items import GroupItem, Item
-from scrapddl.settings import TIMEOUT_REQUEST_PROVIDERS, CLEAN_PATTERN_TITLE
+from scrapddl.settings import (
+    TIMEOUT_REQUEST_PROVIDERS, CLEAN_PATTERN_TITLE,
+    HTTP_POOL_CONNECTIONS, HTTP_POOL_MAXSIZE, HTTP_MAX_RETRIES,
+)
 
 
 class BaseSpider(object):
@@ -28,11 +31,10 @@ class BaseSpider(object):
         """Get or create a shared cloudscraper session"""
         if cls._shared_scraper is None:
             cls._shared_scraper = cloudscraper.create_scraper()
-            # Limit the number of connections in the pool
             adapter = requests.adapters.HTTPAdapter(
-                pool_connections=5,
-                pool_maxsize=10,
-                max_retries=2
+                pool_connections=HTTP_POOL_CONNECTIONS,
+                pool_maxsize=HTTP_POOL_MAXSIZE,
+                max_retries=HTTP_MAX_RETRIES,
             )
             cls._shared_scraper.mount('http://', adapter)
             cls._shared_scraper.mount('https://', adapter)
