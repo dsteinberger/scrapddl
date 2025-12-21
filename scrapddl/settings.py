@@ -27,7 +27,7 @@ ED_ACTIVATE_TVSHOWS = True
 ED_ACTIVATE_MANGAS = True
 
 ED_WEBSITE = "extreme-down"
-ED_DOMAIN = "https://www.extreme-down.rocks/"
+ED_DOMAIN = "https://www.extreme-down.fit/"
 ED_MAIN_ATTR_HTML = "a"
 ED_MAIN_CLASS = "top-last thumbnails"
 ED_URLS_MOVIES = ['/?p=films&no-bluray', '/?p=films&no-bluray=1&page=2']
@@ -75,7 +75,7 @@ TR_ACTIVATE_TVSHOWS = True
 TR_ACTIVATE_MANGAS = True
 
 TR_WEBSITE = "tirexo"
-TR_DOMAIN = "https://www.tirexo.rocks/"
+TR_DOMAIN = "https://www.tirexo.fit/"
 TR_MAIN_ATTR_HTML = "div"
 TR_MAIN_CLASS = "mov clearfix"
 TR_URLS_MOVIES = ['?p=films&no-bluray', '/?p=films&no-bluray=1&page=2']
@@ -91,7 +91,7 @@ AT_ACTIVATE_TVSHOWS = True
 AT_ACTIVATE_MANGAS = True
 
 AT_WEBSITE = "annuaire-telechargement"
-AT_DOMAIN = "https://www.annuaire-telechargement.rocks/"
+AT_DOMAIN = "https://www.annuaire-telechargement.fit/"
 AT_MAIN_ATTR_HTML = "div"
 AT_MAIN_CLASS = "statcard statcard-fiche"
 AT_URLS_MOVIES = ['?p=films&no-bluray', '?p=films&no-bluray=1&page=2']
