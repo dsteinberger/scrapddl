@@ -7,7 +7,7 @@ Attention : il est possible que votre FAI bloque les sites ci-dessous, vous pouv
 ## Providers supportés
 
 - https://www.zone-telechargement.irish/
-- https://www.extreme-down.fit/
+- https://www.extreme-down.ws/
 - https://www.wawacity.irish/
 - https://www.tirexo.fit/
 - https://www.annuaire-telechargement.fit/
