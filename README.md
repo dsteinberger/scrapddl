@@ -6,10 +6,10 @@ Attention : il est possible que votre FAI bloque les sites ci-dessous, vous pouv
 
 ## Providers supportés
 
-- https://www.zone-telechargement.irish/
+- https://www.zone-telechargement.ink/
 - https://www.extreme-down.ws/
 - https://www.wawacity.irish/
-- https://www.tirexo.fit/
+- https://www.tirexo.ink/
 - https://www.annuaire-telechargement.fit/
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.

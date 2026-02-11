@@ -43,7 +43,7 @@ ZT_ACTIVATE_TVSHOWS = True
 ZT_ACTIVATE_MANGAS = True
 
 ZT_WEBSITE = "zone-telechargement"
-ZT_DOMAIN = "https://www.zone-telechargement.irish/"
+ZT_DOMAIN = "https://www.zone-telechargement.ink/"
 ZT_MAIN_ATTR_HTML = "div"
 ZT_MAIN_CLASS = "cover_global"
 ZT_URLS_MOVIES = ['?p=films&no-bluray', '?p=films&no-bluray=1&page=2']
@@ -75,7 +75,7 @@ TR_ACTIVATE_TVSHOWS = True
 TR_ACTIVATE_MANGAS = True
 
 TR_WEBSITE = "tirexo"
-TR_DOMAIN = "https://www.tirexo.fit/"
+TR_DOMAIN = "https://www.tirexo.ink/"
 TR_MAIN_ATTR_HTML = "div"
 TR_MAIN_CLASS = "mov clearfix"
 TR_URLS_MOVIES = ['?p=films&no-bluray', '/?p=films&no-bluray=1&page=2']
