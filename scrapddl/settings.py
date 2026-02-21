@@ -59,7 +59,7 @@ WC_ACTIVATE_TVSHOWS = True
 WC_ACTIVATE_MANGAS = True
 
 WC_WEBSITE = "wawacity"
-WC_DOMAIN = "https://www.wawacity.irish/"
+WC_DOMAIN = "https://www.wawacity.rent/"
 WC_MAIN_ATTR_HTML = "div"
 WC_MAIN_CLASS = "wa-sub-block wa-post-detail-item"
 WC_URLS_MOVIES = ['?p=films&no-bluray', '?p=films&no-bluray=1&page=2']
@@ -91,7 +91,7 @@ AT_ACTIVATE_TVSHOWS = True
 AT_ACTIVATE_MANGAS = True
 
 AT_WEBSITE = "annuaire-telechargement"
-AT_DOMAIN = "https://www.annuaire-telechargement.fit/"
+AT_DOMAIN = "https://www.annuaire-telechargement.bar/"
 AT_MAIN_ATTR_HTML = "div"
 AT_MAIN_CLASS = "statcard statcard-fiche"
 AT_URLS_MOVIES = ['?p=films&no-bluray', '?p=films&no-bluray=1&page=2']

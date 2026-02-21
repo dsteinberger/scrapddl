@@ -8,9 +8,9 @@ Attention : il est possible que votre FAI bloque les sites ci-dessous, vous pouv
 
 - https://www.zone-telechargement.ink/
 - https://www.extreme-down.ws/
-- https://www.wawacity.irish/
+- https://www.wawacity.rent/
 - https://www.tirexo.ink/
-- https://www.annuaire-telechargement.fit/
+- https://www.annuaire-telechargement.bar/
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
 
