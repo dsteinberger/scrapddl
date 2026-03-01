@@ -27,7 +27,7 @@ ED_ACTIVATE_TVSHOWS = True
 ED_ACTIVATE_MANGAS = True
 
 ED_WEBSITE = "extreme-down"
-ED_DOMAIN = "https://www.extreme-down.bar/"
+ED_DOMAIN = "https://www.extreme-down.promo/"
 ED_MAIN_ATTR_HTML = "a"
 ED_MAIN_CLASS = "top-last thumbnails"
 ED_URLS_MOVIES = ['/?p=films&no-bluray', '/?p=films&no-bluray=1&page=2']
@@ -43,7 +43,7 @@ ZT_ACTIVATE_TVSHOWS = True
 ZT_ACTIVATE_MANGAS = True
 
 ZT_WEBSITE = "zone-telechargement"
-ZT_DOMAIN = "https://www.zone-telechargement.rent/"
+ZT_DOMAIN = "https://www.zone-telechargement.promo/"
 ZT_MAIN_ATTR_HTML = "div"
 ZT_MAIN_CLASS = "cover_global"
 ZT_URLS_MOVIES = ['?p=films&no-bluray', '?p=films&no-bluray=1&page=2']
@@ -59,7 +59,7 @@ WC_ACTIVATE_TVSHOWS = True
 WC_ACTIVATE_MANGAS = True
 
 WC_WEBSITE = "wawacity"
-WC_DOMAIN = "https://www.wawacity.rent/"
+WC_DOMAIN = "https://www.wawacity.promo/"
 WC_MAIN_ATTR_HTML = "div"
 WC_MAIN_CLASS = "wa-sub-block wa-post-detail-item"
 WC_URLS_MOVIES = ['?p=films&no-bluray', '?p=films&no-bluray=1&page=2']
@@ -75,7 +75,7 @@ TR_ACTIVATE_TVSHOWS = True
 TR_ACTIVATE_MANGAS = True
 
 TR_WEBSITE = "tirexo"
-TR_DOMAIN = "https://www.tirexo.bar/"
+TR_DOMAIN = "https://www.tirexo.promo/"
 TR_MAIN_ATTR_HTML = "div"
 TR_MAIN_CLASS = "mov clearfix"
 TR_URLS_MOVIES = ['?p=films&no-bluray', '/?p=films&no-bluray=1&page=2']
@@ -91,7 +91,7 @@ AT_ACTIVATE_TVSHOWS = True
 AT_ACTIVATE_MANGAS = True
 
 AT_WEBSITE = "annuaire-telechargement"
-AT_DOMAIN = "https://www.annuaire-telechargement.bar/"
+AT_DOMAIN = "https://www.annuaire-telechargement.promo/"
 AT_MAIN_ATTR_HTML = "div"
 AT_MAIN_CLASS = "statcard statcard-fiche"
 AT_URLS_MOVIES = ['?p=films&no-bluray', '?p=films&no-bluray=1&page=2']
