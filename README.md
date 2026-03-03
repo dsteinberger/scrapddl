@@ -7,7 +7,7 @@ Attention : il est possible que votre FAI bloque les sites ci-dessous, vous pouv
 ## Providers supportés
 
 - https://www.zone-telechargement.promo/
-- https://www.extreme-down.promo/
+- https://www.extreme-down.ws/
 - https://www.wawacity.promo/
 - https://www.tirexo.promo/
 - https://www.annuaire-telechargement.promo/
