@@ -91,7 +91,7 @@ AT_ACTIVATE_TVSHOWS = True
 AT_ACTIVATE_MANGAS = True
 
 AT_WEBSITE = "annuaire-telechargement"
-AT_DOMAIN = "http://push.newsvot.com/"
+AT_DOMAIN = "https://disclosure.newsvot.com/"
 AT_MAIN_ATTR_HTML = "div"
 AT_MAIN_CLASS = "statcard statcard-fiche"
 AT_URLS_MOVIES = ['?p=films&no-bluray', '?p=films&no-bluray=1&page=2']
