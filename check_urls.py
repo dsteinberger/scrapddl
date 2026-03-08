@@ -36,6 +36,35 @@ ALTERNATIVE_TLDS = [
 ]
 
 
+def extract_site_name(url: str) -> str | None:
+    """
+    Extrait le nom du site depuis une URL.
+    Ex: https://www.zone-telechargement.promo/ -> zone-telechargement
+        https://www.tirexo.cc/ -> tirexo
+    """
+    netloc = urlparse(url).netloc
+    # Retirer www.
+    if netloc.startswith("www."):
+        netloc = netloc[4:]
+    # Retirer le TLD
+    parts = netloc.rsplit(".", 1)
+    if len(parts) == 2:
+        return parts[0]
+    return None
+
+
+def is_valid_redirect(original_url: str, redirect_url: str) -> bool:
+    """
+    Vérifie que l'URL de redirection correspond bien au même site.
+    Rejette les redirections vers des domaines sans rapport (tracking, parking, etc.)
+    """
+    site_name = extract_site_name(original_url)
+    if not site_name:
+        return False
+    redirect_netloc = urlparse(redirect_url).netloc.lower()
+    return site_name.lower() in redirect_netloc
+
+
 def get_current_domains() -> dict[str, str]:
     """Lit les domaines actuels depuis settings.py"""
     domains = {}
@@ -68,6 +97,9 @@ def check_url_accessible(url: str, timeout: int = 10) -> tuple[bool, str | None]
             if original_domain != final_domain:
                 parsed = urlparse(final_url)
                 new_base = f"{parsed.scheme}://{parsed.netloc}/"
+                if not is_valid_redirect(url, new_base):
+                    print(f"(redirection ignorée: {new_base}) ", end="", flush=True)
+                    return False, None
                 return True, new_base
 
             return True, None
@@ -104,7 +136,9 @@ def find_alternative_url(url: str) -> str | None:
         try:
             accessible, redirect_url = check_url_accessible(test_url, timeout=8)
             if accessible:
-                return redirect_url or test_url
+                candidate = redirect_url or test_url
+                if is_valid_redirect(url, candidate):
+                    return candidate
         except Exception:
             continue
 
@@ -130,6 +164,9 @@ def check_url_redirect(url: str) -> tuple[str | None, str | None]:
             # Construire la nouvelle URL de base
             parsed = urlparse(final_url)
             new_base = f"{parsed.scheme}://{parsed.netloc}/"
+            if not is_valid_redirect(url, new_base):
+                print(f"(redirection ignorée: {new_base}) ", end="", flush=True)
+                return None, None
             return new_base, None
 
         return None, None
