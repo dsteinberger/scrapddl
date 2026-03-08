@@ -6,11 +6,11 @@ Attention : il est possible que votre FAI bloque les sites ci-dessous, vous pouv
 
 ## Providers supportés
 
-- https://www.zone-telechargement.ink/
-- https://www.extreme-down.ws/
-- https://www.wawacity.ws/
+- https://www.zone-telechargement.promo/
+- https://www.extreme-down.promo/
+- https://www.wawacity.promo/
 - https://www.tirexo.cc/
-- https://disclosure.newsvot.com/
+- https://www.annuaire-telechargement.promo/
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
 
