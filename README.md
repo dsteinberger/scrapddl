@@ -9,7 +9,7 @@ Attention : il est possible que votre FAI bloque les sites ci-dessous, vous pouv
 - https://www.zone-telechargement.promo/
 - https://www.extreme-down.promo/
 - https://www.wawacity.promo/
-- https://www.tirexo.cc/
+- https://www.tirexo.promo/
 - https://www.annuaire-telechargement.promo/
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.

@@ -75,7 +75,7 @@ TR_ACTIVATE_TVSHOWS = True
 TR_ACTIVATE_MANGAS = True
 
 TR_WEBSITE = "tirexo"
-TR_DOMAIN = "https://www.tirexo.cc/"
+TR_DOMAIN = "https://www.tirexo.promo/"
 TR_MAIN_ATTR_HTML = "div"
 TR_MAIN_CLASS = "mov clearfix"
 TR_URLS_MOVIES = ['?p=films&no-bluray', '/?p=films&no-bluray=1&page=2']

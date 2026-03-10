@@ -40,7 +40,7 @@ def extract_site_name(url: str) -> str | None:
     """
     Extrait le nom du site depuis une URL.
     Ex: https://www.zone-telechargement.promo/ -> zone-telechargement
-        https://www.tirexo.cc/ -> tirexo
+        https://www.tirexo.promo/ -> tirexo
     """
     netloc = urlparse(url).netloc
     # Retirer www.
