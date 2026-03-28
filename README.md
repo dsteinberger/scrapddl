@@ -6,11 +6,11 @@ Attention : il est possible que votre FAI bloque les sites ci-dessous, vous pouv
 
 ## Providers supportés
 
-- https://www.zone-telechargement.golf/
-- https://www.extreme-down.golf/
-- https://www.wawacity.golf/
-- https://www.tirexo.golf/
-- https://www.annuaire-telechargement.golf/
+- https://www.zone-telechargement.pizza/
+- https://www.extreme-down.pizza/
+- https://www.wawacity.pizza/
+- https://www.tirexo.pizza/
+- https://www.annuaire-telechargement.pizza/
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
 
