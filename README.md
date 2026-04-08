@@ -6,11 +6,11 @@ Attention : il est possible que votre FAI bloque les sites ci-dessous, vous pouv
 
 ## Providers supportés
 
-- https://www.zone-telechargement.pizza/
-- https://www.extreme-down.pizza/
-- https://www.wawacity.pizza/
-- https://www.tirexo.pizza/
-- https://www.annuaire-telechargement.pizza/
+- https://www.zone-telechargement.farm/
+- https://www.extreme-down.farm/
+- https://www.wawacity.farm/
+- https://www.tirexo.farm/
+- https://www.annuaire-telechargement.farm/
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
 
