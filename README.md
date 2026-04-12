@@ -54,6 +54,14 @@ TVSHOWS_SECTION_ACTIVE = True
 MANGAS_SECTION_ACTIVE = False  # Désactiver la section mangas
 ```
 
+Configurer la clé API OMDb pour les notes IMDB :
+
+```bash
+export OMDB_API_KEY="votre_clé"
+```
+
+Obtenir une clé gratuite sur http://www.omdbapi.com/apikey.aspx
+
 Activer ou non les notes IMDB :
 
 ```python

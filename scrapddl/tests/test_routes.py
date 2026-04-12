@@ -192,22 +192,25 @@ class TestImdbRoute:
         assert response.data == b''
 
     @patch('scrapddl.main.IMDB_RATING_ACTIVE', True)
-    @patch('scrapddl.main.ImdbSpider')
-    def test_imdb_with_valid_title(self, mock_imdb_spider, client, clean_cache):
+    @patch('scrapddl.main._omdb_search')
+    def test_imdb_with_valid_title(self, mock_omdb, client, clean_cache):
         """Verify /imdb works with valid title"""
-        mock_spider = Mock()
-        mock_spider.get_rating.return_value = "8.5"
-        mock_spider.get_link.return_value = "https://imdb.com/title/tt123"
-        mock_imdb_spider.return_value = mock_spider
+        mock_omdb.return_value = {
+            "imdbRating": "8.5",
+            "imdbID": "tt123",
+            "Title": "Test Movie",
+            "Year": "2023",
+            "Response": "True",
+        }
 
         response = client.get('/imdb/test-slug/?title=Test%20Movie')
         assert response.status_code == 200
 
     @patch('scrapddl.main.IMDB_RATING_ACTIVE', True)
-    @patch('scrapddl.main.ImdbSpider')
-    def test_imdb_handles_spider_exception(self, mock_imdb_spider, client, clean_cache):
-        """Verify /imdb handles spider exception gracefully"""
-        mock_imdb_spider.side_effect = Exception("API Error")
+    @patch('scrapddl.main._omdb_search')
+    def test_imdb_handles_omdb_error(self, mock_omdb, client, clean_cache):
+        """Verify /imdb handles OMDb error gracefully"""
+        mock_omdb.return_value = None
 
         response = client.get('/imdb/test-slug/?title=Test%20Movie')
         assert response.status_code == 200
