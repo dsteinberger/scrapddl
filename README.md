@@ -1,5 +1,20 @@
 # Scrap DDL
 
+> **⚠️ Avertissement légal**
+>
+> Ce projet est fourni à titre **éducatif et informatif** uniquement. Il ne fait qu'agréger
+> des informations publiquement accessibles sur le web — **aucun contenu protégé n'est hébergé,
+> stocké ou distribué** par ce projet.
+>
+> Les développeurs **ne sont en aucun cas responsables** de l'utilisation qui en est faite,
+> ni du contenu hébergé par les sites tiers référencés. Le téléchargement d'œuvres protégées
+> par le droit d'auteur sans autorisation est **illégal** dans de nombreux pays.
+>
+> **L'utilisateur est seul responsable du respect des lois en vigueur dans sa juridiction.**
+>
+> Ce logiciel est distribué sous [licence MIT](LICENSE) — sans aucune garantie,
+> voir la licence pour les détails.
+
 Pour visualiser les dernières sorties de vos sites DDL préférés !
 
 Attention : il est possible que votre FAI bloque les sites ci-dessous, vous pouvez utiliser un VPN (ex: ProtonVPN).
