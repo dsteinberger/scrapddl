@@ -19,7 +19,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=7.2.1",
+    "pytest>=9.0.3",
     "ipdb>=0.13.11",
     "mypy>=1.8.0",
     "types-requests>=2.31.0",
