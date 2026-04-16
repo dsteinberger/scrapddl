@@ -884,20 +884,6 @@ wheels = [
 ]
 
 [[package]]
-name = "scrap-imdb"
-version = "0.1.8"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "cloudscraper" },
-    { name = "lxml" },
-    { name = "requests" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/4c/8c/88de3177b6a95aafdce18772f2b978a8edcf8ab4b058751203b9e7ded64c/scrap_imdb-0.1.8.tar.gz", hash = "sha256:a34110a0a237fb2d1a1a3af8ace4d2167827a7f9c60e2f48138c52e2790b9cb7", size = 6333, upload-time = "2025-11-23T08:57:09.214Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/bf/37/e8030907977af0a81ebae4c02ec7b66d03b2ad8df7b767a6c93e66803792/scrap_imdb-0.1.8-py3-none-any.whl", hash = "sha256:d2361742e80543aed0f578ec659870d53f2700a3481575fce722cd3ef0a84dde", size = 7471, upload-time = "2025-11-23T08:57:07.867Z" },
-]
-
-[[package]]
 name = "scrapddl"
 version = "0.1.0"
 source = { editable = "." }
@@ -909,7 +895,6 @@ dependencies = [
     { name = "pyopenssl" },
     { name = "python-slugify" },
     { name = "requests" },
-    { name = "scrap-imdb" },
 ]
 
 [package.optional-dependencies]
@@ -932,7 +917,6 @@ requires-dist = [
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=7.2.1" },
     { name = "python-slugify", specifier = ">=8.0.0" },
     { name = "requests", specifier = ">=2.28.2" },
-    { name = "scrap-imdb", specifier = ">=0.1.8" },
     { name = "types-requests", marker = "extra == 'dev'", specifier = ">=2.31.0" },
 ]
 provides-extras = ["dev"]

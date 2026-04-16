@@ -11,10 +11,11 @@ logger = logging.getLogger(__name__)
 
 from cachelib.simple import SimpleCache
 
-from scrapimdb import ImdbSpider
+import requests as http_requests
 
 from scrapddl.process import Process
 from scrapddl.settings import IMDB_RATING_ACTIVE, IMDB_RATING_MINIMAL_TOP
+from scrapddl.settings import OMDB_API_KEY
 from scrapddl.settings import CACHE_TIMEOUT, IMDB_CACHE_TIMEOUT
 from scrapddl.settings import ED_DOMAIN
 from scrapddl.settings import ZT_DOMAIN, WC_DOMAIN, TR_DOMAIN, AT_DOMAIN
@@ -33,6 +34,8 @@ def create_app() -> Flask:
         level=logging.INFO,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
     )
+    if not OMDB_API_KEY:
+        logging.warning("OMDB_API_KEY is not set – OMDb lookups will be skipped")
     app = Flask(__name__)
     return app
 
@@ -177,6 +180,27 @@ class Imdb:
         self.url = url
         self.is_top: bool = False
 
+def _omdb_search(title: str) -> dict | None:
+    """Search OMDb API by title. Returns the JSON response dict or None."""
+    if not OMDB_API_KEY:
+        return None
+    try:
+        resp = http_requests.get(
+            "http://www.omdbapi.com/",
+            params={"apikey": OMDB_API_KEY, "t": title},
+            timeout=10,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        if data.get("Response") == "False":
+            logger.warning("OMDb: no result for '%s': %s", title, data.get("Error"))
+            return None
+        return data
+    except Exception as e:
+        logger.error("OMDb API error: %s", e)
+        return None
+
+
 @app.route("/imdb/<slug>/")
 def imdb_rating(slug: str) -> str:
     if IMDB_RATING_ACTIVE:
@@ -185,17 +209,15 @@ def imdb_rating(slug: str) -> str:
             cache_key = f"{title}_imdb"
             imdb = simplecache.get(cache_key)
             if not imdb:
-                try:
-                    spider = ImdbSpider(title)
-                except Exception as e:
-                    logger.error("IMDB spider error: %s", e)
+                data = _omdb_search(title)
+                if data is None:
                     return ''
-                try:
-                    rating = spider.get_rating()
-                except Exception:
-                    logger.warning("No IMDB rating found for: %s", title)
+                rating = data.get("imdbRating")
+                if rating == "N/A":
                     rating = None
-                imdb = Imdb(rating, spider.get_link())
+                imdb_id = data.get("imdbID", "")
+                link = f"https://www.imdb.com/title/{imdb_id}/" if imdb_id else ""
+                imdb = Imdb(rating, link)
                 simplecache.set(cache_key, imdb, IMDB_CACHE_TIMEOUT)
             if imdb.rating:
                 rating = float(imdb.rating)
