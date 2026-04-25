@@ -21,11 +21,11 @@ Attention : il est possible que votre FAI bloque les sites ci-dessous, vous pouv
 
 ## Providers supportés
 
-- https://www.zone-telechargement.taxi/
-- https://www.extreme-down.taxi/
-- https://www.wawacity.taxi/
-- https://www.tirexo.taxi/
-- https://www.annuaire-telechargement.taxi/
+- https://www.zone-telechargement.news/
+- https://www.extreme-down.news/
+- https://www.wawacity.news/
+- https://www.tirexo.news/
+- https://www.annuaire-telechargement.news/
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
 
