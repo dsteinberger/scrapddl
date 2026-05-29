@@ -21,11 +21,11 @@ Attention : il est possible que votre FAI bloque les sites ci-dessous, vous pouv
 
 ## Providers supportés
 
-- https://www.zone-telechargement.win/
-- https://www.extreme-down.win/
-- https://www.wawacity.win/
-- https://www.tirexo.win/
-- https://www.annuaire-telechargement.win/
+- https://www.zone-telechargement.team/
+- https://www.extreme-down.team/
+- https://www.wawacity.team/
+- https://www.tirexo.team/
+- https://www.annuaire-telechargement.team/
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
 
