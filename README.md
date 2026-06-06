@@ -21,11 +21,11 @@ Attention : il est possible que votre FAI bloque les sites ci-dessous, vous pouv
 
 ## Providers supportés
 
-- https://www.zone-telechargement.team/
-- https://www.extreme-down.team/
-- https://www.wawacity.team/
-- https://www.tirexo.team/
-- https://www.annuaire-telechargement.team/
+- https://www.zone-telechargement.tours/
+- https://www.extreme-down.tours/
+- https://www.wawacity.tours/
+- https://www.tirexo.tours/
+- https://www.annuaire-telechargement.tours/
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
 
