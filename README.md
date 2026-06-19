@@ -21,11 +21,11 @@ Attention : il est possible que votre FAI bloque les sites ci-dessous, vous pouv
 
 ## Providers supportés
 
-- https://www.zone-telechargement.cafe/
-- https://www.extreme-down.cafe/
-- https://www.wawacity.cafe/
-- https://www.tirexo.cafe/
-- https://www.annuaire-telechargement.cafe/
+- https://www.zone-telechargement.space/
+- https://www.extreme-down.space/
+- https://www.wawacity.space/
+- https://www.tirexo.space/
+- https://www.annuaire-telechargement.space/
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
 
