@@ -21,11 +21,11 @@ Attention : il est possible que votre FAI bloque les sites ci-dessous, vous pouv
 
 ## Providers supportés
 
-- https://www.zone-telechargement.space/
-- https://www.extreme-down.space/
-- https://www.wawacity.space/
-- https://www.tirexo.space/
-- https://www.annuaire-telechargement.space/
+- https://www.zone-telechargement.expert/
+- https://www.extreme-down.expert/
+- https://www.wawacity.expert/
+- https://www.tirexo.expert/
+- https://www.annuaire-telechargement.expert/
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
 
