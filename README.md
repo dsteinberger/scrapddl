@@ -21,11 +21,11 @@ Attention : il est possible que votre FAI bloque les sites ci-dessous, vous pouv
 
 ## Providers supportés
 
-- https://www.zone-telechargement.poker/
-- https://www.extreme-down.poker/
-- https://www.wawacity.poker/
-- https://www.tirexo.poker/
-- https://www.annuaire-telechargement.poker/
+- https://www.zone-telechargement.estate/
+- https://www.extreme-down.estate/
+- https://www.wawacity.estate/
+- https://www.tirexo.estate/
+- https://www.annuaire-telechargement.estate/
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
 
