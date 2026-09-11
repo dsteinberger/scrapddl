@@ -21,11 +21,11 @@ Attention : il est possible que votre FAI bloque les sites ci-dessous, vous pouv
 
 ## Providers supportés
 
-- https://www.zone-telechargement.feedback/
-- https://www.extreme-down.feedback/
-- https://www.wawacity.feedback/
-- https://www.tirexo.feedback/
-- https://www.annuaire-telechargement.feedback/
+- https://www.zone-telechargement.land/
+- https://www.extreme-down.land/
+- https://www.wawacity.land/
+- https://www.tirexo.land/
+- https://www.annuaire-telechargement.land/
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
 
