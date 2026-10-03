@@ -21,11 +21,11 @@ Attention : il est possible que votre FAI bloque les sites ci-dessous, vous pouv
 
 ## Providers supportés
 
-- https://www.zone-telechargement.press/
-- https://www.extreme-down.press/
-- https://www.wawacity.press/
-- https://www.tirexo.press/
-- https://www.annuaire-telechargement.press/
+- https://www.zone-telechargement.skin/
+- https://www.extreme-down.skin/
+- https://www.wawacity.skin/
+- https://www.tirexo.skin/
+- https://www.annuaire-telechargement.skin/
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
 
