@@ -21,11 +21,11 @@ Attention : il est possible que votre FAI bloque les sites ci-dessous, vous pouv
 
 ## Providers supportés
 
-- https://www.zone-telechargement.fitness/
-- https://www.extreme-down.fitness/
-- https://www.wawacity.fitness/
-- https://www.tirexo.fitness/
-- https://www.annuaire-telechargement.fitness/
+- https://www.zone-telechargement.gold/
+- https://www.extreme-down.gold/
+- https://www.wawacity.gold/
+- https://www.tirexo.gold/
+- https://www.annuaire-telechargement.gold/
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
 
