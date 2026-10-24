@@ -21,11 +21,11 @@ Attention : il est possible que votre FAI bloque les sites ci-dessous, vous pouv
 
 ## Providers supportés
 
-- https://www.zone-telechargement.gold/
-- https://www.extreme-down.gold/
-- https://www.wawacity.gold/
-- https://www.tirexo.gold/
-- https://www.annuaire-telechargement.gold/
+- https://www.zone-telechargement.wine/
+- https://www.extreme-down.wine/
+- https://www.wawacity.wine/
+- https://www.tirexo.wine/
+- https://www.annuaire-telechargement.wine/
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
 
