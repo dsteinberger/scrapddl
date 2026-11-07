@@ -21,11 +21,11 @@ Attention : il est possible que votre FAI bloque les sites ci-dessous, vous pouv
 
 ## Providers supportés
 
-- https://www.zone-telechargement.wine/
-- https://www.extreme-down.wine/
-- https://www.wawacity.wine/
-- https://www.tirexo.wine/
-- https://www.annuaire-telechargement.wine/
+- https://www.zone-telechargement.rentals/
+- https://www.extreme-down.rentals/
+- https://www.wawacity.rentals/
+- https://www.tirexo.rentals/
+- https://www.annuaire-telechargement.rentals/
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
 
