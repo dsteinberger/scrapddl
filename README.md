@@ -21,11 +21,11 @@ Attention : il est possible que votre FAI bloque les sites ci-dessous, vous pouv
 
 ## Providers supportés
 
-- https://www.zone-telechargement.latino/
-- https://www.extreme-down.latino/
-- https://www.wawacity.latino/
-- https://www.tirexo.latino/
-- https://www.annuaire-telechargement.latino/
+- https://www.zone-telechargement.cheap/
+- https://www.extreme-down.cheap/
+- https://www.wawacity.cheap/
+- https://www.tirexo.cheap/
+- https://www.annuaire-telechargement.cheap/
 
 Ces données sont triées dans l'ordre chronologique et les doublons sont évités au possible.
 
